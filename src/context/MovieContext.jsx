@@ -8,7 +8,7 @@ export const MovieProvider = ({ children }) => {
   const [error, setError] = useState();
 
   useEffect(() => {
-    const apiKey = "a0c601aa6ecbb939cd7d58617bbc8150";
+    const apiKey = "272e0a4f8aed64cdcbc79856c6259d84";
     const url = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}`;
 
     fetch(url)
