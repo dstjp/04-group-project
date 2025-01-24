@@ -3,9 +3,9 @@ import { createContext, useState, useEffect, useContext } from "react";
 export const MovieContext = createContext();
 
 export const MovieProvider = ({ children }) => {
-  const [movies, setMovies] = useState();
-  const [loading, setLoading] = useState();
-  const [error, setError] = useState();
+  const [movies, setMovies] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const apiKey = "272e0a4f8aed64cdcbc79856c6259d84";
@@ -19,9 +19,9 @@ export const MovieProvider = ({ children }) => {
         return res.json();
       })
       .then((data) => {
-        setMovies(data);
-        console.log(data);
-        setLoading(false);
+        setMovies(data.results);
+        console.log(data.results);
+        // setLoading(false);
       })
       .catch((error) => {
         setError(error.message);

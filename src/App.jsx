@@ -1,9 +1,10 @@
 import "./App.css";
 import { MoviesList } from "./Components/MoviesList/MoviesList";
 import { Routes, Route } from "react-router";
-import { MovieProvider } from "./Context/MovieContext";
+import { MovieProvider } from "./context/MovieContext";
 
 export const App = () => {
+
   return (
     //Navbar
     <>
