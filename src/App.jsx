@@ -1,12 +1,19 @@
-import './App.css';
-import FetchComponent from './Components/FetchAPI/FetchComponent';
+import "./App.css";
+import { MoviesList } from "./Components/MoviesList/MoviesList";
+import { Routes, Route } from "react-router";
+import { MovieProvider } from "./Context/MovieContext";
 
-function App() {
+export const App = () => {
   return (
-    <div>
-      <FetchComponent />
-    </div>
+    //Navbar
+    <>
+      <MovieProvider>
+        <Routes>
+          <Route index element={<MoviesList />} />
+          {/* <Route path="favorite" element={} /> */}
+          {/* <Route path="watch" element={} /> */}
+        </Routes>
+      </MovieProvider>
+    </>
   );
-}
-
-export default App;
+};
