@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router";
 import { MovieProvider } from "./context/MovieContext";
 
 export const App = () => {
+
   return (
     //Navbar
     <>  
