@@ -6,7 +6,6 @@ import { MovieProvider } from "./context/MovieContext";
 export const App = () => {
 
   return (
-    //Navbar
     <>  
       <MovieProvider>
         <Routes>

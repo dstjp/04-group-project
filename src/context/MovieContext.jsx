@@ -21,7 +21,7 @@ export const MovieProvider = ({ children }) => {
       .then((data) => {
         setMovies(data.results);
         console.log(data.results);
-        // setLoading(false);
+        setLoading(false);
       })
       .catch((error) => {
         setError(error.message);
