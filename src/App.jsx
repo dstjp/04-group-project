@@ -1,3 +1,4 @@
+import React from "react";
 import "./App.css";
 import { MoviesList } from "./Components/MoviesList/MoviesList";
 import { Routes, Route } from "react-router";
