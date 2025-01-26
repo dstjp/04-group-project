@@ -1,0 +1,33 @@
+.nav-container {
+    box-sizing: border-box;
+    margin-top: -1rem;
+}
+
+.navbar-container {
+    background-color: #e3ca09;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 1rem;
+    height: 97vh;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    padding: 1.25rem;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.407);
+
+}
+
+.nav-link {
+    margin: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.icon {
+    height: 1.75rem;
+    width: 1.75rem;
+    margin-bottom: 0.5rem;
+    margin-left: -4rem;
+}
