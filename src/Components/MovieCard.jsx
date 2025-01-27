@@ -1,6 +1,6 @@
 import { useMovie } from "../context/MovieContext.jsx";
-import ratingIcon from "../assets/movieCardRatingStar.svg";
-import favoriteIcon from "../assets/movieCardStar.svg";
+import ratingIcon from "../assets//MovieCardIcons/movieCardRatingStar.svg";
+import favoriteIcon from "../assets//MovieCardIcons/movieCardStar.svg";
 import { Icon } from "./Icon.jsx";
 
 export const MovieCard = () => {

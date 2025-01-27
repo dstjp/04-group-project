@@ -4,14 +4,14 @@
 }
 
 .navbar-container {
-    background-color: #e3ca09;
+    background-color: #FFE100;
     position: fixed;
     top: 0;
     left: 0;
     width: 1rem;
     height: 97vh;
-    border-top-right-radius: 30px;
-    border-bottom-right-radius: 30px;
+    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 2rem;
     display: flex;
     flex-direction: column;
     padding: 1.25rem;
@@ -25,9 +25,28 @@
     justify-content: center;
 }
 
-.icon {
+.nav-icon {
     height: 1.75rem;
     width: 1.75rem;
     margin-bottom: 0.5rem;
     margin-left: -4rem;
+}
+
+@media all and (max-width: 1024px) {
+    
+    .navbar-container {
+        position: fixed;
+        width: 97vw;
+        height: .5rem;
+        top: 0;
+        border-bottom-left-radius: 2rem;
+        border-bottom-right-radius: 3rem;
+        
+    }
+
+    .nav-list {
+        display: flex;
+        margin-top: -1.75rem;
+    }
+
 }
