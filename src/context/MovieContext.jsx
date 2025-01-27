@@ -30,12 +30,17 @@ export const MovieProvider = ({ children }) => {
       });
   }, []);
 
+
   const addToWatchList = (movie) => {
     setwatchList((prev) => [...prev, movie]);
   };
   const removeFromWatchList = (movie) => {
-    setwatchList((prev) => prev.filter((m) => m.id !== movie.id));
-  };
+      setwatchList((prev) => prev.filter((m) => m.id !== movie.id));
+    };
+
+  const formatRating = (num) => {
+    return num ? num.toFixed(1) : "n/a";
+ };
 
   return (
     <MovieContext.Provider
@@ -46,6 +51,7 @@ export const MovieProvider = ({ children }) => {
         error, 
         addToWatchList,
         removeFromWatchList,
+        formatRating
       }}
     >
       {children}
