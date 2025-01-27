@@ -28,7 +28,7 @@
 .nav-icon {
     height: 1.75rem;
     width: 1.75rem;
-    margin-bottom: 0.15rem;
+    margin-bottom: 0.25rem;
     margin-left: -4.3rem;
 }
 
@@ -37,17 +37,17 @@
     .navbar-container {
         position: fixed;
         width: 97vw;
-        height: .5rem;
+        height: .15rem;
         top: 0;
         border-bottom-left-radius: 2rem;
-        border-bottom-right-radius: 3rem;
-        
+        border-bottom-right-radius: 2rem;
     }
 
     .nav-list {
         display: flex;
         justify-content: space-around;
         margin-top: -1.75rem;
+        margin-right: 8rem;
     }
 
 }

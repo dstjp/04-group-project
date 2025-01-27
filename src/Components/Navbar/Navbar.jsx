@@ -4,17 +4,9 @@ import "./Navbar.css"
 import FAVORITE_ICON from "../../assets//NavbarIcons/navbarStar.png"
 import HOME_ICON from "../../assets//NavbarIcons/navbarHome.png"
 import WATCH_ICON from "../../assets//NavbarIcons/navbarEye.png"
-import HAMBURGER_MENU from "../../assets/NavbarIcons/navbarHamburger.png"
 
 
 function Nav() {
-
-    /* const navRef = useRef();
-    
-    const showNavbar = () => {
-        navRef.current.classList.toggle("responsive-nav")
-    } */
-
     return (
         <>
             <div className="nav-container">
@@ -31,7 +23,6 @@ function Nav() {
                         </li>
                     </ul>
                     
-                    {/* <img className="nav-hamburger nav-close" srcSet={HAMBURGER_MENU} alt="" onClick={null} /> */}
                 </nav>
             </div>
         </>

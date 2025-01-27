@@ -9,8 +9,8 @@
   --white: #FFFFFF;
 }
 body {
-  /* background-color: var(--black);
-  color: var(--white); */
+  background-color: var(--black);
+  color: var(--white);
   margin: 0;
   box-sizing: border-box;
   margin-left: 5rem;
@@ -20,6 +20,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+@media all and (max-width: 1024px) {
+  body {
+    margin-left: 0;
+  }
 }
 
 code {
