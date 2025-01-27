@@ -1,0 +1,55 @@
+.nav-container {
+    box-sizing: border-box;
+    margin-top: -1rem;
+}
+
+.navbar-container {
+    background-color: #FFE100;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0.15rem;
+    height: 97vh;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    padding: 1.25rem;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.407);
+
+}
+
+.nav-link {
+    margin: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-icon {
+    height: 1.75rem;
+    width: 1.75rem;
+    margin-bottom: 0.25rem;
+    margin-left: -4.3rem;
+}
+
+
+
+@media all and (max-width: 1024px) {
+    
+    .navbar-container {
+        position: fixed;
+        width: 97vw;
+        height: .15rem;
+        top: 0;
+        border-bottom-left-radius: 2rem;
+        border-bottom-right-radius: 2rem;
+    }
+
+    .nav-list {
+        display: flex;
+        justify-content: space-around;
+        margin-top: -1.75rem;
+        margin-right: 8rem;
+    }
+
+}
