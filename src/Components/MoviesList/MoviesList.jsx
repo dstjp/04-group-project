@@ -1,4 +1,4 @@
-import { useMovie } from "../../context/MovieContext";
+import { useMovie } from "../../Context/MovieContext";
 import heartIcon from "../../assets/heart.svg";
 import ratingIcon from "../../assets/yellowstar.svg";
 import favoriteIcon from "../../assets/bluestar.svg";

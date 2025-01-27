@@ -6,6 +6,7 @@ export const MovieProvider = ({ children }) => {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [watchList, setwatchList] = useState([]);
 
   useEffect(() => {
     const apiKey = "272e0a4f8aed64cdcbc79856c6259d84";
@@ -29,12 +30,22 @@ export const MovieProvider = ({ children }) => {
       });
   }, []);
 
+  const addToWatchList = (movie) => {
+    setwatchList((prev) => [...prev, movie]);
+  };
+  const removeFromWatchList = (movie) => {
+    setwatchList((prev) => prev.filter((m) => m.id !== movie.id));
+  };
+
   return (
     <MovieContext.Provider
       value={{
         movies,
+        watchList,
         loading,
-        error,
+        error, 
+        addToWatchList,
+        removeFromWatchList,
       }}
     >
       {children}
