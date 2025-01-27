@@ -5,8 +5,12 @@
   box-sizing: border-box;
   --main-font: "Montserrat", sans-serif;
   --yellow: #ffe100;
+  --black: #000000;
+  --white: #FFFFFF;
 }
 body {
+  /* background-color: var(--black);
+  color: var(--white); */
   margin: 0;
   box-sizing: border-box;
   margin-left: 5rem;

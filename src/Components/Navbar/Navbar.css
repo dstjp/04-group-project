@@ -8,10 +8,10 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 1rem;
+    width: 0.15rem;
     height: 97vh;
-    border-top-right-radius: 2rem;
-    border-bottom-right-radius: 2rem;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1.75rem;
     display: flex;
     flex-direction: column;
     padding: 1.25rem;
@@ -28,8 +28,8 @@
 .nav-icon {
     height: 1.75rem;
     width: 1.75rem;
-    margin-bottom: 0.5rem;
-    margin-left: -4rem;
+    margin-bottom: 0.15rem;
+    margin-left: -4.3rem;
 }
 
 @media all and (max-width: 1024px) {
@@ -46,6 +46,7 @@
 
     .nav-list {
         display: flex;
+        justify-content: space-around;
         margin-top: -1.75rem;
     }
 

@@ -4,6 +4,7 @@ import { MoviesList } from "./Pages/MoviesList/MoviesList";
 import { Routes, Route } from "react-router";
 import { MovieProvider } from "./context/MovieContext";
 import Navbar from "./Components/Navbar/Navbar";
+import LogoComponent from "./Components/LogoComponent/LogoComponent"
 
 
 export const App = () => {
@@ -12,6 +13,7 @@ export const App = () => {
     <>  
 
     <Navbar />
+    <LogoComponent />
     
 
       <MovieProvider>

@@ -30,6 +30,7 @@ function Nav() {
                             <NavLink to="/favorites"><img className="nav-icon favorite-icon" srcSet={FAVORITE_ICON} alt="" /></NavLink>
                         </li>
                     </ul>
+                    
                     {/* <img className="nav-hamburger nav-close" srcSet={HAMBURGER_MENU} alt="" onClick={null} /> */}
                 </nav>
             </div>
