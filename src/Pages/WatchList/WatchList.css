@@ -1,7 +1,17 @@
 .watchlist-container {
     margin:0 auto;
+    display: flex;
+    justify-content: center;
 }
 
 .nth-words {
     color: white;
+}
+
+.watchlist-empty {
+    margin-top: 10vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
