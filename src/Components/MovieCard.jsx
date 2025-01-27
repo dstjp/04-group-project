@@ -1,19 +1,13 @@
-import { useMovie } from "../../context/MovieContext";
-import heartIcon from "../../assets/heart.svg";
-import ratingIcon from "../../assets/yellowstar.svg";
-import favoriteIcon from "../../assets/bluestar.svg";
-import { Icon } from "../Icon.jsx";
+import { useMovie } from "../context/MovieContext.jsx";
+import ratingIcon from "../assets/movieCardRatingStar.svg";
+import favoriteIcon from "../assets/movieCardStar.svg";
+import { Icon } from "./Icon.jsx";
 
-export const MoviesList = () => {
-  const { movies } = useMovie();
+export const MovieCard = () => {
+  const { movies, formatRating } = useMovie();
 
-  const formatRating = (num) => {
-    return num? num.toFixed(1) : "n/a"
-  };
   return (
-    <div className="movie-list-container">
-      <h3>Top 20</h3>
-      <div className="movie-card-container"></div>
+    <div className="movie-card-container">
       {movies.map((movie) => (
         <div className="movie-card" key={movie.id}>
           <div className="movie-image-wrapper">
@@ -28,20 +22,16 @@ export const MoviesList = () => {
               alt={`${movie.title} poster`}
             />
           </div>
+
           <div className="movie-info-wrapper">
             <div className="rating-wrapper">
               <img src={ratingIcon} alt="star icon" />
               <span>{formatRating(movie.vote_average)}</span>
             </div>
+
             <div className="title-wrapper">
               <p>{movie.title}</p>
-
-              <Icon
-                onClick={null}
-                type="button"
-                url={heartIcon}
-                alt="heart icon"
-              />
+              <Icon onClick={null} type="button" alt="heart icon" />
               <Icon
                 onClick={null}
                 type="button"

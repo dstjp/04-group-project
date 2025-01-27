@@ -1,9 +1,9 @@
 import React from "react";
 import { NavLink } from "react-router"
 import "./Navbar.css"
-import FAVORITE_ICON from "./NavbarPics/FAVORITE_ICON.png"
-import HOME_ICON from "./NavbarPics/HOME_ICON.png"
-import WATCH_ICON from "./NavbarPics/WATCH_ICON.png"
+import FAVORITE_ICON from "../../assets/navbarStar.png"
+import HOME_ICON from "../../assets/navbarHome.png"
+import WATCH_ICON from "../../assets/navbarEye.png"
 
 
 function Nav() {

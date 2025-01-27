@@ -1,8 +1,8 @@
 import React from "react";
-import { useMovie } from "../../Context/MovieContext";
-import DetailIcon from "./Icons/DetailIcon";
-import RateStarIcon from "./Icons/RateStarIcon";
-import DeleteIcon from "./Icons/DeleteIcon";
+import { useMovie } from "../../context/MovieContext.jsx";
+import DetailIcon from "./Icons/DetailIcon.jsx";
+import RateStarIcon from "./Icons/RateStarIcon.jsx";
+import DeleteIcon from "./Icons/DeleteIcon.jsx";
 
 
 

@@ -29,12 +29,17 @@ export const MovieProvider = ({ children }) => {
       });
   }, []);
 
+  const formatRating = (num) => {
+    return num ? num.toFixed(1) : "n/a";
+  };
+
   return (
     <MovieContext.Provider
       value={{
         movies,
         loading,
         error,
+        formatRating
       }}
     >
       {children}
