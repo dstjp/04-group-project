@@ -1,10 +1,10 @@
 import React from "react";
 import "./App.css";
-import { MoviesList } from "./Components/MoviesList/MoviesList";
+import { MoviesList } from "./Pages/MoviesList/MoviesList";
 import { Routes, Route } from "react-router";
-import { MovieProvider } from "./Context/MovieContext";
-import Navbar from "./Components/Navbar/Navbar";
-import WatchList from "./Components/WatchList/WatchList";
+import { MovieProvider } from "./context/MovieContext";
+import Navbar from "./Pages/Navbar/Navbar";
+
 
 export const App = () => {
 
