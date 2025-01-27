@@ -22,11 +22,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-@media all and (max-width: 1024px) {
-  body {
-    margin-left: 0;
-  }
-}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",

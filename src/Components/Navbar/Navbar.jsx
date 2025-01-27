@@ -4,6 +4,7 @@ import "./Navbar.css"
 import FAVORITE_ICON from "../../assets//NavbarIcons/navbarStar.png"
 import HOME_ICON from "../../assets//NavbarIcons/navbarHome.png"
 import WATCH_ICON from "../../assets//NavbarIcons/navbarEye.png"
+import { Icon } from "../Icon";
 
 
 function Nav() {
