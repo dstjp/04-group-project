@@ -7,7 +7,7 @@ export const MoviesList = () => {
 
   return (
     <div className="movie-list-container">
-      <h3>Top 20</h3>
+      <h3 className="movie-list-header">Top 20</h3>
       {movies && <MovieCard />}
     </div>
   );

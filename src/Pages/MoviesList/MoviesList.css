@@ -3,9 +3,36 @@
   flex-direction: column;
 }
 
+.movie-list-header {
+  align-self: center;
+
+}
+
 .movie-card-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 20px;
+}
+
+.movie-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--gray);
+  gap: 10px;
+}
+
+.movie-info-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.title-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.title-images {
+  display: flex;
 }

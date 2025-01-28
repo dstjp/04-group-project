@@ -38,18 +38,20 @@ export const MovieCard = () => {
 
 						<div className="title-wrapper">
 							<p>{movie.title}</p>
-							<Icon
-								onClick={null}
-								type="button"
-								url={eyeIcon}
-								alt="heart icon"
-							/>
-							<Icon
-								onClick={null}
-								type="button"
-								url={favoriteIcon}
-								alt="start icon"
-							/>
+							<div className="title-images">
+                <Icon
+                  onClick={null}
+                  type="button"
+                  url={eyeIcon}
+                  alt="heart icon"
+                />
+                <Icon
+                  onClick={null}
+                  type="button"
+                  url={favoriteIcon}
+                  alt="start icon"
+                />
+              </div>
 						</div>
 					</div>
 				</div>
