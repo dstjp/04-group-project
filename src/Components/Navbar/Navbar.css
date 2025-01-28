@@ -4,19 +4,17 @@
 }
 
 .navbar-container {
-    background-color: #FFE100;
+    background-color: var(--yellow);
     position: fixed;
     top: 0;
     left: 0;
     width: 0.15rem;
-    height: 97vh;
+    height: 100vh;
     border-top-right-radius: 1rem;
-    border-bottom-right-radius: 1.75rem;
-    display: flex;
+    border-bottom-right-radius: 1.5rem;
     flex-direction: column;
     padding: 1.25rem;
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.407);
-
 }
 
 .nav-link {
@@ -38,7 +36,7 @@
     
     .navbar-container {
         position: fixed;
-        width: 97vw;
+        width: 100vw;
         height: .15rem;
         top: 0;
         border-bottom-left-radius: 2rem;
