@@ -4,14 +4,9 @@ import favoriteIcon from "../assets//MovieCardIcons/movieCardStar.svg";
 import eyeIcon from "../assets/MovieCardIcons/movieCardEye.png";
 
 import { Icon } from "./Icon/Icon.jsx";
-import addToWatchListBtn from "../assets/watchlistIcons/addtowatchlist.svg";
 
 export const MovieCard = () => {
-  const { movies, formatRating, setwatchList, formatMovieTitle } = useMovie();
-
-  const addToWatchList = (movie) => {
-    setwatchList((prev) => [...prev, movie]);
-  };
+  const { movies, formatRating, formatMovieTitle, addToWatchList } = useMovie();
 
   return (
     <div className="movie-card-container">
@@ -40,7 +35,7 @@ export const MovieCard = () => {
               <p>{formatMovieTitle(movie.title, 15)}</p>
               <div className="title-images">
                 <Icon
-                  onClick={null}
+                  onClick={() => addToWatchList(movie)}
                   type="button"
                   url={eyeIcon}
                   alt="heart icon"
