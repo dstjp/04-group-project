@@ -11,12 +11,10 @@
     width: 0.15rem;
     height: 97vh;
     border-top-right-radius: 1rem;
-    border-bottom-right-radius: 1.75rem;
-    display: flex;
+    border-bottom-right-radius: 1.5rem;
     flex-direction: column;
     padding: 1.25rem;
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.407);
-
 }
 
 .nav-link {

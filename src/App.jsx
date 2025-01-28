@@ -15,17 +15,20 @@ export const App = () => {
   return (
     <>  
 
-    <Navbar />
-    <Logo />
+    <div className="app-container"> 
+      <Navbar />
+      <Logo />
+    </div>
     
-
+    <div className="main-content">
       <MovieProvider>
         <Routes>
           {/* <Route index element={<MoviesList />} /> */}
-          {/* <Route path="/favorite" element={<favorite />} /> */}
-          {<Route path="/watchlist" element={<WatchList />} />}
+          {/* <Route path="/favorites" element={<FavoriteList />} /> */}
+          <Route path="/watchlist" element={<WatchList />} />
         </Routes>
       </MovieProvider>
+    </div>
     </>
   );
 };
