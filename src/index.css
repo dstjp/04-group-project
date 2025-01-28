@@ -26,11 +26,12 @@ code {
     monospace;
 }
 
-/* MQ for 1024px+ */
+/* MQ for 1025px+ */
 .app-container {
   display: grid;
   grid-template-columns: 3rem;
   min-height: 100vh;
+  font-family: var(--main-font);
 }
 
 .main-content {
@@ -39,6 +40,7 @@ code {
 
 @media (max-width: 1024px) {
   .app-container {
+    font-family: var(--main-font);
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 3rem 1fr;
