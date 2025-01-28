@@ -27,9 +27,13 @@ code {
 }
 
 .app-container {
-  grid: 1;
+  display: grid;
+  grid-template-columns: 3rem;
+  /* margin-top: 5rem; */
+  min-height: 100vh;
 }
 
 .main-content {
-
+  grid-column: 2;
+  
 }

@@ -1,5 +1,4 @@
 .logo {
-    margin-top: -4.75rem;
     height: 5rem;
     width: 5rem;
     float: right;
@@ -19,6 +18,7 @@
     .logo-black {
         position: relative;
         display: inline-block;
+        margin-top: -0.75rem;
         height: 4.15rem;
         width: 4.15rem;
     }
