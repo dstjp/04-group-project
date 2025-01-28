@@ -3,10 +3,10 @@ import ratingIcon from "../assets//MovieCardIcons/movieCardRatingStar.svg";
 import favoriteIcon from "../assets//MovieCardIcons/movieCardStar.svg";
 import { Icon } from "./Icon.jsx";
 import addToWatchListBtn from "../assets/watchlistIcons/addtowatchlist.svg"
-import { setwatchList } from "../context/MovieContext.jsx";
+
 
 export const MovieCard = () => {
-  const { movies, formatRating } = useMovie();
+  const { movies, formatRating, setwatchList } = useMovie();
 
   const addToWatchList = (movie) => {
     setwatchList((prev) => [...prev, movie]);
@@ -27,9 +27,7 @@ export const MovieCard = () => {
               src={`https://image.tmdb.org/t/p/w1280${movie.backdrop_path}`}
               alt={`${movie.title} poster`}
             />
-            <button className="add-to-watchlist-btn" onClick={() => addToWatchList(movie)}>
-              <Icon url={addToWatchListBtn} alt="add to watchlist" />
-            </button>
+
           </div>
 
           <div className="movie-info-wrapper">
