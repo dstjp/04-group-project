@@ -16,12 +16,4 @@
 	.logo-yellow {
 		display: none;
 	}
-
-	.logo-black {
-		position: relative;
-		display: inline-block;
-		margin-top: -0.75rem;
-		height: 4.15rem;
-		width: 4.15rem;
-	}
 }
