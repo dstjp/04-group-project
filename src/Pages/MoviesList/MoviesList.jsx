@@ -1,5 +1,6 @@
 import { useMovie } from "../../context/MovieContext";
 import { MovieCard } from "../../Components/MovieCard";
+import "../MoviesList/MoviesList.css"
 
 export const MoviesList = () => {
   const { movies } = useMovie();
