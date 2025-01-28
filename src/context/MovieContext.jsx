@@ -30,7 +30,6 @@ export const MovieProvider = ({ children }) => {
       });
   }, []);
 
-
   const addToWatchList = (movie) => {
     setwatchList((prev) => [...prev, movie]);
   };
@@ -40,7 +39,15 @@ export const MovieProvider = ({ children }) => {
 
   const formatRating = (num) => {
     return num ? num.toFixed(1) : "n/a";
- };
+  };
+
+  const formatMovieTitle = (str, maxLength) => {
+    if (str.length > maxLength) {
+      return str.slice(0, maxLength) + "...";
+    }
+
+    return str;
+  };
 
   return (
     <MovieContext.Provider
@@ -48,10 +55,11 @@ export const MovieProvider = ({ children }) => {
         movies,
         watchList,
         loading,
-        error, 
+        error,
         addToWatchList,
         removeFromWatchList,
         formatRating,
+        formatMovieTitle,
       }}
     >
       {children}
