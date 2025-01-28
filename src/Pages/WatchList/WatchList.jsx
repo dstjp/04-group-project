@@ -1,6 +1,6 @@
 import React from "react";
 import { useMovie } from "../../context/MovieContext";
-import { Icon } from "../../Components/Icon";
+import { Icon } from "../../Components/Icon/Icon";
 import ratingIcon from "../../assets/MovieCardIcons/movieCardRatingStar.svg";
 import collect from "../../assets/watchlistIcons/collect.svg";
 
