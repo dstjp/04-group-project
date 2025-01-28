@@ -51,7 +51,8 @@ export const MovieProvider = ({ children }) => {
         error, 
         addToWatchList,
         removeFromWatchList,
-        formatRating
+        formatRating,
+        setwatchList,
       }}
     >
       {children}
