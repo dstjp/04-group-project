@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-/* import { MoviesList } from "./Pages/MoviesList/MoviesList"; */
+import { MoviesList } from "./Pages/MoviesList/MoviesList"; 
 import { Routes, Route } from "react-router";
 import { MovieProvider } from "./context/MovieContext";
 import Navbar from "./Components/Navbar/Navbar";
@@ -21,7 +21,7 @@ export const App = () => {
 
       <MovieProvider>
         <Routes>
-          {/* <Route index element={<MoviesList />} /> */}
+          <Route index element={<MoviesList />} />
           {/* <Route path="/favorite" element={<favorite />} /> */}
           {<Route path="/watchlist" element={<WatchList />} />}
         </Routes>

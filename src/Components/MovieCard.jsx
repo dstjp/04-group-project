@@ -3,10 +3,10 @@ import ratingIcon from "../assets//MovieCardIcons/movieCardRatingStar.svg";
 import favoriteIcon from "../assets//MovieCardIcons/movieCardStar.svg";
 import { Icon } from "./Icon.jsx";
 import addToWatchListBtn from "../assets/watchlistIcons/addtowatchlist.svg"
-import { setwatchList } from "../context/MovieContext.jsx";
+
 
 export const MovieCard = () => {
-  const { movies, formatRating } = useMovie();
+  const { movies, formatRating, setwatchList } = useMovie();
 
   const addToWatchList = (movie) => {
     setwatchList((prev) => [...prev, movie]);
