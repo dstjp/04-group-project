@@ -4,7 +4,7 @@ import { Icon } from "../../Components/Icon";
 import ratingIcon from "../../assets/MovieCardIcons/movieCardRatingStar.svg";
 import collect from "../../assets/watchlistIcons/collect.svg";
 
-function WatchList() {
+function WatchList ()  {
     const { watchList, removeFromWatchList } = useMovie();
     
     return (
@@ -25,7 +25,13 @@ function WatchList() {
                             </button>
                         </div>
                         <div className="watchlist-movie-info">
-                            <img src={movie.poster_path} alt={movie.title} />
+                            <img srcSet={`
+                                https://image.tmdb.org/t/p/w185${movie.poster_path} 185w,
+                                https://image.tmdb.org/t/p/w342${movie.poster_path} 342w,
+                                `} 
+                                sizes="(max-width: 767px) 185px, 342px"
+                                src={`https://image.tmdb.org/t/p/w1280${movie.backdrop_path}`}
+                                alt={`${movie.title} poster`} />
                             <h3>{movie.title}</h3>
                             <p>{movie.overview}</p>
                             <p>{movie.actor}</p>

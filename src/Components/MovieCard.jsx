@@ -2,7 +2,6 @@ import { useMovie } from "../context/MovieContext.jsx";
 import ratingIcon from "../assets//MovieCardIcons/movieCardRatingStar.svg";
 import favoriteIcon from "../assets//MovieCardIcons/movieCardStar.svg";
 import { Icon } from "./Icon.jsx";
-import addToWatchListBtn from "../assets/watchlistIcons/addtowatchlist.svg"
 
 
 export const MovieCard = () => {
@@ -38,7 +37,7 @@ export const MovieCard = () => {
 
             <div className="title-wrapper">
               <p>{movie.title}</p>
-              <Icon onClick={null} type="button" alt="heart icon" />
+              <Icon onClick={addToWatchList} type="button" alt="heart icon" />
               <Icon
                 onClick={null}
                 type="button"
