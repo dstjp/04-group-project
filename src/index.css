@@ -6,7 +6,7 @@
   --main-font: "Montserrat", sans-serif;
   --yellow: #ffe100;
   --black: #000000;
-  --white: #FFFFFF;
+  --white: #ffffff;
 }
 body {
   background-color: var(--black);
@@ -20,20 +20,32 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
+/* MQ for 1024px+ */
 .app-container {
   display: grid;
   grid-template-columns: 3rem;
-  /* margin-top: 5rem; */
   min-height: 100vh;
 }
 
 .main-content {
   grid-column: 2;
-  
+}
+
+@media (max-width: 1024px) {
+  .app-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 3rem 1fr;
+    min-height: 100vh;
+  }
+
+  .main-content {
+    grid-column: 1;
+    grid-row: 2;
+  }
 }
