@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useMovie } from "../context/MovieContext.jsx";
 import ratingIcon from "../assets//MovieCardIcons/movieCardRatingStar.svg";
 import favoriteIcon from "../assets//MovieCardIcons/movieCardStar.svg";
@@ -8,10 +8,14 @@ import { Icon } from "./Icon.jsx";
 import addToWatchListBtn from "../assets/watchlistIcons/addtowatchlist.svg";
 
 export const MovieCard = () => {
-	const { movies, formatRating, setwatchList } = useMovie();
+	const { movies, formatRating, setwatchList, setFavorite } = useMovie();
 
 	const addToWatchList = (movie) => {
 		setwatchList((prev) => [...prev, movie]);
+	};
+
+	const handleAddToFav = (movie) => {
+		setFavorite((fav) => [...fav, movie]);
 	};
 
 	return (
@@ -39,9 +43,14 @@ export const MovieCard = () => {
 
 						<div className="title-wrapper">
 							<p>{movie.title}</p>
-							<Icon onClick={null} type="button" url={eyeIcon} alt="eye icon" />
 							<Icon
-								onClick={null}
+								onClick={addToWatchList}
+								type="button"
+								url={eyeIcon}
+								alt="eye icon"
+							/>
+							<Icon
+								onClick={handleAddToFav}
 								type="button"
 								url={favoriteIcon}
 								alt="star icon"

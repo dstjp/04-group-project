@@ -6,10 +6,12 @@ import { MovieProvider } from "./context/MovieContext";
 import Navbar from "./Components/Navbar/Navbar";
 import Logo from "./Components/Logo/Logo";
 import WatchList from "./Pages/WatchList/WatchList";
-import FavoriteList from "./Pages/FavoriteList/FavoriteList";
+import { FavoriteList } from "./Pages/FavoriteList/FavoriteList";
 import "./Pages/WatchList/WatchList.css";
 
 export const App = () => {
+	const [selectedFavorite, setSelectedFavorite] = useState(null);
+
 	return (
 		<>
 			<div className="app-container">
