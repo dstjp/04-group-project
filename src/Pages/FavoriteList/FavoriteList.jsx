@@ -1,16 +1,23 @@
-import { useMovie } from "../../context/MovieContext";
-import { MovieCard } from "../../Components/MovieCard";
-import "./FavoriteList.css"
+import { useMovie } from "../../context/MovieContext.jsx";
+import AddFavorite from "./AddFavorite";
+import "./FavoriteList.css";
 
-function FavoriteList() {
-  const { movies } = useMovie();
+export default function FavoriteList() {}
 
-  return (
-    <div className="movie-list-container">
-      <h3 className="favorite-title">Favorite List</h3>
-      {movies && <MovieCard />}
-    </div>
-  );
-};
+return (
+	<div className="favorite-list-container">
+		<h1>Favorite List</h1>
+		<form onSubmit={handleSubmit}>
+			<input
+				type="text"
+				onChange={(e) => setMovies(e.target.value)}
+				value={movies}
+			/>
+			<button type="submit">Add</button>
+		</form>
 
-export default FavoriteList;
+		{favorite.map((movies) => (
+			<AddFavorite movies={movies} />
+		))}
+	</div>
+);
