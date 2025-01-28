@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useMovie } from "../context/MovieContext.jsx";
 import ratingIcon from "../assets//MovieCardIcons/movieCardRatingStar.svg";
 import favoriteIcon from "../assets//MovieCardIcons/movieCardStar.svg";
@@ -38,17 +39,12 @@ export const MovieCard = () => {
 
 						<div className="title-wrapper">
 							<p>{movie.title}</p>
-							<Icon
-								onClick={null}
-								type="button"
-								url={eyeIcon}
-								alt="heart icon"
-							/>
+							<Icon onClick={null} type="button" url={eyeIcon} alt="eye icon" />
 							<Icon
 								onClick={null}
 								type="button"
 								url={favoriteIcon}
-								alt="start icon"
+								alt="star icon"
 							/>
 						</div>
 					</div>
