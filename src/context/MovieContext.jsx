@@ -7,7 +7,6 @@ export const MovieProvider = ({ children }) => {
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState(null);
 	const [watchList, setwatchList] = useState([]);
-
 	const [favorites, setFavorites] = useState([]);
 
 	useEffect(() => {
@@ -40,11 +39,11 @@ export const MovieProvider = ({ children }) => {
 	};
 
 	const addToFavorites = (movie) => {
-		setFavorites((fav) => [...fav, movie]);
+		setFavorites((favorites) => [...favorites, movie]);
 	};
 
 	const removeFromFavorites = (id) => {
-		setFavorites((fav) => fav.filter((movie) => movie.id !== id));
+		setFavorites((favorites) => favorites.filter((movie) => movie.id !== id));
 	};
 
 	const formatRating = (num) => {
