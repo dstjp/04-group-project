@@ -7,7 +7,13 @@ import eyeIcon from "../assets/MovieCardIcons/movieCardEye.png";
 import { Icon } from "./Icon/Icon.jsx";
 
 export const MovieCard = () => {
-	const { movies, formatRating, formatMovieTitle, addToWatchList } = useMovie();
+	const {
+		movies,
+		formatRating,
+		formatMovieTitle,
+		addToWatchList,
+		addToFavorites,
+	} = useMovie();
 
 	return (
 		<div className="movie-card-container">
@@ -43,7 +49,7 @@ export const MovieCard = () => {
 									className="watchlist-button"
 								/>
 								<Icon
-									onClick={null}
+									onClick={() => addToFavorites(movie)}
 									type="button"
 									url={favoriteIcon}
 									alt="start icon"

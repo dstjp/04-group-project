@@ -6,9 +6,8 @@ export const MovieProvider = ({ children }) => {
 	const [movies, setMovies] = useState([]);
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState(null);
-
 	const [watchList, setwatchList] = useState([]);
-	const [favorite, setFavorite] = useState([]);
+	const [favorites, setFavorites] = useState([]);
 
 	useEffect(() => {
 		const apiKey = "272e0a4f8aed64cdcbc79856c6259d84";
@@ -39,6 +38,14 @@ export const MovieProvider = ({ children }) => {
 		setwatchList((prev) => prev.filter((m) => m.id !== id));
 	};
 
+	const addToFavorites = (movie) => {
+		setFavorites((favorites) => [...favorites, movie]);
+	};
+
+	const removeFromFavorites = (id) => {
+		setFavorites((favorites) => favorites.filter((movie) => movie.id !== id));
+	};
+
 	const formatRating = (num) => {
 		return num ? num.toFixed(1) : "n/a";
 	};
@@ -56,10 +63,13 @@ export const MovieProvider = ({ children }) => {
 			value={{
 				movies,
 				watchList,
+				favorites,
 				loading,
 				error,
 				addToWatchList,
 				removeFromWatchList,
+				addToFavorites,
+				removeFromFavorites,
 				formatRating,
 				formatMovieTitle,
 			}}
