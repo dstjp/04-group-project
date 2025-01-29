@@ -3,74 +3,87 @@ import React, { createContext, useState, useEffect, useContext } from "react";
 export const MovieContext = createContext();
 
 export const MovieProvider = ({ children }) => {
-  const [movies, setMovies] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const [watchList, setwatchList] = useState([]);
+	const [movies, setMovies] = useState([]);
+	const [loading, setLoading] = useState(false);
+	const [error, setError] = useState(null);
+	const [watchList, setwatchList] = useState([]);
 
-  useEffect(() => {
-    const apiKey = "272e0a4f8aed64cdcbc79856c6259d84";
-    const url = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}`;
+	const [favorites, setFavorites] = useState([]);
 
-    fetch(url)
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error("Failed to fetch data");
-        }
-        return res.json();
-      })
-      .then((data) => {
-        setMovies(data.results);
-        console.log(data.results);
-        setLoading(false);
-      })
-      .catch((error) => {
-        setError(error.message);
-        setLoading(false);
-      });
-  }, []);
+	useEffect(() => {
+		const apiKey = "272e0a4f8aed64cdcbc79856c6259d84";
+		const url = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}`;
 
-  const addToWatchList = (movie) => {
-    setwatchList((prev) => [...prev, movie]);
-  };
-  const removeFromWatchList = (id) => {
-      setwatchList((prev) => prev.filter((m) => m.id !== id));
-    };
+		fetch(url)
+			.then((res) => {
+				if (!res.ok) {
+					throw new Error("Failed to fetch data");
+				}
+				return res.json();
+			})
+			.then((data) => {
+				setMovies(data.results);
+				console.log(data.results);
+				setLoading(false);
+			})
+			.catch((error) => {
+				setError(error.message);
+				setLoading(false);
+			});
+	}, []);
 
-  const formatRating = (num) => {
-    return num ? num.toFixed(1) : "n/a";
-  };
+	const addToWatchList = (movie) => {
+		setwatchList((prev) => [...prev, movie]);
+	};
+	const removeFromWatchList = (id) => {
+		setwatchList((prev) => prev.filter((m) => m.id !== id));
+	};
 
-  const formatMovieTitle = (str, maxLength) => {
-    if (str.length > maxLength) {
-      return str.slice(0, maxLength) + "...";
-    }
+	const addToFavorites = (movie) => {
+		setFavorites((fav) => [...fav, movie]);
+	};
 
-    return str;
-  };
+	const removeFromFavorites = (id) => {
+		setFavorites((fav) => fav.filter((movie) => movie.id !== id));
+	};
 
-  return (
-    <MovieContext.Provider
-      value={{
-        movies,
-        watchList,
-        loading,
-        error,
-        addToWatchList,
-        removeFromWatchList,
-        formatRating,
-        formatMovieTitle,
-      }}
-    >
-      {children}
-    </MovieContext.Provider>
-  );
+	const formatRating = (num) => {
+		return num ? num.toFixed(1) : "n/a";
+	};
+
+	const formatMovieTitle = (str, maxLength) => {
+		if (str.length > maxLength) {
+			return str.slice(0, maxLength) + "...";
+		}
+
+		return str;
+	};
+
+	return (
+		<MovieContext.Provider
+			value={{
+				movies,
+				watchList,
+				favorites,
+				loading,
+				error,
+				addToWatchList,
+				removeFromWatchList,
+				addToFavorites,
+				removeFromFavorites,
+				formatRating,
+				formatMovieTitle,
+			}}
+		>
+			{children}
+		</MovieContext.Provider>
+	);
 };
 
 export const useMovie = () => {
-  const context = useContext(MovieContext);
-  if (!context) {
-    throw new Error("useMovie must be used within a MovieProvider");
-  }
-  return context;
+	const context = useContext(MovieContext);
+	if (!context) {
+		throw new Error("useMovie must be used within a MovieProvider");
+	}
+	return context;
 };
