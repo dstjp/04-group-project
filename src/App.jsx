@@ -8,6 +8,7 @@ import Logo from "./Components/Logo/Logo";
 import WatchList from "./Pages/WatchList/WatchList";
 import FavoriteList from "./Pages/FavoriteList/FavoriteList";
 import "./Pages/WatchList/WatchList.css";
+import "./Pages/FavoriteList/Ratingscore/RatingPopUp.css";
 
 export const App = () => {
 	return (
