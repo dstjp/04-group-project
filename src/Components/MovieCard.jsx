@@ -4,19 +4,10 @@ import ratingIcon from "../assets//MovieCardIcons/movieCardRatingStar.svg";
 import favoriteIcon from "../assets//MovieCardIcons/movieCardStar.svg";
 import eyeIcon from "../assets/MovieCardIcons/movieCardEye.png";
 
-import { Icon } from "./Icon.jsx";
-import addToWatchListBtn from "../assets/watchlistIcons/addtowatchlist.svg";
+import { Icon } from "./Icon/Icon.jsx";
 
 export const MovieCard = () => {
-	const { movies, formatRating, setwatchList, setFavorite } = useMovie();
-
-	const addToWatchList = (movie) => {
-		setwatchList((prev) => [...prev, movie]);
-	};
-
-	const handleAddToFav = (movie) => {
-		setFavorite((fav) => [...fav, movie]);
-	};
+	const { movies, formatRating, formatMovieTitle, addToWatchList } = useMovie();
 
 	return (
 		<div className="movie-card-container">
@@ -28,7 +19,7 @@ export const MovieCard = () => {
           https://image.tmdb.org/t/p/w185${movie.poster_path} 185w,
           https://image.tmdb.org/t/p/w342${movie.poster_path} 342w,
         `}
-							sizes="(max-width: 767px) 185px,
+							sizes="(max-width: 1023px) 185px,
         342px"
 							src={`https://image.tmdb.org/t/p/w1280${movie.backdrop_path}`}
 							alt={`${movie.title} poster`}
@@ -42,19 +33,23 @@ export const MovieCard = () => {
 						</div>
 
 						<div className="title-wrapper">
-							<p>{movie.title}</p>
-							<Icon
-								onClick={addToWatchList}
-								type="button"
-								url={eyeIcon}
-								alt="eye icon"
-							/>
-							<Icon
-								onClick={handleAddToFav}
-								type="button"
-								url={favoriteIcon}
-								alt="star icon"
-							/>
+							<p>{formatMovieTitle(movie.title, 15)}</p>
+							<div className="title-images">
+								<Icon
+									onClick={() => addToWatchList(movie)}
+									type="button"
+									url={eyeIcon}
+									alt="heart icon"
+									className="watchlist-button"
+								/>
+								<Icon
+									onClick={null}
+									type="button"
+									url={favoriteIcon}
+									alt="start icon"
+									className="favorite-button"
+								/>
+							</div>
 						</div>
 					</div>
 				</div>

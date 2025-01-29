@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect, useContext } from "react";
+import React, { createContext, useState, useEffect, useContext } from "react";
 
 export const MovieContext = createContext();
 
@@ -35,16 +35,20 @@ export const MovieProvider = ({ children }) => {
 	const addToWatchList = (movie) => {
 		setwatchList((prev) => [...prev, movie]);
 	};
-	const removeFromWatchList = (movie) => {
-		setwatchList((prev) => prev.filter((m) => m.id !== movie.id));
-	};
-
-	const addFavorite = (movie) => {
-		setFavorite((fav) => [...fav, movie]);
+	const removeFromWatchList = (id) => {
+		setwatchList((prev) => prev.filter((m) => m.id !== id));
 	};
 
 	const formatRating = (num) => {
 		return num ? num.toFixed(1) : "n/a";
+	};
+
+	const formatMovieTitle = (str, maxLength) => {
+		if (str.length > maxLength) {
+			return str.slice(0, maxLength) + "...";
+		}
+
+		return str;
 	};
 
 	return (
@@ -54,13 +58,10 @@ export const MovieProvider = ({ children }) => {
 				watchList,
 				loading,
 				error,
-				favorite,
 				addToWatchList,
 				removeFromWatchList,
 				formatRating,
-				setwatchList,
-				setFavorite,
-				addFavorite,
+				formatMovieTitle,
 			}}
 		>
 			{children}
