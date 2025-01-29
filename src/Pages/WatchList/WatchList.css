@@ -5,17 +5,17 @@
     }
     .watchlist-header {
         display: flex;
-        margin-left: 60px;
-        gap: 10px;
+        margin-left: 10vw;
+        gap: 5vw;
     }
-    margin-top: 60px;
+    margin-top: 12vw;
 }
 
 .watchlist-container {
-    margin: 0 60px;
+    margin: 0 10vw;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    gap: 4vw;
 }
 
 .nth-words {
@@ -34,11 +34,11 @@
     display: flex;
     flex-direction: column;
     position: relative;
-    width: 38rem;
-    height: 20rem;
+    width: 35dvw;
+    height: 20dvw;
     overflow: hidden;
-    border-radius: 15px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 1.5vw;
+    box-shadow: 0 0.8vw 1.2vw rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
 }
 
@@ -53,10 +53,10 @@
 }
 
 .watchlist-movie {
-    max-width: 38rem;
-    max-height: 27rem;
+    max-width: 35dvw;
+    max-height: 28dvw;
     background-color: rgb(40, 40, 40);
-    border-radius: 15px;
+    border-radius: 1.5vw;
 }
 
 .watchlist-remove-btn {
@@ -65,8 +65,8 @@
     top: 0;
     left: 0;
     background-color: rgba(0, 0, 0, 0.7);
-    width: 38rem;
-    height: 20rem;
+    width: 35dvw;
+    height: 20dvw;
     border: none;
     display: flex;
     justify-content: center;
@@ -89,8 +89,8 @@
 }
 
 .remove-icon img {
-    width: 50px; 
-    height: 50px; 
+    width: 5dvw; 
+    height: 5dvw; 
   }
 
 .watchlist-movie-text{
@@ -100,21 +100,21 @@
 }
 
 .watchlist-rate-btns {
-    margin-right: 5px;
+    margin-right: 1vw;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 1vw;
     .watchlist-info-icon {
-        width: 25px;
-        height: 25px;
+        width: 2vw;
+        height: 2vw;
         background: none;
         border: none;
         padding: 0;
         cursor: pointer;
     }
     .watchlist-star-icon {
-        width: 25px;
-        height: 25px;
+        width: 2vw;
+        height: 2vw;
         background: none;
         border: none;
         padding: 0;
@@ -123,60 +123,57 @@
 }
 
 .watchlist-movie-info {
-    margin-left: 10px;
+    margin-left: 1vw;
 }
 
 .watchlist-overview {
-    width: 27rem;
-    height: 2rem;
+    width: 25vw;
+    height: 7vh;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    font-size: 0.8rem;
+    font-size: 1.5vw;
+    margin: 0;
 }
 
 .watchlist-rating-wrapper {
     display: flex;
     align-items: center;
     h3 {
-        margin-right: 20px;
+        margin: 0.5vw 2vw 0.5vw 0;
+        font-size: 2vw;
     }
     img {
-        margin-right: 5px;
-        width: 18px;
-        height: 18px;
+        width: 2vw;
+        height: 2vw;
+        margin-right: 1vw;
     }
     span {
         font-weight: 400;
+        font-size: 1.8vw;
     }
 }
 
 /* responsive style */
  @media screen and (max-width: 767px){
     .watchlist-container {
-        margin: 0 60px;
         grid-template-columns: repeat(1, 1fr);
     }
     
  }
 
-@media screen and (min-width: 768px){
-    .watchlist-container {
-        margin: 0 60px;
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
 
 @media screen and (min-width: 900px){
     .watchlist-container {
-        margin: 0 60px;
-        grid-template-columns: repeat(auto-fill, minmax(2, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+    .watchlist-movie-info {
+        max-height: 10vw;
     }
 }
 
 @media screen and (min-width: 1200px){
     .watchlist-container {
-        margin: 0 60px;
-        grid-template-columns: repeat(auto-fill, minmax(2, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     }
 }
