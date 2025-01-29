@@ -2,11 +2,14 @@
     .watchlist-rectangle {
         border: none;
         background: none;
+        height: fit-content;
     }
     .watchlist-header {
         display: flex;
         margin-left: 10vw;
-        gap: 5vw;
+        gap: 1vw;
+        font-size: 1.5vw;
+        align-items: center;
     }
     margin-top: 12vw;
 }
@@ -23,6 +26,7 @@
 }
 
 .watchlist-empty {
+    grid-column: 1 / -1;
     margin-top: 10vh;
     display: flex;
     flex-direction: column;
@@ -157,13 +161,16 @@
 /* responsive style */
  @media screen and (max-width: 767px){
     .watchlist-container {
-        grid-template-columns: repeat(1, 1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
-    
+    .watchlist-header {
+        margin-left: 0;
+    }
  }
 
 
-@media screen and (min-width: 900px){
+@media screen and (min-width: 1024px){
+
     .watchlist-container {
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     }
