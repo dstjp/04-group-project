@@ -1,9 +1,13 @@
+import React, { useState } from "react";
 import { useMovie } from "../../context/MovieContext.jsx";
 import { Icon } from "../../Components/Icon/Icon.jsx";
+import RatingPopUp from "../FavoriteList/Ratingscore/RatingPopUp";
 import ratingIcon from "../../assets/MovieCardIcons/movieCardRatingStar.svg";
 import favoriteIcon from "../../assets/MovieCardIcons/movieCardStar.svg";
+import filledFavorite from "../../assets/FavoriteListIcon/filledStar.svg";
 import eyeIcon from "../../assets/MovieCardIcons/movieCardEye.png";
 import rectangle from "../../assets/watchlistIcons/rectangle.svg";
+import trash from "../../assets/watchlistIcons/trash.svg";
 import "./FavoriteList.css";
 
 export default function FavoriteList() {
@@ -15,6 +19,12 @@ export default function FavoriteList() {
 		addToWatchList,
 	} = useMovie();
 
+	const [selectedMovie, setSelectedMovie] = useState(null);
+
+	const handleClosePopUp = () => {
+		setSelectedMovie(null);
+	};
+
 	return (
 		<div className="fav-list-container">
 			<div className="fav-list-header">
@@ -25,15 +35,26 @@ export default function FavoriteList() {
 				<div className="fav-movie-card-container">
 					{favorites.map((movie) => (
 						<div key={movie.id} className="fav-movie-card">
-							{/* Image Wrapper */}
 							<div className="fav-movie-image-wrapper">
 								<div className="fav-movie-image">
+									<div className="fav-movie-remove-btn">
+										<Icon
+											onClick={(e) => {
+												e.preventDefault();
+												removeFromFavorites(movie.id);
+											}}
+											url={trash}
+											type="button"
+											alt="remove"
+											className="fav-remove-icon"
+										/>
+									</div>
 									<img
 										src={`https://image.tmdb.org/t/p/w1280${movie.backdrop_path}`}
 										alt={`${movie.title} poster`}
 									/>
 								</div>
-								{/* Movie Info */}
+
 								<div className="fav-movie-info-wrapper">
 									<div className="fav-rating-wrapper">
 										<img src={ratingIcon} alt="star icon" />
@@ -43,7 +64,6 @@ export default function FavoriteList() {
 									<div className="fav-title-wrapper">
 										<p>{formatMovieTitle(movie.title, 20)}</p>
 
-										{/* Title Image */}
 										<div className="fav-title-images">
 											<Icon
 												onClick={() => addToWatchList(movie)}
@@ -54,7 +74,7 @@ export default function FavoriteList() {
 											/>
 											<Icon
 												type="button"
-												url={favoriteIcon}
+												url={filledFavorite}
 												alt="star icon"
 												className="fav-favorite-button"
 											/>
@@ -62,10 +82,6 @@ export default function FavoriteList() {
 									</div>
 								</div>
 							</div>
-
-							{/* <button onClick={() => removeFromFavorites(movie.id)}>
-								Remove
-                </button> */}
 						</div>
 					))}
 				</div>
@@ -73,6 +89,10 @@ export default function FavoriteList() {
 				<div className="no-fav-added">
 					<p>No favorites added yet.</p>
 				</div>
+			)}
+
+			{selectedMovie && (
+				<RatingPopUp movie={selectedMovie} onClose={handleClosePopUp} />
 			)}
 		</div>
 	);
