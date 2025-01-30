@@ -32,7 +32,12 @@ export const MovieProvider = ({ children }) => {
 	}, []);
 
 	const addToWatchList = (movie) => {
-		setwatchList((prev) => [...prev, movie]);
+		setwatchList((prev) => {
+			if (prev.find((m) => m.id === movie.id)) {
+				return prev;
+			}
+			return [...prev, movie];
+		});
 	};
 	const removeFromWatchList = (id) => {
 		setwatchList((prev) => prev.filter((m) => m.id !== id));
