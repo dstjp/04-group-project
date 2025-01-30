@@ -4,6 +4,7 @@ import { Icon } from "../../Components/Icon/Icon.jsx";
 import RatingPopUp from "../FavoriteList/Ratingscore/RatingPopUp";
 import ratingIcon from "../../assets/MovieCardIcons/movieCardRatingStar.svg";
 import favoriteIcon from "../../assets/MovieCardIcons/movieCardStar.svg";
+import filledFavorite from "../../assets/FavoriteListIcon/filledStar.svg";
 import eyeIcon from "../../assets/MovieCardIcons/movieCardEye.png";
 import rectangle from "../../assets/watchlistIcons/rectangle.svg";
 import trash from "../../assets/watchlistIcons/trash.svg";
@@ -45,7 +46,7 @@ export default function FavoriteList() {
 											url={trash}
 											type="button"
 											alt="remove"
-											className="remove-icon"
+											className="fav-remove-icon"
 										/>
 									</div>
 									<img
@@ -73,7 +74,7 @@ export default function FavoriteList() {
 											/>
 											<Icon
 												type="button"
-												url={favoriteIcon}
+												url={filledFavorite}
 												alt="star icon"
 												className="fav-favorite-button"
 											/>

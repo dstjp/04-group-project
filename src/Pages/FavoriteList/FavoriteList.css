@@ -21,11 +21,10 @@
 
 .fav-movie-card-container {
 	display: grid;
-	grid-template-columns: repeat(4, 1fr);
+	grid-template-columns: repeat(3, 1fr);
 	gap: 1.5rem;
 	margin-top: 1rem;
 	width: 100%;
-	max-width: 1024px;
 }
 
 .fav-movie-card {
@@ -42,9 +41,8 @@
 .fav-movie-remove-btn {
 	opacity: 0;
 	position: absolute;
-	top: 0;
-	left: 0;
-	background-color: rgba(0, 0, 0, 0.7);
+	top: 0.5rem;
+	right: 0.5rem;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -52,8 +50,17 @@
 	transition: background-color 0.3s ease;
 }
 
+.fav-remove-icon {
+	background: none;
+	border: none;
+	padding: 0;
+	cursor: pointer;
+	width: 2dvw;
+	height: 2dvw;
+}
+
 .fav-movie-image img {
-	width: 25rem;
+	width: 100%;
 	height: auto;
 	border-radius: 1rem;
 }
@@ -89,8 +96,12 @@
 	margin-top: 0.25rem;
 }
 
-.fav-watchlist-button img,
 .fav-favorite-button img {
+	height: 1.65rem;
+}
+
+.fav-watchlist-button img {
+	margin-top: 0.25rem;
 	height: 1.5rem;
 	cursor: pointer;
 }
