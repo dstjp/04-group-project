@@ -8,6 +8,7 @@ export const MovieProvider = ({ children }) => {
 	const [error, setError] = useState(null);
 	const [watchList, setwatchList] = useState([]);
 	const [favorites, setFavorites] = useState([]);
+	const [ratings, setRatings] = useState({});
 
 	useEffect(() => {
 		const apiKey = "272e0a4f8aed64cdcbc79856c6259d84";
@@ -68,6 +69,13 @@ export const MovieProvider = ({ children }) => {
 		return str;
 	};
 
+	const updateRating = (movieId, rating) => {
+		setRatings((preRatings) => ({
+			...preRatings,
+			[movieId]: rating,
+		}));
+	};
+
 	return (
 		<MovieContext.Provider
 			value={{
@@ -82,6 +90,8 @@ export const MovieProvider = ({ children }) => {
 				removeFromFavorites,
 				formatRating,
 				formatMovieTitle,
+				ratings,
+				updateRating
 			}}
 		>
 			{children}
