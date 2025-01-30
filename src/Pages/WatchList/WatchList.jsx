@@ -7,9 +7,19 @@ import trash from "../../assets/watchlistIcons/trash.svg";
 import Info from "../../assets/watchlistIcons/Info.svg";
 import star from "../../assets/watchlistIcons/star.svg";
 import rectangle from "../../assets/watchlistIcons/rectangle.svg";
+import RatingPopUp from "../FavoriteList/Ratingscore/RatingPopUp";
 
 function WatchList ()  {
     const { watchList, removeFromWatchList, formatRating } = useMovie();
+    const [selectedMovie, setSelectedMovie] = React.useState(null);
+
+    const handleRatingClick = (movie) => {
+        setSelectedMovie(movie);
+    }
+
+    const handleClosePopUp = () => {
+        setSelectedMovie(null);
+    }
     
     return (
         <div className="watchlist-page">
@@ -50,7 +60,10 @@ function WatchList ()  {
                             <div className="watchlist-movie-info">
                                 <div className="watchlist-rating-wrapper">
                                     <h3>{movie.title}</h3>
-                                    <img src={ratingIcon} alt="star icon" />
+                                    <img 
+                                    src={ratingIcon} 
+                                    alt="star icon"
+                                    onClick={() => handleRatingClick(movie)} />
                                     <span>{formatRating(movie.vote_average)}</span>
                                 </div>
                                 {/* <p className="watchlist-actor">{movie.person}</p> */}
@@ -65,6 +78,9 @@ function WatchList ()  {
                 ))
             )}
           </div>
+            {selectedMovie && (
+                <RatingPopUp movie={selectedMovie} onClose={handleClosePopUp} />
+            )}
         </div>
     );
 }
