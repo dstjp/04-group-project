@@ -1,0 +1,6 @@
+.details-dialog {
+  border: none;
+  width: 80%;
+  max-width: 600px;
+  border-radius: 15px;
+}
