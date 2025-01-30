@@ -57,9 +57,10 @@
 
 .fav-rating-wrapper {
 	display: flex;
-	gap: 0.5rem;
 	justify-content: flex-start;
 	align-items: center;
+	gap: 0.5rem;
+	margin-bottom: -0.5rem;
 }
 
 .fav-title-wrapper {
@@ -70,11 +71,21 @@
 }
 
 .fav-title-wrapper p {
+	font-size: 1.5rem;
 }
 
-.fav-watchlist-button {
-	border: none;
-	background: none;
-	cursor: pointer;
-	transition: opacity 0.3s;
+.fav-watchlist-button img {
+	height: 1.66rem;
+}
+
+.fav-favorite-button img {
+	margin-bottom: 0.25rem;
+	height: 1.4rem;
+}
+
+.no-fav-added {
+	margin-top: 4rem;
+	font-size: 1.5rem;
+	display: flex;
+	justify-content: center;
 }

@@ -49,8 +49,14 @@ export default function FavoriteList() {
 												onClick={() => addToWatchList(movie)}
 												type="button"
 												url={eyeIcon}
-												alt="heart icon"
+												alt="eye icon"
 												className="fav-watchlist-button"
+											/>
+											<Icon
+												type="button"
+												url={favoriteIcon}
+												alt="star icon"
+												className="fav-favorite-button"
 											/>
 										</div>
 									</div>
@@ -64,7 +70,9 @@ export default function FavoriteList() {
 					))}
 				</div>
 			) : (
-				<p>No favorites added yet.</p>
+				<div className="no-fav-added">
+					<p>No favorites added yet.</p>
+				</div>
 			)}
 		</div>
 	);
