@@ -19,11 +19,9 @@
 	height: fit-content;
 }
 
-/* Movie */
-
 .fav-movie-card-container {
 	display: grid;
-	grid-template-columns: repeat(2, 1fr);
+	grid-template-columns: repeat(3, 1fr);
 	gap: 1.5rem;
 	margin-top: 1rem;
 	width: 100%;
@@ -31,20 +29,44 @@
 
 .fav-movie-card {
 	background: #2c2c2c;
-	border-radius: 10px;
-	overflow: hidden;
+	width: 100%;
+	border-radius: 1.4rem;
 	transition: transform 0.3s ease-in-out;
-	cursor: pointer;
 }
 
 .fav-movie-card:hover {
 	transform: scale(1.01);
 }
 
+.fav-movie-remove-btn {
+	opacity: 0;
+	position: absolute;
+	top: 0.5rem;
+	right: 0.5rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+}
+
+.fav-remove-icon {
+	background: none;
+	border: none;
+	padding: 0;
+	cursor: pointer;
+	width: 2dvw;
+	height: 2dvw;
+}
+
 .fav-movie-image img {
 	width: 100%;
 	height: auto;
-	border-radius: 1.5vw;
+	border-radius: 1rem;
+}
+
+.fav-movie-image:hover .fav-movie-remove-btn {
+	opacity: 1;
 }
 
 .fav-movie-info-wrapper {
@@ -52,7 +74,6 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
-	align-content: space-between;
 }
 
 .fav-rating-wrapper {
@@ -60,7 +81,7 @@
 	justify-content: flex-start;
 	align-items: center;
 	gap: 0.5rem;
-	margin-bottom: -0.5rem;
+	margin-top: -0.5rem;
 }
 
 .fav-title-wrapper {
@@ -72,15 +93,17 @@
 
 .fav-title-wrapper p {
 	font-size: 1.5rem;
-}
-
-.fav-watchlist-button img {
-	height: 1.66rem;
+	margin-top: 0.25rem;
 }
 
 .fav-favorite-button img {
-	margin-bottom: 0.25rem;
-	height: 1.4rem;
+	height: 1.65rem;
+}
+
+.fav-watchlist-button img {
+	margin-top: 0.25rem;
+	height: 1.5rem;
+	cursor: pointer;
 }
 
 .no-fav-added {
@@ -88,4 +111,28 @@
 	font-size: 1.5rem;
 	display: flex;
 	justify-content: center;
+}
+
+@media (max-width: 1024px) {
+	.fav-list-header {
+		margin-left: 2vw;
+		font-size: 0.8rem;
+	}
+
+	.fav-movie-card-container {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.fav-movie-image img {
+		width: 100%;
+	}
+
+	.fav-title-wrapper p {
+		font-size: 1rem;
+	}
+
+	.fav-watchlist-button img,
+	.fav-favorite-button img {
+		height: 1.2rem;
+	}
 }

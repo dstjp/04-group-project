@@ -7,7 +7,7 @@
   --yellow: #ffe100;
   --black: #000000;
   --white: #ffffff;
-  --gray: #4c4c4c;
+  --gray: #282828;
 }
 body {
   background-color: var(--black);
