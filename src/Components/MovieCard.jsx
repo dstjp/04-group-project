@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useMovie } from "../context/MovieContext.jsx";
 import { useState, useEffect, useRef } from "react";
 import ratingIcon from "../assets//MovieCardIcons/movieCardRatingStar.svg";

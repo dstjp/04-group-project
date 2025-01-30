@@ -22,33 +22,42 @@ export const MovieDetailsDialog = ({ movie, onClose, ref }) => {
   }, [movie.id]);
 
   return (
-    <dialog ref={ref} className="details-dialog">
-      <div className="details-image-wrapper">
-        <img
-          srcSet={`
-                  https://image.tmdb.org/t/p/w185${movie.poster_path} 185w,
-                  https://image.tmdb.org/t/p/w342${movie.poster_path} 342w,
-                  `}
-          sizes="(max-width: 1023px) 185px,
-                                342px"
-          src={`https://image.tmdb.org/t/p/w1280${movie.backdrop_path}`}
-          alt={`${movie.title} poster`}
-        />
+    <dialog ref={ref} className="dialog">
+
+      <div className="button-wrapper">
         <button onClick={onClose} className="close-dialog-button">
           X
         </button>
       </div>
-      <div className="details-wrapper">
-        <h2>{movie.title}</h2>
-        <p>{movie.overview}</p>
-        <div className="details-rating-wrapper">
-          <img src={ratingIcon} alt="star icon" />
-          <span>{formatRating(movie.vote_average)}</span>
+      
+      <div className="details-container">
+        <div className="details-image-wrapper">
+          <img
+            srcSet={`
+                    https://image.tmdb.org/t/p/w185${movie.poster_path} 185w,
+                    https://image.tmdb.org/t/p/w342${movie.poster_path} 342w,
+                    `}
+            sizes="(max-width: 1023px) 185px,
+                                  342px"
+            src={`https://image.tmdb.org/t/p/w1280${movie.backdrop_path}`}
+            alt={`${movie.title} poster`}
+          />
         </div>
-        <ul>
-          {genres &&
-            genres.map((genre) => <li key={genre.id}>{genre.name}</li>)}
-        </ul>
+        <div className="details-wrapper">
+          <h2>{movie.title}</h2>
+          <p>{movie.overview}</p>
+          <div className="details-rating-wrapper">
+            <img src={ratingIcon} alt="star icon" />
+            <span>{formatRating(movie.vote_average)}</span>
+          </div>
+          <div className="list-wrapper">
+            <ul>
+              {genres && (
+                <li>{genres.map((genre) => genre.name).join(", ")}</li>
+              )}
+            </ul>
+          </div>
+        </div>
       </div>
     </dialog>
   );
