@@ -66,7 +66,7 @@ function WatchList() {
 					<div className="watchlist-empty">
 						<img src={collect} alt="collect" />
 						<p className="nth-words">
-							save shows and movies to keep track of what you want to watch
+							Save shows and movies to keep track of what you want to watch.
 						</p>
 					</div>
 				) : (

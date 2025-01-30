@@ -81,10 +81,6 @@ export default function FavoriteList() {
 									</div>
 								</div>
 							</div>
-
-							{/* <button onClick={() => removeFromFavorites(movie.id)}>
-								Remove
-                </button> */}
 						</div>
 					))}
 				</div>
