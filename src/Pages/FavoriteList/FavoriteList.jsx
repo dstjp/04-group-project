@@ -14,12 +14,22 @@ export default function FavoriteList() {
 	const {
 		favorites,
 		removeFromFavorites,
-		formatRating,
 		formatMovieTitle,
 		addToWatchList,
+		ratings,
+		updateRating,
 	} = useMovie();
 
 	const [selectedMovie, setSelectedMovie] = useState(null);
+
+	const handleRatingClick = (movie) => {
+		setSelectedMovie(movie);
+	};
+
+  const handleRatingSubmit = (movieId, rating) => {
+		updateRating(movieId, rating);
+    handleClosePopUp();
+  };
 
 	const handleClosePopUp = () => {
 		setSelectedMovie(null);
@@ -57,8 +67,15 @@ export default function FavoriteList() {
 
 								<div className="fav-movie-info-wrapper">
 									<div className="fav-rating-wrapper">
-										<img src={ratingIcon} alt="star icon" />
-										<span>{formatRating(movie.vote_average)}</span>
+										<img 
+										src={ratingIcon} 
+										alt="star icon"
+										onClick={() => handleRatingClick(movie)} />
+										<span>
+											{ratings && ratings[movie.id] !== undefined
+											? `${ratings[movie.id]}.0`
+											: "Not rated"}
+										</span>
 									</div>
 
 									<div className="fav-title-wrapper">
@@ -92,7 +109,10 @@ export default function FavoriteList() {
 			)}
 
 			{selectedMovie && (
-				<RatingPopUp movie={selectedMovie} onClose={handleClosePopUp} />
+				<RatingPopUp 
+				movie={selectedMovie} 
+				onClose={handleClosePopUp}
+				onSubmit={handleRatingSubmit} />
 			)}
 		</div>
 	);

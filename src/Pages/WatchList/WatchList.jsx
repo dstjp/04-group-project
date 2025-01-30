@@ -12,8 +12,12 @@ import RatingPopUp from "../FavoriteList/Ratingscore/RatingPopUp";
 import { MovieDetailsDialog } from "../MovieDetailsDialog/MovieDetailsDialog";
 
 function WatchList() {
-	const { watchList, removeFromWatchList, formatRating, addToFavorites } =
-		useMovie();
+	const { watchList, 
+        removeFromWatchList, 
+        addToFavorites, 
+        ratings, 
+        updateRating 
+    } = useMovie();
 	const [selectedMovie, setSelectedMovie] = useState(null);
 
 	const handleRatingClick = (movie) => {
@@ -23,6 +27,11 @@ function WatchList() {
 	const handleClosePopUp = () => {
 		setSelectedMovie(null);
 	};
+
+    const handleRatingSubmit = (movieId, rating) => {
+        updateRating(movieId, rating);
+        handleClosePopUp();
+    };
 
 	// Dialog functions
 	const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -99,7 +108,11 @@ function WatchList() {
 											alt="star icon"
 											onClick={() => handleRatingClick(movie)}
 										/>
-										<span>{formatRating(movie.vote_average)}</span>
+										<span>
+                                            {ratings && ratings[movie.id] !== undefined
+                                             ? `${ratings[movie.id]}.0` 
+                                             : "Not Rated"}
+                                        </span>
 									</div>
 									<p className="watchlist-overview">Brief: {movie.overview}</p>
 								</div>
@@ -123,7 +136,10 @@ function WatchList() {
 				)}
 			</div>
 			{selectedMovie && (
-				<RatingPopUp movie={selectedMovie} onClose={handleClosePopUp} />
+				<RatingPopUp 
+                movie={selectedMovie} 
+                onClose={handleClosePopUp} 
+                onSubmit={handleRatingSubmit} />
 			)}
 
 			{isDialogOpen && isInfoButtonClicked && dialogMovie && (

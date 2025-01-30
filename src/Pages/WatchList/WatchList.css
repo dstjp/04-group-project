@@ -141,25 +141,36 @@
 }
 
 .watchlist-rating-wrapper {
-	display: flex;
-	align-items: center;
-	h3 {
-		margin: 0.5vw 2vw 0.5vw 0;
-		font-size: 2vw;
-		white-space: nowrap;
-		text-overflow: ellipsis;
-		overflow: hidden;
-		max-width: 18vw;
-	}
-	img {
-		width: 2vw;
-		height: 2vw;
-		margin-right: 1vw;
-	}
-	span {
-		font-weight: 400;
-		font-size: 1.8vw;
-	}
+    display: flex;
+    align-items: center;
+    h3 {
+        margin: 0.5vw 2vw 0.5vw 0;
+        font-size: 2vw;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        max-width: 18vw;
+    }
+    .watchlist-rating {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-items: center;
+        margin-right: 0.5vw;
+        p {
+            margin: 0;
+            font-size: 0.8vw;
+        }
+    }
+    img {
+        width: 1.5vw;
+        height: 1.5vw;
+        margin-right: 0.7vw;
+    }
+    span {
+        font-weight: 300;
+        font-size: 1.0vw;
+    }
 }
 
 /* responsive style */
