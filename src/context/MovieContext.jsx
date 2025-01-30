@@ -31,12 +31,17 @@ export const MovieProvider = ({ children }) => {
       });
   }, []);
 
-  const addToWatchList = (movie) => {
-    setwatchList((prev) => [...prev, movie]);
-  };
-  const removeFromWatchList = (id) => {
-    setwatchList((prev) => prev.filter((m) => m.id !== id));
-  };
+	const addToWatchList = (movie) => {
+		setwatchList((prev) => {
+			if (prev.find((m) => m.id === movie.id)) {
+				return prev;
+			}
+			return [...prev, movie];
+		});
+	};
+	const removeFromWatchList = (id) => {
+		setwatchList((prev) => prev.filter((m) => m.id !== id));
+	};
 
   const addToFavorites = (movie) => {
     setFavorites((favorites) => [...favorites, movie]);
