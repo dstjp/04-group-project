@@ -146,6 +146,10 @@
     h3 {
         margin: 0.5vw 2vw 0.5vw 0;
         font-size: 2vw;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        max-width: 18vw;
     }
     img {
         width: 2vw;
