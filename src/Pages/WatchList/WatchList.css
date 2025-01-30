@@ -108,6 +108,7 @@
 	display: flex;
 	align-items: center;
 	gap: 1vw;
+    height: 8vw;
 	.watchlist-info-icon {
 		width: 2vw;
 		height: 2vw;
