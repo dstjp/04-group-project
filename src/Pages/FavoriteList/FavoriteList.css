@@ -22,31 +22,59 @@
 /* Movie */
 
 .fav-movie-card-container {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 1.5rem;
+	margin-top: 1rem;
+	width: 100%;
 }
 
 .fav-movie-card {
+	background: #2c2c2c;
+	border-radius: 10px;
+	overflow: hidden;
+	transition: transform 0.3s ease-in-out;
+	cursor: pointer;
 }
 
-.fav-movie-image-wrapper {
+.fav-movie-card:hover {
+	transform: scale(1.01);
 }
 
-.fav-movie-image {
-}
-
-.fav-movie-img {
+.fav-movie-image img {
+	width: 100%;
+	height: auto;
+	border-radius: 1.5vw;
 }
 
 .fav-movie-info-wrapper {
+	margin: 0.5rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-content: space-between;
 }
 
 .fav-rating-wrapper {
+	display: flex;
+	gap: 0.5rem;
+	justify-content: flex-start;
+	align-items: center;
 }
 
 .fav-title-wrapper {
+	display: flex;
+	flex-direction: column;
+	font-size: 1rem;
+	font-weight: bold;
 }
 
-.fav-title-images {
+.fav-title-wrapper p {
 }
 
 .fav-watchlist-button {
+	border: none;
+	background: none;
+	cursor: pointer;
+	transition: opacity 0.3s;
 }
