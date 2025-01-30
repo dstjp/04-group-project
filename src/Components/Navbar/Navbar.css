@@ -31,6 +31,10 @@
 	margin-left: -4.3rem;
 }
 
+.nav-icon:hover {
+	transform: scale(1.1);
+}
+
 .navbar-logo {
 	display: none;
 }

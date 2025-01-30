@@ -1,26 +1,78 @@
 import { useMovie } from "../../context/MovieContext.jsx";
+import { Icon } from "../../Components/Icon/Icon.jsx";
+import ratingIcon from "../../assets/MovieCardIcons/movieCardRatingStar.svg";
+import favoriteIcon from "../../assets/MovieCardIcons/movieCardStar.svg";
+import eyeIcon from "../../assets/MovieCardIcons/movieCardEye.png";
+import rectangle from "../../assets/watchlistIcons/rectangle.svg";
 import "./FavoriteList.css";
 
 export default function FavoriteList() {
-	const { favorites, removeFromFavorites } = useMovie();
+	const {
+		favorites,
+		removeFromFavorites,
+		formatRating,
+		formatMovieTitle,
+		addToWatchList,
+	} = useMovie();
 
 	return (
-		<div className="favorite-list-container">
-			<h3 className="favorite-list-header">Favorite List</h3>
+		<div className="fav-list-container">
+			<div className="fav-list-header">
+				<Icon url={rectangle} alt="rectangle" className="fav-rectangle" />
+				<h1 className="fav-list-title">Favorite List</h1>
+			</div>
 			{favorites.length > 0 ? (
-				<ul>
+				<div className="fav-movie-card-container">
 					{favorites.map((movie) => (
-						<li key={movie.id} className="favorite-item">
-							<h3>{movie.title}</h3>
-							<p>{movie.overview}</p>
+						<div key={movie.id} className="fav-movie-card">
+							{/* Image Wrapper */}
+							<div className="fav-movie-image-wrapper">
+								<div className="fav-movie-image">
+									<img
+										src={`https://image.tmdb.org/t/p/w1280${movie.backdrop_path}`}
+										alt={`${movie.title} poster`}
+									/>
+								</div>
+								{/* Movie Info */}
+								<div className="fav-movie-info-wrapper">
+									<div className="fav-rating-wrapper">
+										<img src={ratingIcon} alt="star icon" />
+										<span>{formatRating(movie.vote_average)}</span>
+									</div>
+
+									<div className="fav-title-wrapper">
+										<p>{formatMovieTitle(movie.title, 20)}</p>
+
+										{/* Title Image */}
+										<div className="fav-title-images">
+											<Icon
+												onClick={() => addToWatchList(movie)}
+												type="button"
+												url={eyeIcon}
+												alt="eye icon"
+												className="fav-watchlist-button"
+											/>
+											<Icon
+												type="button"
+												url={favoriteIcon}
+												alt="star icon"
+												className="fav-favorite-button"
+											/>
+										</div>
+									</div>
+								</div>
+							</div>
+
 							{/* <button onClick={() => removeFromFavorites(movie.id)}>
 								Remove
-							</button> */}
-						</li>
+                </button> */}
+						</div>
 					))}
-				</ul>
+				</div>
 			) : (
-				<p>No favorites added yet.</p>
+				<div className="no-fav-added">
+					<p>No favorites added yet.</p>
+				</div>
 			)}
 		</div>
 	);
