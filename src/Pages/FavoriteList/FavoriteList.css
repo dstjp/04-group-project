@@ -31,22 +31,42 @@
 
 .fav-movie-card {
 	background: #2c2c2c;
-	border-radius: 10px;
+	width: 35dvw;
+	height: 28dvw;
+	border-radius: 1.5vw;
 	overflow: hidden;
 	transition: transform 0.3s ease-in-out;
-	cursor: pointer;
 }
 
 .fav-movie-card:hover {
-	transform: scale(1.01);
+	transform: scale(1.05);
+}
+
+.fav-movie-remove-btn {
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.7);
+	width: 35dvw;
+	height: 20dvw;
+	border: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
 }
 
 .fav-movie-image img {
-	width: 100%;
-	height: auto;
+	width: 35dvw;
+	height: 20dvw;
 	border-radius: 1.5vw;
 }
 
+.fav-movie-image:hover .fav-movie-remove-btn {
+	opacity: 1;
+}
 .fav-movie-info-wrapper {
 	margin: 0.5rem;
 	display: flex;
@@ -60,7 +80,7 @@
 	justify-content: flex-start;
 	align-items: center;
 	gap: 0.5rem;
-	margin-bottom: -0.5rem;
+	margin-top: -0.5rem;
 }
 
 .fav-title-wrapper {
@@ -72,15 +92,18 @@
 
 .fav-title-wrapper p {
 	font-size: 1.5rem;
+	margin-top: 0.25rem;
 }
 
 .fav-watchlist-button img {
 	height: 1.66rem;
+	cursor: pointer;
 }
 
 .fav-favorite-button img {
 	margin-bottom: 0.25rem;
 	height: 1.4rem;
+	cursor: pointer;
 }
 
 .no-fav-added {
