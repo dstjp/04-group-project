@@ -29,12 +29,12 @@ export default function FavoriteList() {
 							<div className="fav-movie-image-wrapper">
 								<div className="fav-movie-image">
 									<img
-										srcSet={`
+										/* srcSet={`
                     https://image.tmdb.org/t/p/w185${movie.poster_path} 185w,
                     https://image.tmdb.org/t/p/w342${movie.poster_path} 342w,
                     `}
 										sizes="(max-width: 1023px) 185px,
-                    342px"
+                    342px" */
 										src={`https://image.tmdb.org/t/p/w1280${movie.backdrop_path}`}
 										alt={`${movie.title} poster`}
 									/>
