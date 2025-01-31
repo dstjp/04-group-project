@@ -1,6 +1,8 @@
 import React from "react";
 import { useMovie } from "../context/MovieContext.jsx";
-import { useState, useEffect, useRef } from "react";
+import { useDialog } from "../context/DialogContext.jsx";
+
+import { useEffect } from "react";
 import ratingIcon from "../assets//MovieCardIcons/movieCardRatingStar.svg";
 import favoriteIcon from "../assets//MovieCardIcons/movieCardStar.svg";
 import eyeIcon from "../assets/MovieCardIcons/movieCardEye.png";
@@ -16,30 +18,27 @@ export const MovieCard = () => {
     addToFavorites,
   } = useMovie();
 
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [selectedMovie, setSelectedMovie] = useState(null);
-  const dialogRef = useRef(null);
+  const {
+    isDialogOpen,
+    selectedDialogMovie,
+    dialogRef,
+    handleOpenDialog,
+    handleCloseDialog,
+    isInfoButtonClicked,
+  } = useDialog();
 
-  const handleOpenDialog = (movie) => {
-    setSelectedMovie(movie);
-    setIsDialogOpen(true);
-  };
-
-  const handleCloseDialog = () => {
-    setSelectedMovie(null);
-    setIsDialogOpen(false);
-  };
-
+  // Open/close dialog
   useEffect(() => {
     if (isDialogOpen && dialogRef.current) {
       dialogRef.current.showModal();
     } else if (!isDialogOpen && dialogRef.current) {
       dialogRef.current.close();
     }
-    console.log("selected movie:", selectedMovie);
+    console.log("selected movie:", selectedDialogMovie);
     console.log("is dialog open:", isDialogOpen);
     console.log("dialog ref:", dialogRef);
-  }, [selectedMovie, isDialogOpen]);
+    console.log("is info button clicked:", isInfoButtonClicked);
+  }, [isDialogOpen, dialogRef, selectedDialogMovie,isInfoButtonClicked]);
 
   return (
     <div className="movie-card-container">
@@ -88,10 +87,10 @@ export const MovieCard = () => {
         </div>
       ))}
 
-      {isDialogOpen && selectedMovie && (
+      {isDialogOpen && selectedDialogMovie && isInfoButtonClicked && (
         <MovieDetailsDialog
           onClose={handleCloseDialog}
-          movie={selectedMovie}
+          movie={selectedDialogMovie}
           ref={dialogRef}
         />
       )}
