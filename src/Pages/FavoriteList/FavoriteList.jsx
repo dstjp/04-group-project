@@ -25,11 +25,18 @@ export default function FavoriteList() {
 	const [selectedMovie, setSelectedMovie] = useState(null);
 
 	const handleRatingClick = (movie) => {
-		setSelectedMovie(movie);
+		setSelectedMovie({
+			...movie,
+			userRating: ratings[movie.id] !== undefined ? ratings[movie.id] : 0,
+		});
 	};
 
   const handleRatingSubmit = (movieId, rating) => {
 		updateRating(movieId, rating);
+
+		const updatedFavorites = favorites.map((movie) => 
+			movie.id === movieId ? { ...movie, userRating: rating } : movie
+		);
     handleClosePopUp();
   };
 
@@ -96,9 +103,8 @@ export default function FavoriteList() {
 										alt="star icon"
 										onClick={() => handleRatingClick(movie)} />
 										<span>
-											{ratings && ratings[movie.id] !== undefined
-											? `${ratings[movie.id]}.0`
-											: "Not rated"}
+											{ratings[movie.id] !== undefined && ratings[movie.id] !== null
+											? `${ratings[movie.id]}.0` : "Rate me!"}
 										</span>
 									</div>
 

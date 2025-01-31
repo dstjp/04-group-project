@@ -71,9 +71,9 @@ export const MovieProvider = ({ children }) => {
 
 	const updateRating = (movieId, rating) => {
 		setRatings((preRatings) => ({
-			...preRatings,
-			[movieId]: rating,
-		}));
+				...preRatings,
+				[movieId]: rating !== 0 ? rating : null,
+			}));
 	};
 
 	return (
