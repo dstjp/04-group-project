@@ -11,7 +11,7 @@
 		font-size: 1.5vw;
 		align-items: center;
 	}
-	margin-top: 12vw;
+	margin-top: 3vw;
 }
 
 .watchlist-container {
@@ -68,13 +68,13 @@
 	position: absolute;
 	top: 0;
 	left: 0;
-	background-color: rgba(0, 0, 0, 0.7);
+	background-color: rgba(0, 0, 0, 0.3);
 	width: 35dvw;
 	height: 20dvw;
 	border: none;
 	display: flex;
-	justify-content: center;
-	align-items: center;
+	justify-content: flex-end;
+	align-items: flex-start;
 	cursor: pointer;
 	transition: background-color 0.3s ease;
 }
@@ -82,7 +82,7 @@
 	opacity: 1;
 }
 .watchlist-remove-btn:hover {
-	background-color: rgba(0, 0, 0, 0.9);
+	background-color: rgba(0, 0, 0, 0.4);
 }
 
 .remove-icon {
@@ -90,15 +90,17 @@
 	border: none;
 	padding: 0;
 	cursor: pointer;
+	margin: 1vw;
 }
 
 .remove-icon img {
-	width: 5dvw;
-	height: 5dvw;
+	width: 3dvw;
+	height: 3dvw;
 }
 
 .watchlist-movie-text {
 	display: flex;
+	align-items: center;
 	width: 100%;
 	justify-content: space-between;
 }
@@ -143,14 +145,15 @@
 
 .watchlist-rating-wrapper {
     display: flex;
-    align-items: center;
+		flex-direction: column;
+    align-items: flex-start;
     h3 {
         margin: 0.5vw 2vw 0.5vw 0;
         font-size: 2vw;
         white-space: nowrap;
         text-overflow: ellipsis;
         overflow: hidden;
-        max-width: 18vw;
+        max-width: 25vw;
     }
     .watchlist-rating {
         display: flex;
@@ -163,6 +166,11 @@
             font-size: 0.8vw;
         }
     }
+		.watchlist-general-rating {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
     img {
         width: 1.5vw;
         height: 1.5vw;
@@ -184,7 +192,7 @@
 	}
 }
 
-@media screen and (min-width: 1024px) {
+/* @media screen and (min-width: 1024px) {
 	.watchlist-container {
 		grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 	}
@@ -197,4 +205,4 @@
 	.watchlist-container {
 		grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
 	}
-}
+} */
