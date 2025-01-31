@@ -12,7 +12,21 @@
 .movie-card-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+   .movie-list-container {
+    padding: 20px;
+  }
+  
+  .movie-list-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .movie-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  } justify-content: center;
   align-items: center;
   gap: 20px;
 }
