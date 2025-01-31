@@ -38,7 +38,7 @@ export const MovieCard = () => {
     console.log("is dialog open:", isDialogOpen);
     console.log("dialog ref:", dialogRef);
     console.log("is info button clicked:", isInfoButtonClicked);
-  }, [isDialogOpen, dialogRef, selectedDialogMovie,isInfoButtonClicked]);
+  }, [isDialogOpen, dialogRef, selectedDialogMovie, isInfoButtonClicked]);
 
   return (
     <div className="movie-card-container">
@@ -65,23 +65,23 @@ export const MovieCard = () => {
             </div>
 
             <div className="title-wrapper">
-              <p>{formatMovieTitle(movie.title, 15)}</p>
-              <div className="title-images">
-                <Icon
-                  onClick={() => addToWatchList(movie)}
-                  type="button"
-                  url={eyeIcon}
-                  alt="heart icon"
-                  className="watchlist-button"
-                />
-                <Icon
-                  onClick={() => addToFavorites(movie)}
-                  type="button"
-                  url={favoriteIcon}
-                  alt="start icon"
-                  className="favorite-button"
-                />
-              </div>
+              <p>{formatMovieTitle(movie.title, 13)}</p>
+            </div>
+            <div className="title-images">
+              <Icon
+                onClick={() => addToWatchList(movie)}
+                type="button"
+                url={eyeIcon}
+                alt="heart icon"
+                className="watchlist-button"
+              />
+              <Icon
+                onClick={() => addToFavorites(movie)}
+                type="button"
+                url={favoriteIcon}
+                alt="start icon"
+                className="favorite-button"
+              />
             </div>
           </div>
         </div>

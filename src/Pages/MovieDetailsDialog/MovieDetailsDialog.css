@@ -9,6 +9,7 @@ dialog {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  max-width: min-content;
 }
 
 h2,
