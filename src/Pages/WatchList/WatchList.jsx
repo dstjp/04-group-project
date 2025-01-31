@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useMovie } from "../../context/MovieContext";
 import { useDialog } from "../../context/DialogContext";
 import { Icon } from "../../Components/Icon/Icon";
@@ -16,18 +16,8 @@ function WatchList() {
     watchList,
     removeFromWatchList,
     addToFavorites,
-/*     ratings,
-    updateRating, */
 		formatRating
   } = useMovie();
-
-  // edit rating functions
-  const [selectedMovie, setSelectedMovie] = useState(null);
-
-
-  const handleClosePopUp = () => {
-    setSelectedMovie(null);
-  };
 
   // Dialog functions
   const {
@@ -122,13 +112,6 @@ function WatchList() {
           ))
         )}
       </div>
-{/*       {selectedMovie && (
-        <RatingPopUp
-          movie={selectedMovie}
-          onClose={handleClosePopUp}
-          onSubmit={handleRatingSubmit}
-        />
-      )} */}
 
       {isDialogOpen && isInfoButtonClicked && selectedDialogMovie && (
         <MovieDetailsDialog
