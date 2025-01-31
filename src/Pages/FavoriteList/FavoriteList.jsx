@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useMovie } from "../../context/MovieContext.jsx";
+import { useDialog } from "../../context/DialogContext.jsx";
 import { Icon } from "../../Components/Icon/Icon.jsx";
 import RatingPopUp from "../FavoriteList/Ratingscore/RatingPopUp";
 import ratingIcon from "../../assets/MovieCardIcons/movieCardRatingStar.svg";
-import favoriteIcon from "../../assets/MovieCardIcons/movieCardStar.svg";
 import filledFavorite from "../../assets/FavoriteListIcon/filledStar.svg";
 import eyeIcon from "../../assets/MovieCardIcons/movieCardEye.png";
 import rectangle from "../../assets/watchlistIcons/rectangle.svg";
 import trash from "../../assets/watchlistIcons/trash.svg";
 import "./FavoriteList.css";
+import infoIcon from "../../assets/watchlistIcons/Info.svg"
+import { MovieDetailsDialog } from "../MovieDetailsDialog/MovieDetailsDialog.jsx";
 
 export default function FavoriteList() {
 	const {
@@ -34,6 +36,28 @@ export default function FavoriteList() {
 	const handleClosePopUp = () => {
 		setSelectedMovie(null);
 	};
+
+	// dialog functions
+	const {
+			isDialogOpen,
+			selectedDialogMovie,
+			dialogRef,
+			handleOpenDialog,
+			handleCloseDialog,
+			isInfoButtonClicked
+		} = useDialog();
+	
+		useEffect(() => {
+			if (isDialogOpen && dialogRef.current) {
+				dialogRef.current.showModal();
+			} else if (!isDialogOpen && dialogRef.current) {
+				dialogRef.current.close();
+			}
+			console.log("selected dialog movie:", selectedDialogMovie);
+			console.log("is dialog open:", isDialogOpen);
+			console.log("dialog ref:", dialogRef);
+			console.log("is info button clicked:", isInfoButtonClicked);
+		}, [selectedDialogMovie, isDialogOpen, dialogRef, isInfoButtonClicked]);
 
 	return (
 		<div className="fav-list-container">
@@ -95,6 +119,13 @@ export default function FavoriteList() {
 												alt="star icon"
 												className="fav-favorite-button"
 											/>
+											<Icon
+												type="button"
+												url={infoIcon}
+												alt="info icon"
+												onClick={() => handleOpenDialog(movie)}
+												className="fav-info-button"
+											/>
 										</div>
 									</div>
 								</div>
@@ -114,6 +145,14 @@ export default function FavoriteList() {
 				onClose={handleClosePopUp}
 				onSubmit={handleRatingSubmit} />
 			)}
+
+			{isDialogOpen && isInfoButtonClicked && selectedDialogMovie && (
+							<MovieDetailsDialog
+								onClose={handleCloseDialog}
+								movie={selectedDialogMovie}
+								ref={dialogRef}
+							/>
+						)}
 		</div>
 	);
 }
