@@ -1,8 +1,12 @@
 import Ratingscore from "./Ratingscore";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 export default function RatingPopUp( { movie, onClose, onSubmit } ) {
-  const [rating, setRating] = useState(null);
+  const [rating, setRating] = useState(movie.userRating || null);
+
+  useEffect(() => {
+    setRating(movie.userRating || null);
+  }, [movie]);
 
   const handleRating = (value) => {
     setRating(value);
@@ -11,11 +15,14 @@ export default function RatingPopUp( { movie, onClose, onSubmit } ) {
   const handleSubmit = () => {
     console.log(`Rating: ${rating} for movie: ${movie.title}`);
     onSubmit(movie.id, rating);
+    movie.userRating = rating;
     onClose();
   }
 
   const handleRevoke = () => {
     setRating(null);
+    onSubmit(movie.id, null);
+    /* movie.userRating = 0; */
   }
 
   return (
