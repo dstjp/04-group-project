@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaStar } from "react-icons/fa";
 
-export default function Ratingscore({ onRatingChange }) {
+export default function Ratingscore({ initialRating = 0, onRatingChange }) {
   const colors = {
     blue: "#006AFF",
     grey: "#a9a9a9",
@@ -9,6 +9,10 @@ export default function Ratingscore({ onRatingChange }) {
   const stars = Array(10).fill(0); 
   const [currentValue, setCurrentValue] = useState(0);
   const [hoverValue, setHoverValue] = useState(undefined);
+
+  useEffect(() => {
+    setCurrentValue(initialRating);
+  }, [initialRating]);
 
   const handleClick = (value) => {
     setCurrentValue(value);

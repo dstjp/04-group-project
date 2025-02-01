@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useMovie } from "../../context/MovieContext";
 import { useDialog } from "../../context/DialogContext";
 import { Icon } from "../../Components/Icon/Icon";
@@ -9,7 +9,6 @@ import trash from "../../assets/watchlistIcons/trash.svg";
 import Info from "../../assets/watchlistIcons/Info.svg";
 import star from "../../assets/watchlistIcons/star.svg";
 import rectangle from "../../assets/watchlistIcons/rectangle.svg";
-import RatingPopUp from "../FavoriteList/Ratingscore/RatingPopUp";
 import { MovieDetailsDialog } from "../MovieDetailsDialog/MovieDetailsDialog";
 
 function WatchList() {
@@ -17,25 +16,8 @@ function WatchList() {
     watchList,
     removeFromWatchList,
     addToFavorites,
-    ratings,
-    updateRating,
+		formatRating
   } = useMovie();
-
-  // edit rating functions
-  const [selectedMovie, setSelectedMovie] = useState(null);
-
-  const handleRatingClick = (movie) => {
-    setSelectedMovie(movie);
-  };
-
-  const handleClosePopUp = () => {
-    setSelectedMovie(null);
-  };
-
-  const handleRatingSubmit = (movieId, rating) => {
-    updateRating(movieId, rating);
-    handleClosePopUp();
-  };
 
   // Dialog functions
   const {
@@ -97,19 +79,19 @@ function WatchList() {
               <div className="watchlist-movie-text">
                 <div className="watchlist-movie-info">
                   <div className="watchlist-rating-wrapper">
-                    <h3>{movie.title}</h3>
-                    <img
-                      src={ratingIcon}
-                      alt="star icon"
-                      onClick={() => handleRatingClick(movie)}
-                    />
-                    <span>
-                      {ratings && ratings[movie.id] !== undefined
-                        ? `${ratings[movie.id]}.0`
-                        : "Not Rated"}
-                    </span>
+                    <div className="watchlist-general-rating">
+											<img
+												src={ratingIcon}
+												alt="star icon"
+												/* onClick={() => handleRatingClick(movie)} */
+											/>
+											<span>
+												{formatRating(movie.vote_average)}
+											</span>
+										</div>
+										<h3>{movie.title}</h3>
+
                   </div>
-                  <p className="watchlist-overview">Brief: {movie.overview}</p>
                 </div>
                 <div className="watchlist-rate-btns">
                   <Icon
@@ -130,13 +112,6 @@ function WatchList() {
           ))
         )}
       </div>
-      {selectedMovie && (
-        <RatingPopUp
-          movie={selectedMovie}
-          onClose={handleClosePopUp}
-          onSubmit={handleRatingSubmit}
-        />
-      )}
 
       {isDialogOpen && isInfoButtonClicked && selectedDialogMovie && (
         <MovieDetailsDialog
