@@ -54,6 +54,7 @@ export const MovieCard = () => {
 												342px"
               src={`https://image.tmdb.org/t/p/w1280${movie.backdrop_path}`}
               alt={`${movie.title} poster`}
+              className="movie-image"
               onClick={() => handleOpenDialog(movie)}
             />
           </div>

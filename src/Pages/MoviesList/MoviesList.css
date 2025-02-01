@@ -34,8 +34,12 @@
   flex-direction: column;
   justify-content: flex-start;
   align-content: space-between;
-
   padding: 0 10px 0 10px;
+}
+
+.movie-image:hover {
+  filter: brightness(70%);
+
 }
 
 .rating-wrapper {
@@ -57,9 +61,22 @@
 
 .title-images {
   display: flex;
-  gap: 5px;
+  gap: 8px;
 }
 
+
+.watchlist-button:hover{
+  cursor: pointer;
+  transform: scale(1.2);
+  filter: drop-shadow(1px 2px 5px rgba(174, 62, 62, 0.7))
+
+}
+
+.favorite-button:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+  filter: drop-shadow(1px 2px 5px rgba(94, 118, 238, 0.7))
+}
 .watchlist-button img {
   height: 1.75rem;
 }
@@ -120,9 +137,11 @@
     justify-content: center;
     margin: 0 auto;
   }
+
   .watchlist-button img {
     height: 2rem;
   }
+  
   .favorite-button img {
     height: 1.6rem;
   }

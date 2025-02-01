@@ -9,7 +9,8 @@ dialog {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-width: min-content;
+  max-height: 80vh;
+height:fit-content ;
 }
 
 h2,
@@ -17,15 +18,29 @@ p {
   margin: 0;
 }
 
+.dialog-content{
+  display: flex;
+  flex-direction: column ;
+  height: 100%;
+  max-height: 80vh;
+}
 .details-container {
   display: flex;
   flex-direction: column;
   text-align: center;
+  overflow-y: auto;
+
 }
+
 .button-wrapper {
-  align-self: flex-end;
+  display: flex;
+  margin-top:0;
   border: none;
   outline: none;
+  position: sticky;
+  top:0;
+  align-self: flex-end;
+  padding-bottom: 5px;
 }
 
 .close-dialog-button {

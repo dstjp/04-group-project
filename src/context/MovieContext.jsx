@@ -13,8 +13,10 @@ export const MovieProvider = ({ children }) => {
 	useEffect(() => {
 		const apiKey = "272e0a4f8aed64cdcbc79856c6259d84";
 		const url = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}`;
-
+		setLoading(true)
+		setTimeout(() => {
 		fetch(url)
+	
 			.then((res) => {
 				if (!res.ok) {
 					throw new Error("Failed to fetch data");
@@ -30,6 +32,7 @@ export const MovieProvider = ({ children }) => {
 				setError(error.message);
 				setLoading(false);
 			});
+		}, 2000)
 	}, []);
 
 	const addToWatchList = (movie) => {
