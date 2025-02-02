@@ -97,12 +97,11 @@ export default function FavoriteList() {
 
 								<div className="fav-movie-info-wrapper">
 									<div className="fav-rating-wrapper">
-										<img
-											src={ratingIcon}
-											alt="star icon"
+										<img src={ratingIcon} alt="star icon" />
+										<span
+											className="fav-rate-button"
 											onClick={() => handleRatingClick(movie)}
-										/>
-										<span>
+										>
 											{ratings[movie.id] !== undefined &&
 											ratings[movie.id] !== null
 												? `${ratings[movie.id]}.0`
