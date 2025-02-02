@@ -1,15 +1,28 @@
 .fav-list-container {
-	margin: 1rem;
+	margin-top: 3vw;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+}
+
+.fav-empty-text {
+	margin-top: 1rem;
+}
+
+.favlist-empty {
+	grid-column: 1 / -1;
+	margin-top: 10vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 .fav-list-header {
 	display: flex;
 	margin-left: 10vw;
 	gap: 1vw;
-	font-size: 1rem;
+	font-size: 1.5vw;
 	align-items: center;
 }
 
@@ -112,12 +125,6 @@
 	cursor: pointer;
 }
 
-.no-fav-added {
-	margin-top: 4rem;
-	font-size: 1.5rem;
-	display: flex;
-	justify-content: center;
-}
 @media (max-width: 1024px) {
 	.fav-list-header {
 		margin-left: 2vw;

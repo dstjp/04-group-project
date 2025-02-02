@@ -22,6 +22,7 @@
 }
 
 .nth-words {
+	margin-top: 1rem;
 	color: white;
 }
 
@@ -110,7 +111,7 @@
 	display: flex;
 	align-items: center;
 	gap: 1vw;
-    height: 8vw;
+	height: 8vw;
 	.watchlist-info-icon {
 		width: 2vw;
 		height: 2vw;
@@ -144,42 +145,42 @@
 }
 
 .watchlist-rating-wrapper {
-    display: flex;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	h3 {
+		margin: 0.5vw 2vw 0.5vw 0;
+		font-size: 2vw;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		max-width: 25vw;
+	}
+	.watchlist-rating {
+		display: flex;
 		flex-direction: column;
-    align-items: flex-start;
-    h3 {
-        margin: 0.5vw 2vw 0.5vw 0;
-        font-size: 2vw;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        max-width: 25vw;
-    }
-    .watchlist-rating {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-items: center;
-        margin-right: 0.5vw;
-        p {
-            margin: 0;
-            font-size: 0.8vw;
-        }
-    }
-		.watchlist-general-rating {
-			display: flex;
-			justify-content: center;
-			align-items: center;
+		align-items: center;
+		justify-items: center;
+		margin-right: 0.5vw;
+		p {
+			margin: 0;
+			font-size: 0.8vw;
 		}
-    img {
-        width: 1.5vw;
-        height: 1.5vw;
-        margin-right: 0.7vw;
-    }
-    span {
-        font-weight: 300;
-        font-size: 1.0vw;
-    }
+	}
+	.watchlist-general-rating {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	img {
+		width: 1.5vw;
+		height: 1.5vw;
+		margin-right: 0.7vw;
+	}
+	span {
+		font-weight: 300;
+		font-size: 1vw;
+	}
 }
 
 /* responsive style */

@@ -7,6 +7,7 @@ import ratingIcon from "../../assets/MovieCardIcons/movieCardRatingStar.svg";
 import eyeIcon from "../../assets/MovieCardIcons/movieCardEye.png";
 import rectangle from "../../assets/watchlistIcons/rectangle.svg";
 import trash from "../../assets/watchlistIcons/trash.svg";
+import collectIcon from "../../assets/watchlistIcons/collect.svg";
 import "./FavoriteList.css";
 import infoIcon from "../../assets/watchlistIcons/Info.svg";
 import { MovieDetailsDialog } from "../MovieDetailsDialog/MovieDetailsDialog.jsx";
@@ -136,8 +137,11 @@ export default function FavoriteList() {
 					))}
 				</div>
 			) : (
-				<div className="no-fav-added">
-					<p>No favorites added yet.</p>
+				<div className="favlist-empty">
+					<img src={collectIcon} alt="collect" />
+					<p className="favlist-text">
+						Save shows and movies to keep track of what you want to watch.
+					</p>
 				</div>
 			)}
 
