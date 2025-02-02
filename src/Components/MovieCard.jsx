@@ -17,6 +17,8 @@ export const MovieCard = () => {
 		formatMovieTitle,
 		addToWatchList,
 		addToFavorites,
+		filledStar,
+		setFilledStar,
 	} = useMovie();
 
 	const {
@@ -72,14 +74,16 @@ export const MovieCard = () => {
 									onClick={() => addToWatchList(movie)}
 									type="button"
 									url={eyeIcon}
-									alt="heart icon"
+									alt="watch icon"
 									className="watchlist-button"
 								/>
 								<Icon
 									onClick={() => addToFavorites(movie)}
+									onMouseEnter={() => setFilledStar(true)}
+									onMouseLeave={() => setFilledStar(false)}
 									type="button"
-									url={favoriteIcon}
-									alt="start icon"
+									url={filledStar[movie.id] ? filledFavorite : favoriteIcon}
+									alt="star icon"
 									className="favorite-button"
 								/>
 							</div>
