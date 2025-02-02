@@ -67,16 +67,16 @@ export default function FavoriteList() {
 	}, [selectedDialogMovie, isDialogOpen, dialogRef, isInfoButtonClicked]);
 
 	return (
-		<div className="fav-list-container">
+		<div className="fav-list-page">
 			<div className="fav-list-header">
 				<Icon url={rectangle} alt="rectangle" className="fav-rectangle" />
 				<h1 className="fav-list-title">Favorite List</h1>
 			</div>
-			{favorites.length > 0 ? (
-				<div className="fav-movie-card-container">
-					{favorites.map((movie) => (
-						<div key={movie.id} className="fav-movie-card">
-							<div className="fav-movie-image-wrapper">
+			<div className="fav-list-container">
+				{favorites.length > 0 ? (
+					<div className="fav-movie-card-container">
+						{favorites.map((movie) => (
+							<div key={movie.id} className="fav-movie-card">
 								<div className="fav-movie-image">
 									<div className="fav-movie-remove-btn">
 										<Icon
@@ -97,53 +97,52 @@ export default function FavoriteList() {
 								</div>
 
 								<div className="fav-movie-info-wrapper">
-									<div className="fav-rating-wrapper">
-										<img src={ratingIcon} alt="star icon" />
-										<span
-											className="fav-rate-button"
-											onClick={() => handleRatingClick(movie)}
-										>
-											{ratings[movie.id] !== undefined &&
-											ratings[movie.id] !== null
-												? `${ratings[movie.id]}.0`
-												: "Rate me!"}
-										</span>
+									<div className="fav-list-movie-info">
+										<div className="fav-rating-wrapper">
+											<img src={ratingIcon} alt="star icon" />
+											<span
+												className="fav-rate-button"
+												onClick={() => handleRatingClick(movie)}
+											>
+												{ratings[movie.id] !== undefined &&
+												ratings[movie.id] !== null
+													? `${ratings[movie.id]}.0`
+													: "Rate me!"}
+											</span>
+										</div>
+										<p>{formatMovieTitle(movie.title, 20)}</p>
 									</div>
 
-									<div className="fav-title-wrapper">
-										<p>{formatMovieTitle(movie.title, 20)}</p>
+									<div className="fav-list-icons">
+										<Icon
+											onClick={() => addToWatchList(movie)}
+											type="button"
+											url={eyeIcon}
+											alt="eye icon"
+											className="fav-watchlist-button"
+										/>
 
-										<div className="fav-title-images">
-											<Icon
-												onClick={() => addToWatchList(movie)}
-												type="button"
-												url={eyeIcon}
-												alt="eye icon"
-												className="fav-watchlist-button"
-											/>
-
-											<Icon
-												type="button"
-												url={infoIcon}
-												alt="info icon"
-												onClick={() => handleOpenDialog(movie)}
-												className="fav-info-button"
-											/>
-										</div>
+										<Icon
+											type="button"
+											url={infoIcon}
+											alt="info icon"
+											onClick={() => handleOpenDialog(movie)}
+											className="fav-info-button"
+										/>
 									</div>
 								</div>
 							</div>
-						</div>
-					))}
-				</div>
-			) : (
-				<div className="favlist-empty">
-					<img src={collectIcon} alt="collect" />
-					<p className="favlist-text">
-						Save shows and movies to keep track of what you want to watch.
-					</p>
-				</div>
-			)}
+						))}
+					</div>
+				) : (
+					<div className="favlist-empty">
+						<img src={collectIcon} alt="collect" />
+						<p className="fav-list-empty-text">
+							Save shows and movies to keep track of what you want to watch.
+						</p>
+					</div>
+				)}
+			</div>
 
 			{selectedMovie && (
 				<RatingPopUp

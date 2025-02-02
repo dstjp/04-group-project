@@ -14,16 +14,15 @@
 	margin-top: 3vw;
 }
 
+.watchlist-empty-text {
+	margin-top: 1rem;
+}
+
 .watchlist-container {
 	margin: 0 10vw;
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	gap: 4vw;
-}
-
-.nth-words {
-	margin-top: 1rem;
-	color: white;
 }
 
 .watchlist-empty {
@@ -57,7 +56,7 @@
 	object-fit: cover;
 }
 
-.watchlist-movie {
+.watchlist-movie-card {
 	max-width: 35dvw;
 	max-height: 28dvw;
 	background-color: rgb(40, 40, 40);
@@ -99,14 +98,14 @@
 	height: 3dvw;
 }
 
-.watchlist-movie-text {
+.watchlist-movie-info-wrapper {
 	display: flex;
 	align-items: center;
 	width: 100%;
 	justify-content: space-between;
 }
 
-.watchlist-rate-btns {
+.watchlist-icons {
 	margin-right: 1vw;
 	display: flex;
 	align-items: center;

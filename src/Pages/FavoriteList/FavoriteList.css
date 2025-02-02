@@ -1,11 +1,18 @@
-.fav-list-container {
+.fav-list-page {
 	margin-top: 3vw;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 }
 
-.fav-empty-text {
+.fav-list-container {
+	margin: 0 10vw;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 4vw;
+}
+
+.fav-list-empty-text {
 	margin-top: 1rem;
 }
 

@@ -17,6 +17,7 @@ function WatchList() {
 	const {
 		watchList,
 		removeFromWatchList,
+		formatMovieTitle,
 		addToFavorites,
 		filledStar,
 		setFilledStar,
@@ -55,13 +56,13 @@ function WatchList() {
 				{watchList.length === 0 ? (
 					<div className="watchlist-empty">
 						<img src={collect} alt="collect" />
-						<p className="nth-words">
+						<p className="watchlist-empty-text">
 							Save shows and movies to keep track of what you want to watch.
 						</p>
 					</div>
 				) : (
 					watchList.map((movie) => (
-						<div key={movie.id} className="watchlist-movie">
+						<div key={movie.id} className="watchlist-movie-card">
 							<div className="watchlist-movie-img">
 								<div className="watchlist-remove-btn">
 									<Icon
@@ -80,10 +81,10 @@ function WatchList() {
 									alt={`${movie.title} poster`}
 								/>
 							</div>
-							<div className="watchlist-movie-text">
+							<div className="watchlist-movie-info-wrapper">
 								<div className="watchlist-movie-info">
 									<div className="watchlist-rating-wrapper">
-										<div className="watchlist-general-rating">
+										<div className="watchlist-general-rating watchlist-extra">
 											<img
 												src={ratingIcon}
 												alt="star icon"
@@ -91,10 +92,10 @@ function WatchList() {
 											/>
 											<span>{formatRating(movie.vote_average)}</span>
 										</div>
-										<h3>{movie.title}</h3>
 									</div>
+									<p>{formatMovieTitle(movie.title, 20)}</p>
 								</div>
-								<div className="watchlist-rate-btns">
+								<div className="watchlist-icons">
 									<Icon
 										url={Info}
 										alt="info"
