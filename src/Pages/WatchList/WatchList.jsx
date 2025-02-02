@@ -63,7 +63,7 @@ function WatchList() {
 				) : (
 					watchList.map((movie) => (
 						<div key={movie.id} className="watchlist-movie-card">
-							<div className="watchlist-movie-img">
+							<div className="watchlist-movie-image">
 								<div className="watchlist-remove-btn">
 									<Icon
 										onClick={(e) => {
@@ -73,7 +73,7 @@ function WatchList() {
 										url={trash}
 										type="button"
 										alt="remove"
-										className="remove-icon"
+										className="watchlist-remove-icon"
 									/>
 								</div>
 								<img
@@ -82,7 +82,7 @@ function WatchList() {
 								/>
 							</div>
 							<div className="watchlist-movie-info-wrapper">
-								<div className="watchlist-movie-info">
+								<div className="watchlist-movie-info watchlist-extra">
 									<div className="watchlist-rating-wrapper">
 										<div className="watchlist-general-rating watchlist-extra">
 											<img
@@ -95,21 +95,20 @@ function WatchList() {
 									</div>
 									<p>{formatMovieTitle(movie.title, 20)}</p>
 								</div>
-								<div className="watchlist-icons">
+								<div className="watchlist-icons-wrapper">
+									<Icon
+										onClick={() => addToFavorites(movie)}
+										onMouseEnter={() => setFilledStar(true)}
+										type="button"
+										url={filledStar[movie.id] ? filledFavorite : favoriteIcon}
+										alt="star icon"
+										className="watchlist-add-to-favlist-button"
+									/>
 									<Icon
 										url={Info}
 										alt="info"
 										onClick={() => handleOpenDialog(movie)}
-										className="watchlist-info-icon"
-									/>
-									<Icon
-										onClick={() => addToFavorites(movie)}
-										onMouseEnter={() => setFilledStar(true)}
-										onMouseLeave={() => setFilledStar(false)}
-										type="button"
-										url={filledStar[movie.id] ? filledFavorite : favoriteIcon}
-										alt="star icon"
-										className="favorite-button"
+										className="watchlist-info-button"
 									/>
 								</div>
 							</div>

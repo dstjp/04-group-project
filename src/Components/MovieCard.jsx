@@ -80,7 +80,6 @@ export const MovieCard = () => {
 								<Icon
 									onClick={() => addToFavorites(movie)}
 									onMouseEnter={() => setFilledStar(true)}
-									onMouseLeave={() => setFilledStar(false)}
 									type="button"
 									url={filledStar[movie.id] ? filledFavorite : favoriteIcon}
 									alt="star icon"

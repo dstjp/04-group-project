@@ -103,7 +103,7 @@ export default function FavoriteList() {
 							</div>
 
 							<div className="favlist-movie-info-wrapper">
-								<div className="favlist-movie-info">
+								<div className="favlist-movie-info watchlist-extra">
 									<div className="favlist-rating-wrapper">
 										<img src={ratingIcon} alt="star icon" />
 										<span
@@ -119,13 +119,13 @@ export default function FavoriteList() {
 									<p>{formatMovieTitle(movie.title, 20)}</p>
 								</div>
 
-								<div className="favlist-icons">
+								<div className="favlist-icons-wrapper">
 									<Icon
 										onClick={() => addToWatchList(movie)}
 										type="button"
 										url={eyeIcon}
 										alt="eye icon"
-										className="favlist-watchlist-button"
+										className="favlist-add-to-watchlist-button"
 									/>
 
 									<Icon

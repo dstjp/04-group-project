@@ -45,7 +45,6 @@ export const MovieProvider = ({ children }) => {
 		setwatchList((prev) => prev.filter((m) => m.id !== id));
 	};
 
-	/* Modifying */
 	const addToFavorites = (movie) => {
 		setFavorites((favorites) => {
 			if (favorites.find((fav) => fav.id === movie.id)) {
@@ -70,7 +69,6 @@ export const MovieProvider = ({ children }) => {
 			[id]: false,
 		}));
 	};
-	/* Modifying */
 
 	const formatRating = (num) => {
 		return num ? num.toFixed(1) : "n/a";

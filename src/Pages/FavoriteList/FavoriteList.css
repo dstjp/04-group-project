@@ -11,7 +11,7 @@
 	grid-template-columns: repeat(2, 1fr);
 	gap: 4vw;
 }
-
+/* No movie page */
 .favlist-empty-text {
 	margin-top: 1rem;
 }
@@ -24,7 +24,7 @@
 	justify-content: center;
 	align-items: center;
 }
-
+/* Page Header */
 .favlist-header {
 	display: flex;
 	margin-left: 10vw;
@@ -39,23 +39,23 @@
 	height: fit-content;
 }
 
-.favlist-movie-card-container {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	gap: 1.5rem;
-	margin-top: 1rem;
-	width: 100%;
-}
-
 .favlist-movie-card {
 	background: #2c2c2c;
 	width: 100%;
-	border-radius: 1.4rem;
+	border-radius: 1.5rem;
 	transition: transform 0.3s ease-in-out;
 }
 
-.fav-movie-card:hover {
+.favlist-movie-card:hover {
 	transform: scale(1.01);
+}
+.favlist-movie-image {
+}
+
+.favlist-movie-image img {
+	width: 100%;
+	height: auto;
+	border-radius: 1rem;
 }
 
 .favlist-movie-remove-btn {
@@ -78,11 +78,7 @@
 	width: 2dvw;
 	height: 2dvw;
 }
-
-.favlist-movie-image img {
-	width: 100%;
-	height: auto;
-	border-radius: 1rem;
+.favlist-remove-icon {
 }
 
 .favlist-movie-image:hover .favlist-movie-remove-btn {
@@ -104,7 +100,15 @@
 	margin-top: -0.5rem;
 }
 
-.favlist-watchlist-button img {
+/* Icons */
+
+.favlist-icons-wrapper {
+}
+
+.favlist-movie-info .watchlist-extra {
+}
+
+.favlist-add-to-watchlist-button img {
 	height: 1.5rem;
 	cursor: pointer;
 }
