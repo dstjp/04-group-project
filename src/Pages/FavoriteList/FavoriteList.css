@@ -1,18 +1,18 @@
-.fav-list-page {
+.favlist-page {
 	margin-top: 3vw;
-	display: flex;
+	/* display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: center; */
 }
 
-.fav-list-container {
+.favlist-container {
 	margin: 0 10vw;
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	gap: 4vw;
 }
 
-.fav-list-empty-text {
+.favlist-empty-text {
 	margin-top: 1rem;
 }
 
@@ -25,7 +25,7 @@
 	align-items: center;
 }
 
-.fav-list-header {
+.favlist-header {
 	display: flex;
 	margin-left: 10vw;
 	gap: 1vw;
@@ -33,13 +33,13 @@
 	align-items: center;
 }
 
-.fav-rectangle {
+.favlist-rectangle {
 	border: none;
 	background: none;
 	height: fit-content;
 }
 
-.fav-movie-card-container {
+.favlist-movie-card-container {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	gap: 1.5rem;
@@ -47,7 +47,7 @@
 	width: 100%;
 }
 
-.fav-movie-card {
+.favlist-movie-card {
 	background: #2c2c2c;
 	width: 100%;
 	border-radius: 1.4rem;
@@ -58,7 +58,7 @@
 	transform: scale(1.01);
 }
 
-.fav-movie-remove-btn {
+.favlist-movie-remove-btn {
 	opacity: 0;
 	position: absolute;
 	top: 0.5rem;
@@ -70,7 +70,7 @@
 	transition: background-color 0.3s ease;
 }
 
-.fav-remove-icon {
+.favlist-remove-icon {
 	background: none;
 	border: none;
 	padding: 0;
@@ -79,24 +79,24 @@
 	height: 2dvw;
 }
 
-.fav-movie-image img {
+.favlist-movie-image img {
 	width: 100%;
 	height: auto;
 	border-radius: 1rem;
 }
 
-.fav-movie-image:hover .fav-movie-remove-btn {
+.favlist-movie-image:hover .favlist-movie-remove-btn {
 	opacity: 1;
 }
 
-.fav-movie-info-wrapper {
+.favlist-movie-info-wrapper {
 	margin: 0.5rem;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
 }
 
-.fav-rating-wrapper {
+.favlist-rating-wrapper {
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
@@ -104,54 +104,41 @@
 	margin-top: -0.5rem;
 }
 
-.fav-title-wrapper {
-	display: flex;
-	flex-direction: column;
-	font-size: 1rem;
-	font-weight: bold;
-}
-
-.fav-title-wrapper p {
-	font-size: 1.5rem;
-	margin-top: 0.25rem;
-	margin-bottom: 0.5rem;
-}
-
-.fav-watchlist-button img {
+.favlist-watchlist-button img {
 	height: 1.5rem;
 	cursor: pointer;
 }
 
-.fav-info-button img {
+.favlist-info-button img {
 	height: 1.5rem;
 	cursor: pointer;
 }
 
-.fav-rate-button:hover {
+.favlist-rate-button:hover {
 	color: var(--yellow);
 	cursor: pointer;
 }
 
 @media (max-width: 1024px) {
-	.fav-list-header {
+	.favlist-header {
 		margin-left: 2vw;
 		font-size: 0.8rem;
 	}
 
-	.fav-movie-card-container {
+	.favlist-movie-card-container {
 		grid-template-columns: repeat(2, 1fr);
 	}
 
-	.fav-movie-image img {
+	.favlist-movie-image img {
 		width: 100%;
 	}
 
-	.fav-title-wrapper p {
+	.favlist-title-wrapper p {
 		font-size: 1rem;
 	}
 
-	.fav-watchlist-button img,
-	.fav-info-button img {
+	.favlist-watchlist-button img,
+	.favlist-info-button img {
 		height: 1.2rem;
 	}
 }

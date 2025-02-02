@@ -67,80 +67,78 @@ export default function FavoriteList() {
 	}, [selectedDialogMovie, isDialogOpen, dialogRef, isInfoButtonClicked]);
 
 	return (
-		<div className="fav-list-page">
-			<div className="fav-list-header">
-				<Icon url={rectangle} alt="rectangle" className="fav-rectangle" />
-				<h1 className="fav-list-title">Favorite List</h1>
+		<div className="favlist-page">
+			<div className="favlist-header">
+				<Icon url={rectangle} alt="rectangle" className="favlist-rectangle" />
+				<h1 className="favlist-title">Favorite List</h1>
 			</div>
-			<div className="fav-list-container">
-				{favorites.length > 0 ? (
-					<div className="fav-movie-card-container">
-						{favorites.map((movie) => (
-							<div key={movie.id} className="fav-movie-card">
-								<div className="fav-movie-image">
-									<div className="fav-movie-remove-btn">
-										<Icon
-											onClick={(e) => {
-												e.preventDefault();
-												removeFromFavorites(movie.id);
-											}}
-											url={trash}
-											type="button"
-											alt="remove"
-											className="fav-remove-icon"
-										/>
-									</div>
-									<img
-										src={`https://image.tmdb.org/t/p/w1280${movie.backdrop_path}`}
-										alt={`${movie.title} poster`}
-									/>
-								</div>
-
-								<div className="fav-movie-info-wrapper">
-									<div className="fav-list-movie-info">
-										<div className="fav-rating-wrapper">
-											<img src={ratingIcon} alt="star icon" />
-											<span
-												className="fav-rate-button"
-												onClick={() => handleRatingClick(movie)}
-											>
-												{ratings[movie.id] !== undefined &&
-												ratings[movie.id] !== null
-													? `${ratings[movie.id]}.0`
-													: "Rate me!"}
-											</span>
-										</div>
-										<p>{formatMovieTitle(movie.title, 20)}</p>
-									</div>
-
-									<div className="fav-list-icons">
-										<Icon
-											onClick={() => addToWatchList(movie)}
-											type="button"
-											url={eyeIcon}
-											alt="eye icon"
-											className="fav-watchlist-button"
-										/>
-
-										<Icon
-											type="button"
-											url={infoIcon}
-											alt="info icon"
-											onClick={() => handleOpenDialog(movie)}
-											className="fav-info-button"
-										/>
-									</div>
-								</div>
-							</div>
-						))}
-					</div>
-				) : (
+			<div className="favlist-container">
+				{favorites.length === 0 ? (
 					<div className="favlist-empty">
 						<img src={collectIcon} alt="collect" />
-						<p className="fav-list-empty-text">
+						<p className="favlist-empty-text">
 							Save shows and movies to keep track of what you want to watch.
 						</p>
 					</div>
+				) : (
+					favorites.map((movie) => (
+						<div key={movie.id} className="favlist-movie-card">
+							<div className="favlist-movie-image">
+								<div className="favlist-movie-remove-btn">
+									<Icon
+										onClick={(e) => {
+											e.preventDefault();
+											removeFromFavorites(movie.id);
+										}}
+										url={trash}
+										type="button"
+										alt="remove"
+										className="favlist-remove-icon"
+									/>
+								</div>
+								<img
+									src={`https://image.tmdb.org/t/p/w1280${movie.backdrop_path}`}
+									alt={`${movie.title} poster`}
+								/>
+							</div>
+
+							<div className="favlist-movie-info-wrapper">
+								<div className="favlist-movie-info">
+									<div className="favlist-rating-wrapper">
+										<img src={ratingIcon} alt="star icon" />
+										<span
+											className="favlist-rate-button"
+											onClick={() => handleRatingClick(movie)}
+										>
+											{ratings[movie.id] !== undefined &&
+											ratings[movie.id] !== null
+												? `${ratings[movie.id]}.0`
+												: "Rate me!"}
+										</span>
+									</div>
+									<p>{formatMovieTitle(movie.title, 20)}</p>
+								</div>
+
+								<div className="favlist-icons">
+									<Icon
+										onClick={() => addToWatchList(movie)}
+										type="button"
+										url={eyeIcon}
+										alt="eye icon"
+										className="favlist-watchlist-button"
+									/>
+
+									<Icon
+										type="button"
+										url={infoIcon}
+										alt="info icon"
+										onClick={() => handleOpenDialog(movie)}
+										className="favlist-info-button"
+									/>
+								</div>
+							</div>
+						</div>
+					))
 				)}
 			</div>
 
