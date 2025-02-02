@@ -94,15 +94,15 @@
 .fav-title-wrapper p {
 	font-size: 1.5rem;
 	margin-top: 0.25rem;
+	margin-bottom: 0.5rem;
 }
 
-.fav-favorite-button img {
-	height: 1.65rem;
+.fav-watchlist-button img {
+	height: 1.5rem;
+	cursor: pointer;
 }
 
-.fav-watchlist-button img,
 .fav-info-button img {
-	margin-top: 0.25rem;
 	height: 1.5rem;
 	cursor: pointer;
 }
@@ -137,7 +137,7 @@
 	}
 
 	.fav-watchlist-button img,
-	.fav-favorite-button img {
+	.fav-info-button img {
 		height: 1.2rem;
 	}
 }
