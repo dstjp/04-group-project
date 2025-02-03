@@ -55,8 +55,9 @@ export const MovieCard = () => {
 								`}
 							sizes="(max-width: 1023px) 185px,
 												342px"
-							src={`https://image.tmdb.org/t/p/w1280${movie.backdrop_path}`}
+							src={`https://image.tmdb.org/t/p/w342${movie.poster_path}`}
 							alt={`${movie.title} poster`}
+							className="movie-image"
 							onClick={() => handleOpenDialog(movie)}
 						/>
 					</div>
