@@ -14,7 +14,6 @@ export const MovieProvider = ({ children }) => {
 		const apiKey = "272e0a4f8aed64cdcbc79856c6259d84";
 		const url = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}`;
 		setLoading(true)
-		setTimeout(() => {
 		fetch(url)
 	
 			.then((res) => {
@@ -32,8 +31,8 @@ export const MovieProvider = ({ children }) => {
 				setError(error.message);
 				setLoading(false);
 			});
-		}, 2000)
-	}, []);
+		},[]);
+
 
 	const addToWatchList = (movie) => {
 		setwatchList((prev) => {
