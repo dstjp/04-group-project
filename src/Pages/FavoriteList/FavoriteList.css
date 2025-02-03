@@ -58,6 +58,9 @@
 	border-radius: 1rem;
 }
 
+.favlist-movie-image:hover {
+}
+
 .favlist-movie-remove-btn {
 	opacity: 0;
 	position: absolute;
@@ -77,8 +80,6 @@
 	cursor: pointer;
 	width: 2dvw;
 	height: 2dvw;
-}
-.favlist-remove-icon {
 }
 
 .favlist-movie-image:hover .favlist-movie-remove-btn {

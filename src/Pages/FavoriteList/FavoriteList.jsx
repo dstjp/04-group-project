@@ -76,9 +76,7 @@ export default function FavoriteList() {
 				{favorites.length === 0 ? (
 					<div className="favlist-empty">
 						<img src={collectIcon} alt="collect" />
-						<p className="favlist-empty-text">
-							Save shows and movies to keep track of what you want to watch.
-						</p>
+						<p className="favlist-empty-text">No favorites added yet.</p>
 					</div>
 				) : (
 					favorites.map((movie) => (
