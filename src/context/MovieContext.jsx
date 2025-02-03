@@ -9,6 +9,7 @@ export const MovieProvider = ({ children }) => {
 	const [watchList, setwatchList] = useState([]);
 	const [favorites, setFavorites] = useState([]);
 	const [ratings, setRatings] = useState({});
+	const [filledStar, setFilledStar] = useState({});
 
 	useEffect(() => {
 		const apiKey = "272e0a4f8aed64cdcbc79856c6259d84";
@@ -54,10 +55,22 @@ export const MovieProvider = ({ children }) => {
 			}
 			return [...favorites, movie];
 		});
+
+		setFilledStar((fill) => {
+			return {
+				...fill,
+				[movie.id]: true,
+			};
+		});
 	};
 
 	const removeFromFavorites = (id) => {
 		setFavorites((favorites) => favorites.filter((movie) => movie.id !== id));
+
+		setFilledStar((fill) => ({
+			...fill,
+			[id]: false,
+		}));
 	};
 
 	const formatRating = (num) => {
@@ -74,9 +87,9 @@ export const MovieProvider = ({ children }) => {
 
 	const updateRating = (movieId, rating) => {
 		setRatings((preRatings) => ({
-				...preRatings,
-				[movieId]: rating !== 0 ? rating : null,
-			}));
+			...preRatings,
+			[movieId]: rating !== 0 ? rating : null,
+		}));
 	};
 
 	return (
@@ -87,14 +100,16 @@ export const MovieProvider = ({ children }) => {
 				favorites,
 				loading,
 				error,
+				ratings,
+				filledStar,
 				addToWatchList,
 				removeFromWatchList,
 				addToFavorites,
 				removeFromFavorites,
 				formatRating,
 				formatMovieTitle,
-				ratings,
-				updateRating
+				updateRating,
+				setFilledStar,
 			}}
 		>
 			{children}
