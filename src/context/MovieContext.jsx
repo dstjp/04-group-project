@@ -10,12 +10,14 @@ export const MovieProvider = ({ children }) => {
 	const [favorites, setFavorites] = useState([]);
 	const [ratings, setRatings] = useState({});
 	const [filledStar, setFilledStar] = useState({});
+	const [searchQuery, setSearchQuery] = useState("");
 
 	const apiKey = "272e0a4f8aed64cdcbc79856c6259d84";
 	const baseUrl = "https://api.themoviedb.org/3";
 
 	const fetchMovies = async (query = "") => {
 		setLoading(true);
+		setSearchQuery(query);
 		let url = query
 			? `${baseUrl}/search/movie?api_key=${apiKey}&query=${query}`
 			: `${baseUrl}/movie/popular?api_key=${apiKey}`;
@@ -106,6 +108,7 @@ export const MovieProvider = ({ children }) => {
 				error,
 				ratings,
 				filledStar,
+				searchQuery,
 				addToWatchList,
 				removeFromWatchList,
 				addToFavorites,
@@ -115,6 +118,7 @@ export const MovieProvider = ({ children }) => {
 				updateRating,
 				setFilledStar,
 				fetchMovies,
+				setSearchQuery,
 			}}
 		>
 			{children}
