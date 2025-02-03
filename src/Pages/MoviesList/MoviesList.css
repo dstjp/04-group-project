@@ -29,17 +29,21 @@
   overflow: hidden;
 }
 
+.movie-image {
+  height: 100%;
+}
+
+.movie-image:hover {
+  filter: brightness(70%);
+
+}
+
 .movie-info-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-content: space-between;
   padding: 0 10px 0 10px;
-}
-
-.movie-image:hover {
-  filter: brightness(70%);
-
 }
 
 .rating-wrapper {
