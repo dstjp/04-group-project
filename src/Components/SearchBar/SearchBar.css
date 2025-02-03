@@ -1,0 +1,19 @@
+.searchbar {
+	margin-top: 1.5rem;
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+.search-input {
+	width: 80%;
+	padding: 10px;
+	font-size: 16px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+}
+
+.search-button {
+	height: 2rem;
+	width: 2rem;
+	border: 1px solid white;
+}
