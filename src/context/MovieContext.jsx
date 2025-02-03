@@ -11,29 +11,33 @@ export const MovieProvider = ({ children }) => {
 	const [ratings, setRatings] = useState({});
 	const [filledStar, setFilledStar] = useState({});
 
-	useEffect(() => {
-		const apiKey = "272e0a4f8aed64cdcbc79856c6259d84";
-		const url = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}`;
-		setLoading(true)
-		setTimeout(() => {
-		fetch(url)
-	
-			.then((res) => {
-				if (!res.ok) {
-					throw new Error("Failed to fetch data");
-				}
-				return res.json();
-			})
-			.then((data) => {
+	const apiKey = "272e0a4f8aed64cdcbc79856c6259d84";
+	const baseUrl = "https://api.themoviedb.org/3";
+
+	const fetchMovies = async (query = "") => {
+		setLoading(true);
+		let url = query
+			? `${baseUrl}/search/movie?api_key=${apiKey}&query=${query}`
+			: `${baseUrl}/movie/popular?api_key=${apiKey}`;
+
+		try {
+			const response = await fetch(url);
+			const data = await response.json();
+
+			if (response.ok) {
 				setMovies(data.results);
-				console.log(data.results);
-				setLoading(false);
-			})
-			.catch((error) => {
-				setError(error.message);
-				setLoading(false);
-			});
-		}, 2000)
+			} else {
+				throw new Error("Failed to fetch data");
+			}
+		} catch (error) {
+			setError(error.message);
+		} finally {
+			setLoading(false);
+		}
+	};
+
+	useEffect(() => {
+		fetchMovies();
 	}, []);
 
 	const addToWatchList = (movie) => {
@@ -110,6 +114,7 @@ export const MovieProvider = ({ children }) => {
 				formatMovieTitle,
 				updateRating,
 				setFilledStar,
+				fetchMovies,
 			}}
 		>
 			{children}
