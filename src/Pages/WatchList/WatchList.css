@@ -115,6 +115,11 @@
 	margin-right: 0.5rem;
 }
 
+.watchlist-add-to-favlist-button img {
+	height: 1.5rem;
+	width: 1.5rem;
+}
+
 .watchlist-info-button img {
 	height: 1.5rem;
 }
