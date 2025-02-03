@@ -9,30 +9,38 @@ export const MovieProvider = ({ children }) => {
 	const [watchList, setwatchList] = useState([]);
 	const [favorites, setFavorites] = useState([]);
 	const [ratings, setRatings] = useState({});
+	const [filledStar, setFilledStar] = useState({});
+	const [searchQuery, setSearchQuery] = useState("");
+
+	const apiKey = "272e0a4f8aed64cdcbc79856c6259d84";
+	const baseUrl = "https://api.themoviedb.org/3";
+
+	const fetchMovies = async (query = "") => {
+		setLoading(true);
+		setSearchQuery(query);
+		let url = query
+			? `${baseUrl}/search/movie?api_key=${apiKey}&query=${query}`
+			: `${baseUrl}/movie/popular?api_key=${apiKey}`;
+
+		try {
+			const response = await fetch(url);
+			const data = await response.json();
+
+			if (response.ok) {
+				setMovies(data.results);
+			} else {
+				throw new Error("Failed to fetch data");
+			}
+		} catch (error) {
+			setError(error.message);
+		} finally {
+			setLoading(false);
+		}
+	};
 
 	useEffect(() => {
-		const apiKey = "272e0a4f8aed64cdcbc79856c6259d84";
-		const url = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}`;
-		setLoading(true)
-		fetch(url)
-	
-			.then((res) => {
-				if (!res.ok) {
-					throw new Error("Failed to fetch data");
-				}
-				return res.json();
-			})
-			.then((data) => {
-				setMovies(data.results);
-				console.log(data.results);
-				setLoading(false);
-			})
-			.catch((error) => {
-				setError(error.message);
-				setLoading(false);
-			});
-		},[]);
-
+		fetchMovies();
+	}, []);
 
 	const addToWatchList = (movie) => {
 		setwatchList((prev) => {
@@ -53,10 +61,22 @@ export const MovieProvider = ({ children }) => {
 			}
 			return [...favorites, movie];
 		});
+
+		setFilledStar((fill) => {
+			return {
+				...fill,
+				[movie.id]: true,
+			};
+		});
 	};
 
 	const removeFromFavorites = (id) => {
 		setFavorites((favorites) => favorites.filter((movie) => movie.id !== id));
+
+		setFilledStar((fill) => ({
+			...fill,
+			[id]: false,
+		}));
 	};
 
 	const formatRating = (num) => {
@@ -73,9 +93,9 @@ export const MovieProvider = ({ children }) => {
 
 	const updateRating = (movieId, rating) => {
 		setRatings((preRatings) => ({
-				...preRatings,
-				[movieId]: rating !== 0 ? rating : null,
-			}));
+			...preRatings,
+			[movieId]: rating !== 0 ? rating : null,
+		}));
 	};
 
 	return (
@@ -86,14 +106,19 @@ export const MovieProvider = ({ children }) => {
 				favorites,
 				loading,
 				error,
+				ratings,
+				filledStar,
+				searchQuery,
 				addToWatchList,
 				removeFromWatchList,
 				addToFavorites,
 				removeFromFavorites,
 				formatRating,
 				formatMovieTitle,
-				ratings,
-				updateRating
+				updateRating,
+				setFilledStar,
+				fetchMovies,
+				setSearchQuery,
 			}}
 		>
 			{children}
