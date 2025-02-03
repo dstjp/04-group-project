@@ -1,5 +1,6 @@
 import { useMovie } from "../../context/MovieContext";
 import { MovieCard } from "../../Components/MovieCard";
+import { Loading } from "../../Components/Loading/Loading.jsx";
 import "../MoviesList/MoviesList.css";
 import rectangle from "../../assets/watchlistIcons/rectangle.svg";
 
@@ -13,7 +14,7 @@ export const MoviesList = () => {
         <h3 className="movie-list-header">Top 20</h3>
       </div>
 
-      {movies && !loading ? <MovieCard /> : "...loading " }
+      {movies && !loading ? <MovieCard /> : <Loading /> }
     </div>
   );
 };

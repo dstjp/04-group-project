@@ -139,7 +139,8 @@
     grid-template-columns: repeat(auto-fit, minmax(342px, 1fr));
     max-width: calc(3 * 342px + 2 * 20px);
     justify-content: center;
-    margin: 0 auto;
+    padding: 0 3rem 0 3rem;
+    /* margin: 0 auto; */
   }
 
   .watchlist-button img {
