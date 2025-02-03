@@ -115,7 +115,7 @@ export default function FavoriteList() {
 										</span>
 									</div>
 									<p className="favlist-movie-title">
-										{formatMovieTitle(movie.title, 20)}
+										{formatMovieTitle(movie.title, 25)}
 									</p>
 								</div>
 

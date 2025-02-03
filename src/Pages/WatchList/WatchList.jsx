@@ -94,7 +94,7 @@ function WatchList() {
 										</div>
 									</div>
 									<p className="watchlist-movie-title">
-										{formatMovieTitle(movie.title, 20)}
+										{formatMovieTitle(movie.title, 25)}
 									</p>
 								</div>
 								<div className="watchlist-icons-wrapper">
