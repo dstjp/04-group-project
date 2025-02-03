@@ -114,7 +114,9 @@ export default function FavoriteList() {
 												: "Rate me!"}
 										</span>
 									</div>
-									<p>{formatMovieTitle(movie.title, 20)}</p>
+									<p className="favlist-movie-title">
+										{formatMovieTitle(movie.title, 20)}
+									</p>
 								</div>
 
 								<div className="favlist-icons-wrapper">

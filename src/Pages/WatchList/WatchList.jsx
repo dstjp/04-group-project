@@ -64,7 +64,7 @@ function WatchList() {
 					watchList.map((movie) => (
 						<div key={movie.id} className="watchlist-movie-card">
 							<div className="watchlist-movie-image">
-								<div className="watchlist-remove-btn">
+								<div className="watchlist-movie-remove-btn">
 									<Icon
 										onClick={(e) => {
 											e.preventDefault();
@@ -93,7 +93,9 @@ function WatchList() {
 											<span>{formatRating(movie.vote_average)}</span>
 										</div>
 									</div>
-									<p>{formatMovieTitle(movie.title, 20)}</p>
+									<p className="watchlist-movie-title">
+										{formatMovieTitle(movie.title, 20)}
+									</p>
 								</div>
 								<div className="watchlist-icons-wrapper">
 									<Icon
