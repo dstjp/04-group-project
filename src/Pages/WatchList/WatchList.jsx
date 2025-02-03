@@ -12,12 +12,8 @@ import rectangle from "../../assets/watchlistIcons/rectangle.svg";
 import { MovieDetailsDialog } from "../MovieDetailsDialog/MovieDetailsDialog";
 
 function WatchList() {
-  const {
-    watchList,
-    removeFromWatchList,
-    addToFavorites,
-		formatRating
-  } = useMovie();
+  const { watchList, removeFromWatchList, addToFavorites, formatRating } =
+    useMovie();
 
   // Dialog functions
   const {
@@ -26,7 +22,7 @@ function WatchList() {
     dialogRef,
     handleOpenDialog,
     handleCloseDialog,
-    isInfoButtonClicked
+    isInfoButtonClicked,
   } = useDialog();
 
   useEffect(() => {
@@ -80,17 +76,14 @@ function WatchList() {
                 <div className="watchlist-movie-info">
                   <div className="watchlist-rating-wrapper">
                     <div className="watchlist-general-rating">
-											<img
-												src={ratingIcon}
-												alt="star icon"
-												/* onClick={() => handleRatingClick(movie)} */
-											/>
-											<span>
-												{formatRating(movie.vote_average)}
-											</span>
-										</div>
-										<h3>{movie.title}</h3>
-
+                      <img
+                        src={ratingIcon}
+                        alt="star icon"
+                        /* onClick={() => handleRatingClick(movie)} */
+                      />
+                      <span className="rating-value">{formatRating(movie.vote_average)}</span>
+                    </div>
+                    <h3>{movie.title}</h3>
                   </div>
                 </div>
                 <div className="watchlist-rate-btns">
