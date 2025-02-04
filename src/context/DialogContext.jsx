@@ -1,4 +1,10 @@
-import React, { createContext, useContext, useRef, useState } from "react";
+import React, {
+  createContext,
+  useContext,
+  useRef,
+  useState,
+  useEffect,
+} from "react";
 
 export const DialogContext = createContext();
 
@@ -10,15 +16,24 @@ export const DialogProvider = ({ children }) => {
 
   const handleOpenDialog = (movie) => {
     setSelectedDialogMovie(movie);
-    setIsInfoButtonClicked(true)
+    setIsInfoButtonClicked(true);
     setIsDialogOpen(true);
   };
 
   const handleCloseDialog = () => {
     setSelectedDialogMovie(null);
-    setIsInfoButtonClicked(false)
+    setIsInfoButtonClicked(false);
     setIsDialogOpen(false);
   };
+
+  // Open and close dialog
+  useEffect(() => {
+    if (isDialogOpen && dialogRef.current) {
+      dialogRef.current.showModal();
+    } else if (!isDialogOpen && dialogRef.current) {
+      dialogRef.current.close();
+    }
+  }, [isDialogOpen, dialogRef]);
 
   return (
     <DialogContext.Provider
@@ -31,7 +46,7 @@ export const DialogProvider = ({ children }) => {
         handleOpenDialog,
         handleCloseDialog,
         isInfoButtonClicked,
-        setIsInfoButtonClicked
+        setIsInfoButtonClicked,
       }}
     >
       {children}

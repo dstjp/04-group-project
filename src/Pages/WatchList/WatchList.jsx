@@ -1,5 +1,4 @@
 import React from "react";
-import { useEffect } from "react";
 import { useMovie } from "../../context/MovieContext";
 import { useDialog } from "../../context/DialogContext";
 import { Icon } from "../../Components/Icon/Icon";
@@ -23,7 +22,6 @@ function WatchList() {
     formatRating,
   } = useMovie();
 
-  // Dialog functions
   const {
     isDialogOpen,
     selectedDialogMovie,
@@ -32,18 +30,6 @@ function WatchList() {
     handleCloseDialog,
     isInfoButtonClicked,
   } = useDialog();
-
-  useEffect(() => {
-    if (isDialogOpen && dialogRef.current) {
-      dialogRef.current.showModal();
-    } else if (!isDialogOpen && dialogRef.current) {
-      dialogRef.current.close();
-    }
-    console.log("selected dialog movie:", selectedDialogMovie);
-    console.log("is dialog open:", isDialogOpen);
-    console.log("dialog ref:", dialogRef);
-    console.log("is info button clicked:", isInfoButtonClicked);
-  }, [selectedDialogMovie, isDialogOpen, dialogRef, isInfoButtonClicked]);
 
   return (
     <div className="watchlist-page">
@@ -84,11 +70,7 @@ function WatchList() {
                 <div className="watchlist-movie-info watchlist-extra">
                   <div className="watchlist-rating-wrapper">
                     <div className="watchlist-general-rating watchlist-extra">
-                      <img
-                        src={ratingIcon}
-                        alt="star icon"
-                        /* onClick={() => handleRatingClick(movie)} */
-                      />
+                      <img src={ratingIcon} alt="star icon" />
                       <span>{formatRating(movie.vote_average)}</span>
                     </div>
                   </div>
