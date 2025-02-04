@@ -10,6 +10,8 @@ export const MovieProvider = ({ children }) => {
 	const [favorites, setFavorites] = useState([]);
 	const [ratings, setRatings] = useState({});
 	const [filledStar, setFilledStar] = useState({});
+	const [filledEye, setFilledEye] = useState({});
+
 	const [searchQuery, setSearchQuery] = useState("");
 
 	const apiKey = "272e0a4f8aed64cdcbc79856c6259d84";
@@ -28,6 +30,8 @@ export const MovieProvider = ({ children }) => {
 
 			if (response.ok) {
 				setMovies(data.results);
+				console.log(data.results)
+
 			} else {
 				throw new Error("Failed to fetch data");
 			}
@@ -49,9 +53,22 @@ export const MovieProvider = ({ children }) => {
 			}
 			return [...prev, movie];
 		});
+
+		setFilledEye((fill) => {
+			return {
+				...fill,
+				[movie.id]: true,
+			};
+		})
 	};
+
 	const removeFromWatchList = (id) => {
 		setwatchList((prev) => prev.filter((m) => m.id !== id));
+
+		setFilledEye((fill) => ({
+			...fill,
+			[id]: false,
+		}));
 	};
 
 	const addToFavorites = (movie) => {
@@ -107,6 +124,7 @@ export const MovieProvider = ({ children }) => {
 				loading,
 				error,
 				ratings,
+				filledEye,
 				filledStar,
 				searchQuery,
 				addToWatchList,
@@ -117,6 +135,7 @@ export const MovieProvider = ({ children }) => {
 				formatMovieTitle,
 				updateRating,
 				setFilledStar,
+				setFilledEye,
 				fetchMovies,
 				setSearchQuery,
 			}}

@@ -109,11 +109,17 @@
 /* Icons */
 
 .favlist-icons-wrapper {
+	display: flex;
 	margin-left: 0.15rem;
 }
 
 .favlist-add-to-watchlist-button {
 	margin-right: 0.5rem;
+
+}
+.favlist-add-to-watchlist-button img {
+	height: 1.9rem;
+
 }
 
 .favlist-info-button img {
