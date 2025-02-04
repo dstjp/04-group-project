@@ -26,7 +26,6 @@ export const MovieProvider = ({ children }) => {
 		try {
 			const response = await fetch(url);
 			const data = await response.json();
-
 			if (response.ok) {
 				setMovies(data.results);
 				console.log(data.results);
