@@ -11,7 +11,8 @@
 
 .search-input {
 	padding: 0.45rem;
-	width: 65rem;
+	max-width: 65rem;
+	width: 100%;
 	font-size: 1.15rem;
 	border: 0.1875rem solid var(--yellow);
 	background-color: rgb(0, 0, 0);
