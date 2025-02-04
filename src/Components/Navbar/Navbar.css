@@ -35,6 +35,10 @@
 	transform: scale(1.1);
 }
 
+.search-icon {
+	display: none;
+}
+
 .navbar-logo {
 	display: none;
 }
@@ -63,5 +67,8 @@
 		margin-right: 1rem;
 		height: 4.15rem;
 		width: 4.15rem;
+	}
+	.search-icon {
+		display: block;
 	}
 }
