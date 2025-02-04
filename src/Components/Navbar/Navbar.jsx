@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router";
 import "./Navbar.css";
 import FAVORITE_ICON from "../../assets//NavbarIcons/navbarStar.png";
@@ -9,11 +9,22 @@ import BlackLogo from "../../assets/LogoIcons/logoBlack.svg";
 import { SearchBar } from "../SearchBar/SearchBar";
 
 function Nav() {
-	const [showSearch, setShowSearch] = useState(false);
+	const [showSearchbar, setShowSearchbar] = useState(false);
+	const [mobileSearchbar, setMobileSearchbar] = useState(
+		window.innerWidth <= 1024
+	);
 
-	const toggleSearch = () => {
-		setShowSearch((prev) => !prev);
+	const handleShowSearchbar = () => {
+		setShowSearchbar((prev) => !prev);
 	};
+
+	useEffect(() => {
+		const handleResizeSearchbar = () =>
+			setMobileSearchbar(window.innerWidth <= 1024);
+		window.addEventListener("resize", handleResizeSearchbar);
+		return () => window.removeEventListener("resize", handleResizeSearchbar);
+	}, []);
+
 	return (
 		<>
 			<div className="nav-container">
@@ -43,7 +54,7 @@ function Nav() {
 							</NavLink>
 						</li>
 						<li className="nav-link">
-							<button onClick={toggleSearch}>
+							<button onClick={handleShowSearchbar}>
 								<img
 									className="nav-icon search-icon"
 									srcSet={SEARCH_ICON}
@@ -54,7 +65,7 @@ function Nav() {
 					</ul>
 					<img className="navbar-logo" src={BlackLogo} />
 				</nav>
-				<SearchBar isVisible={showSearch} />
+				{mobileSearchbar && <SearchBar showSearchbar={showSearchbar} />}
 			</div>
 		</>
 	);
