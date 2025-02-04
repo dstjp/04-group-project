@@ -85,11 +85,7 @@ function WatchList() {
 								<div className="watchlist-movie-info watchlist-extra">
 									<div className="watchlist-rating-wrapper">
 										<div className="watchlist-general-rating watchlist-extra">
-											<img
-												src={ratingIcon}
-												alt="star icon"
-												/* onClick={() => handleRatingClick(movie)} */
-											/>
+											<img src={ratingIcon} alt="star icon" />
 											<span>{formatRating(movie.vote_average)}</span>
 										</div>
 									</div>
