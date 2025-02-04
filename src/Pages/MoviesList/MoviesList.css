@@ -2,6 +2,8 @@
   display: flex;
   flex-direction: column;
   font-weight: 500;
+  max-width: 1200px;
+  margin: auto;
 }
 
 .header-wrapper {
@@ -27,10 +29,11 @@
   height: 24rem;
   border-radius: 1.5vw;
   overflow: hidden;
+  width: 185px;
 }
 
 .movie-image {
-  height: 100%;
+ 
   max-width: 100%;
 }
 
@@ -39,11 +42,8 @@
 }
 
 .movie-info-wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-content: space-between;
   padding: 0 10px 0 10px;
+  margin-top: auto;
 }
 
 .rating-wrapper {
@@ -85,9 +85,17 @@
 .favorite-button img {
   height: 1.6rem;
 }
+/* 
+@media (768px <= width <= 1023px) {
+  .movie-card-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(185px, 1fr));
+    gap: 25px;
+    justify-content: center;
+    margin: 0 auto;
+  }
 
-@media (min-width: 768px) {
-  /* .movie-card {
+  .movie-card {
     height: 25rem;
   }
 
@@ -101,22 +109,19 @@
 
   .movie-list-header {
     font-size: 1.5rem;
-  } */
+  }
 
-  /* .movie-card-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(185px, 1fr));
-    max-width: calc(3 * 185px + 2 * 20px);
-    justify-content: center;
-    margin: 0 auto;
-  } */
-}
+ 
+} */
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
   .movie-card-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(185px, 1fr));
+    gap: 25px;
+
+    justify-content: center;
+    margin: 0 auto;
   }
   .movie-card {
     height: 25rem;
@@ -136,8 +141,17 @@
 }
 
 @media (min-width: 1024px) {
+  .movie-card-container {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(185px, 1fr));
+    max-width: min-content;
+    justify-content: center;
+    gap: 30px;
+    margin: auto;
+  }
+
   .movie-card {
-    height: fit-content;
+    height: 32rem;
   }
 
   .movie-info-wrapper {
@@ -152,14 +166,6 @@
 
   .rating-wrapper img {
     height: 1.7rem;
-  }
-
-  .movie-card-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(342px, 1fr));
-    max-width: calc(3 * 342px + 2 * 20px);
-    justify-content: center;
-    margin: 0 auto;
   }
 
   .watchlist-button img {

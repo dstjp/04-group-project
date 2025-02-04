@@ -49,13 +49,13 @@ export const MovieCard = () => {
 				<div className="movie-card" key={movie.id}>
 					<div className="movie-image-wrapper">
 						<img
-							srcSet={`
-								https://image.tmdb.org/t/p/w185${movie.poster_path} 185w,
-								https://image.tmdb.org/t/p/w342${movie.poster_path} 342w,
-								`}
-							sizes="(max-width: 1023px) 185px,
-												342px"
-							src={`https://image.tmdb.org/t/p/w342${movie.poster_path}`}
+							// srcSet={`
+							// 	https://image.tmdb.org/t/p/w185${movie.poster_path} 185w,
+							// 	https://image.tmdb.org/t/p/w342${movie.poster_path} 342w,
+							// 	`}
+							// sizes="(max-width: 1023px) 185px,
+							// 					342px"
+							src={`https://image.tmdb.org/t/p/w185${movie.poster_path}`}
 							alt={`${movie.title} poster`}
 							className="movie-image"
 							onClick={() => handleOpenDialog(movie)}
@@ -63,31 +63,32 @@ export const MovieCard = () => {
 					</div>
 
 					<div className="movie-info-wrapper">
-						<div className="rating-wrapper">
-							<img src={ratingIcon} alt="star icon" />
-							<span>{formatRating(movie.vote_average)}</span>
-						</div>
 
-						<div className="title-wrapper">
-							<p>{formatMovieTitle(movie.title, 13)}</p>
-							<div className="title-images">
-								<Icon
-									onClick={() => addToWatchList(movie)}
-									type="button"
-									url={eyeIcon}
-									alt="watch icon"
-									className="watchlist-button"
-								/>
-								<Icon
-									onClick={() => addToFavorites(movie)}
-									onMouseEnter={() => setFilledStar(true)}
-									type="button"
-									url={filledStar[movie.id] ? filledFavorite : favoriteIcon}
-									alt="star icon"
-									className="favorite-button"
-								/>
+							<div className="rating-wrapper">
+								<img src={ratingIcon} alt="star icon" />
+								<span>{formatRating(movie.vote_average)}</span>
 							</div>
-						</div>
+							<div className="title-wrapper">
+								<p>{formatMovieTitle(movie.title, 13)}</p>
+								<div className="title-images">
+									<Icon
+										onClick={() => addToWatchList(movie)}
+										type="button"
+										url={eyeIcon}
+										alt="watch icon"
+										className="watchlist-button"
+									/>
+									<Icon
+										onClick={() => addToFavorites(movie)}
+										onMouseEnter={() => setFilledStar(true)}
+										type="button"
+										url={filledStar[movie.id] ? filledFavorite : favoriteIcon}
+										alt="star icon"
+										className="favorite-button"
+									/>
+								</div>
+							</div>
+
 					</div>
 				</div>
 			))}

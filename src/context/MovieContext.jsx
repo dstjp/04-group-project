@@ -28,6 +28,8 @@ export const MovieProvider = ({ children }) => {
 
 			if (response.ok) {
 				setMovies(data.results);
+				console.log(data.results)
+
 			} else {
 				throw new Error("Failed to fetch data");
 			}
