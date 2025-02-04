@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useMovie } from "../../context/MovieContext";
+import Logo from "../Logo/Logo";
 import "./SearchBar.css";
 
 export const SearchBar = () => {
@@ -20,14 +21,16 @@ export const SearchBar = () => {
 	}, [searchQuery, fetchMovies]);
 
 	return (
-		<form className="searchbar" onSubmit={(e) => e.preventDefault()}>
-			<input
-				type="text"
-				placeholder="Search for a movie"
-				value={searchQuery}
-				onChange={(e) => setSearchQuery(e.target.value)}
-				className="search-input"
-			/>
-		</form>
+		<div className="searchbar-container">
+			<form className="searchbar" onSubmit={(e) => e.preventDefault()}>
+				<input
+					type="text"
+					placeholder="Search for a movie..."
+					value={searchQuery}
+					onChange={(e) => setSearchQuery(e.target.value)}
+					className="search-input"
+				/>
+			</form>
+		</div>
 	);
 };
