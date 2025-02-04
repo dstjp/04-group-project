@@ -10,7 +10,7 @@ dialog {
   flex-direction: column;
   justify-content: center;
   max-height: 80vh;
-height:fit-content ;
+  height: fit-content;
 }
 
 h2,
@@ -18,27 +18,20 @@ p {
   margin: 0;
 }
 
-.dialog-content{
-  display: flex;
-  flex-direction: column ;
-  height: 100%;
-  max-height: 80vh;
-}
-.details-container {
+.dialog-content {
   display: flex;
   flex-direction: column;
-  text-align: center;
-  overflow-y: auto;
-
+  height: 100%;
+  max-height: 80vh;
 }
 
 .button-wrapper {
   display: flex;
-  margin-top:0;
+  margin-top: 0;
   border: none;
   outline: none;
   position: sticky;
-  top:0;
+  top: 0;
   align-self: flex-end;
   padding-bottom: 5px;
 }
@@ -62,6 +55,13 @@ dialog::backdrop {
   background-color: rgb(0, 0, 0, 0.4);
 }
 
+.details-container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  overflow-y: auto;
+  font-size: 0.8rem;
+}
 .details-image-wrapper {
   display: flex;
   align-self: center;
@@ -94,17 +94,26 @@ dialog::backdrop {
   padding: 0;
 }
 
+@media (min-width: 768px) {
+  .details-container {
+    font-size: 0.9rem;
+  }
+}
+
 @media (min-width: 1024px) {
   dialog {
     max-width: 60%;
   }
   .button-wrapper {
-padding: 10px;
+    padding: 10px;
   }
   .button-wrapper button {
     font-size: 1.5rem;
   }
 
+  .details-container {
+    font-size: 1rem;
+  }
   .details-wrapper {
     max-width: 342px;
     font-size: 1.5rem;

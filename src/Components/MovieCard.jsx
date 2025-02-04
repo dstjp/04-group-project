@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import ratingIcon from "../assets//MovieCardIcons/movieCardRatingStar.svg";
 import favoriteIcon from "../assets//MovieCardIcons/movieCardStar.svg";
 import filledFavorite from "../assets//FavoriteListIcon/filledStar.svg";
+import filledEyeIcon from "../../src/assets/MovieCardIcons/movieCardEyeFilled.png"
 import eyeIcon from "../assets/MovieCardIcons/movieCardEye.png";
 import { Icon } from "./Icon/Icon.jsx";
 import { MovieDetailsDialog } from "../Pages/MovieDetailsDialog/MovieDetailsDialog.jsx";
@@ -19,6 +20,8 @@ export const MovieCard = () => {
 		addToFavorites,
 		filledStar,
 		setFilledStar,
+		filledEye,
+		setFilledEye,
 	} = useMovie();
 
 	const {
@@ -69,12 +72,13 @@ export const MovieCard = () => {
 								<span>{formatRating(movie.vote_average)}</span>
 							</div>
 							<div className="title-wrapper">
-								<p>{formatMovieTitle(movie.title, 13)}</p>
+								<p>{formatMovieTitle(movie.title, 14)}</p>
 								<div className="title-images">
 									<Icon
 										onClick={() => addToWatchList(movie)}
+										onMouseEnter={() => setFilledEye(true)}
+										url={filledEye[movie.id] ? filledEyeIcon : eyeIcon}
 										type="button"
-										url={eyeIcon}
 										alt="watch icon"
 										className="watchlist-button"
 									/>
