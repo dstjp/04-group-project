@@ -37,6 +37,7 @@
 
 .search-icon {
 	display: none;
+	cursor: pointer;
 }
 
 .navbar-logo {

@@ -6,6 +6,7 @@ import HOME_ICON from "../../assets//NavbarIcons/navbarHome.png";
 import WATCH_ICON from "../../assets//NavbarIcons/navbarEye.png";
 import SEARCH_ICON from "../../assets/NavbarIcons/navbarSearch.svg";
 import BlackLogo from "../../assets/LogoIcons/logoBlack.svg";
+import { SearchBar } from "../SearchBar/SearchBar";
 
 function Nav() {
 	return (
@@ -37,13 +38,13 @@ function Nav() {
 							</NavLink>
 						</li>
 						<li className="nav-link">
-							<NavLink to="/searchbar">
+							<button onClick={null}>
 								<img
 									className="nav-icon search-icon"
 									srcSet={SEARCH_ICON}
 									alt=""
 								/>
-							</NavLink>
+							</button>
 						</li>
 					</ul>
 					<img className="navbar-logo" src={BlackLogo} />
