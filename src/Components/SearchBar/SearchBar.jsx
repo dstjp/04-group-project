@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useMovie } from "../../context/MovieContext";
-import Logo from "../Logo/Logo";
 import "./SearchBar.css";
+import { isVisible } from "@testing-library/user-event/dist/utils";
 
-export const SearchBar = () => {
+export const SearchBar = ({ isVisible }) => {
 	const { searchQuery, setSearchQuery, fetchMovies } = useMovie();
 	const previousQuery = useRef(searchQuery);
 
@@ -21,7 +21,7 @@ export const SearchBar = () => {
 	}, [searchQuery, fetchMovies]);
 
 	return (
-		<div className="searchbar-container">
+		<div className={`searchbar-container ${isVisible ? "active" : ""}`}>
 			<form className="searchbar" onSubmit={(e) => e.preventDefault()}>
 				<input
 					type="text"

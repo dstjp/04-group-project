@@ -30,6 +30,9 @@
 
 @media (max-width: 1024px) {
 	.searchbar-container {
+		margin-top: 4.75rem;
+		width: 20rem;
+		position: fixed;
 		display: none;
 	}
 	.searchbar-container.active {
