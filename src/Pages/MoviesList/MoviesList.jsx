@@ -1,6 +1,7 @@
 import { useMovie } from "../../context/MovieContext";
 import { MovieCard } from "../../Components/MovieCard";
 import { SearchBar } from "../../Components/SearchBar/SearchBar";
+import { Loading } from "../../Components/Loading/Loading.jsx";
 import "../MoviesList/MoviesList.css";
 import rectangle from "../../assets/watchlistIcons/rectangle.svg";
 
@@ -18,7 +19,7 @@ export const MoviesList = () => {
 				</div>
 			)}
 
-			{movies && !loading ? <MovieCard /> : "...loading "}
-		</div>
-	);
+      {movies && !loading ? <MovieCard /> : <Loading /> }
+    </div>
+  );
 };

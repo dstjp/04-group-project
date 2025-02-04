@@ -69,7 +69,7 @@ export const MovieCard = () => {
 						</div>
 
 						<div className="title-wrapper">
-							<p>{formatMovieTitle(movie.title, 15)}</p>
+							<p>{formatMovieTitle(movie.title, 13)}</p>
 							<div className="title-images">
 								<Icon
 									onClick={() => addToWatchList(movie)}
