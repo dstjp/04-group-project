@@ -9,6 +9,7 @@
   --white: #ffffff;
   --gray: #282828;
 }
+
 body {
   background-color: var(--black);
   color: var(--white);

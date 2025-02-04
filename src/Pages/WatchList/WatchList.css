@@ -90,12 +90,13 @@
 	flex-direction: column;
 	justify-content: flex-start;
 }
-
+.watchlist-general-rating img {
+	margin-right: 0.25rem;
+}
 .watchlist-rating-wrapper {
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
-	gap: 0.5rem;
 	margin-top: -0.25rem;
 	margin-bottom: 0.15rem;
 }
@@ -109,19 +110,22 @@
 /* icons */
 
 .watchlist-icons-wrapper {
+	display: flex;
 	margin-left: 0.15rem;
+	justify-content: flex-start;
+
 }
 .watchlist-add-to-favlist-button {
 	margin-right: 0.5rem;
 }
 
 .watchlist-add-to-favlist-button img {
-	height: 1.5rem;
-	width: 1.5rem;
+	height: 1.4rem;
 }
 
 .watchlist-info-button img {
-	height: 1.5rem;
+	height: 1.4rem;
+	margin-top: 0.2rem;
 }
 
 .watchlist-add-to-favlist-button:hover {
@@ -140,3 +144,47 @@
 }
 
 /* responsive style */
+
+@media (max-width: 1024px) {
+	.watchlist-container {
+		grid-template-columns: repeat(2, 1fr);
+		margin: 0 5vw;
+	}
+
+	.watchlist-header {
+		margin-left: 2vw;
+		font-size: 0.8rem;
+	}
+
+	.watchlist-add-to-watchlist-button img,
+	.watchlist-info-button img {
+		height: 1.75rem;
+	}
+	.watchlist-movie-title {
+		font-size: 1.25rem;
+	}
+}
+
+@media only screen and (max-width: 768px) and (orientation: portrait) {
+	.watchlist-container {
+		grid-template-columns: repeat(1, 1fr);
+	}
+
+	.watchlist-movie-title {
+		font-size: 1.25rem;
+	}
+	.watchlist-add-to-favlist-button img,
+	.watchlist-info-button img {
+		height: 1.5rem;
+	}
+}
+
+@media only screen and (max-width: 440px) {
+	.watchlist-movie-title {
+		font-size: 1.25rem;
+	}
+	.watchlist-add-to-watchlist-button img,
+	.watchlist-info-button img {
+		height: 1.75rem;
+	}
+}

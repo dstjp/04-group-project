@@ -15,7 +15,7 @@ export const SearchBar = () => {
 				fetchMovies();
 				previousQuery.current = "";
 			}
-		}, []);
+		}, 500);
 		return () => clearTimeout(handleSearch);
 	}, [searchQuery, fetchMovies]);
 
