@@ -109,19 +109,22 @@
 /* icons */
 
 .watchlist-icons-wrapper {
+	display: flex;
 	margin-left: 0.15rem;
+	justify-content: flex-start;
+
 }
 .watchlist-add-to-favlist-button {
 	margin-right: 0.5rem;
 }
 
 .watchlist-add-to-favlist-button img {
-	height: 1.5rem;
-	width: 1.5rem;
+	height: 1.4rem;
 }
 
 .watchlist-info-button img {
-	height: 1.5rem;
+	height: 1.4rem;
+	margin-top: 0.2rem;
 }
 
 .watchlist-add-to-favlist-button:hover {

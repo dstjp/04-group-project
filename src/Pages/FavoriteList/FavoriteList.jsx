@@ -4,6 +4,7 @@ import { useDialog } from "../../context/DialogContext.jsx";
 import { Icon } from "../../Components/Icon/Icon.jsx";
 import RatingPopUp from "../FavoriteList/Ratingscore/RatingPopUp";
 import ratingIcon from "../../assets/MovieCardIcons/movieCardRatingStar.svg";
+import filledEyeIcon from "../../assets/MovieCardIcons/movieCardEyeFilled.png"
 import eyeIcon from "../../assets/MovieCardIcons/movieCardEye.png";
 import rectangle from "../../assets/watchlistIcons/rectangle.svg";
 import trash from "../../assets/watchlistIcons/trash.svg";
@@ -20,6 +21,7 @@ export default function FavoriteList() {
 		addToWatchList,
 		ratings,
 		updateRating,
+		filledEye
 	} = useMovie();
 
 	const [selectedMovie, setSelectedMovie] = useState(null);
@@ -123,7 +125,7 @@ export default function FavoriteList() {
 									<Icon
 										onClick={() => addToWatchList(movie)}
 										type="button"
-										url={eyeIcon}
+										url={filledEye[movie.id] ? filledEyeIcon : eyeIcon}
 										alt="eye icon"
 										className="favlist-add-to-watchlist-button"
 									/>
