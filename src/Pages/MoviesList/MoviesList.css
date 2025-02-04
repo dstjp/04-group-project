@@ -17,7 +17,6 @@
   justify-content: center;
   align-items: center;
   gap: 20px;
-  width: 100%;
 }
 
 .movie-card {
@@ -27,10 +26,12 @@
   gap: 10px;
   height: 24rem;
   border-radius: 1.5vw;
+  overflow: hidden;
 }
 
 .movie-image {
   height: 100%;
+  max-width: 100%;
 }
 
 .movie-image:hover {
@@ -86,7 +87,7 @@
 }
 
 @media (min-width: 768px) {
-  .movie-card {
+  /* .movie-card {
     height: 25rem;
   }
 
@@ -100,15 +101,15 @@
 
   .movie-list-header {
     font-size: 1.5rem;
-  }
+  } */
 
-  .movie-card-container {
+  /* .movie-card-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(185px, 1fr));
     max-width: calc(3 * 185px + 2 * 20px);
     justify-content: center;
     margin: 0 auto;
-  }
+  } */
 }
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
