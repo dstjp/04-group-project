@@ -10,78 +10,78 @@ import { Icon } from "./Icon/Icon.jsx";
 import { MovieDetailsDialog } from "../Pages/MovieDetailsDialog/MovieDetailsDialog.jsx";
 
 export const MovieCard = () => {
-  const {
-    movies,
-    formatRating,
-    formatMovieTitle,
-    addToWatchList,
-    addToFavorites,
-    filledStar,
-    setFilledStar,
-    filledEye,
-    setFilledEye,
-  } = useMovie();
+	const {
+		movies,
+		formatRating,
+		formatMovieTitle,
+		addToWatchList,
+		addToFavorites,
+		filledStar,
+		setFilledStar,
+		filledEye,
+		setFilledEye,
+	} = useMovie();
 
-  const {
-    isDialogOpen,
-    selectedDialogMovie,
-    dialogRef,
-    handleOpenDialog,
-    handleCloseDialog,
-    isInfoButtonClicked,
-  } = useDialog();
+	const {
+		isDialogOpen,
+		selectedDialogMovie,
+		dialogRef,
+		handleOpenDialog,
+		handleCloseDialog,
+		isInfoButtonClicked,
+	} = useDialog();
 
-  return (
-    <div className="movie-card-container">
-      {movies.map((movie) => (
-        <div className="movie-card" key={movie.id}>
-          <div className="movie-image-wrapper">
-            <img
-              src={`https://image.tmdb.org/t/p/w185${movie.poster_path}`}
-              alt={`${movie.title} poster`}
-              className="movie-image"
-              onClick={() => handleOpenDialog(movie)}
-            />
-          </div>
+	return (
+		<div className="movie-card-container">
+			{movies.map((movie) => (
+				<div className="movie-card" key={movie.id}>
+					<div className="movie-image-wrapper">
+						<img
+							src={`https://image.tmdb.org/t/p/w185${movie.poster_path}`}
+							alt={`${movie.title} poster`}
+							className="movie-image"
+							onClick={() => handleOpenDialog(movie)}
+						/>
+					</div>
 
-          <div className="movie-info-wrapper">
-            <div className="rating-wrapper">
-              <img src={ratingIcon} alt="star icon" />
-              <span>{formatRating(movie.vote_average)}</span>
-            </div>
+					<div className="movie-info-wrapper">
+						<div className="rating-wrapper">
+							<img src={ratingIcon} alt="star icon" />
+							<span>{formatRating(movie.vote_average)}</span>
+						</div>
 
-            <div className="title-wrapper">
-              <p>{formatMovieTitle(movie.title, 14)}</p>
-              <div className="title-images">
-                <Icon
-                  onClick={() => addToWatchList(movie)}
-                  onMouseEnter={() => setFilledEye(true)}
-                  url={filledEye[movie.id] ? filledEyeIcon : eyeIcon}
-                  type="button"
-                  alt="watch icon"
-                  className="watchlist-button"
-                />
-                <Icon
-                  onClick={() => addToFavorites(movie)}
-                  onMouseEnter={() => setFilledStar(true)}
-                  type="button"
-                  url={filledStar[movie.id] ? filledFavorite : favoriteIcon}
-                  alt="star icon"
-                  className="favorite-button"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      ))}
+						<div className="title-wrapper">
+							<p>{formatMovieTitle(movie.title, 14)}</p>
+							<div className="title-images">
+								<Icon
+									onClick={() => addToWatchList(movie)}
+									onMouseEnter={() => setFilledEye(true)}
+									url={filledEye[movie.id] ? filledEyeIcon : eyeIcon}
+									type="button"
+									alt="watch icon"
+									className="watchlist-button"
+								/>
+								<Icon
+									onClick={() => addToFavorites(movie)}
+									onMouseEnter={() => setFilledStar(true)}
+									type="button"
+									url={filledStar[movie.id] ? filledFavorite : favoriteIcon}
+									alt="star icon"
+									className="favorite-button"
+								/>
+							</div>
+						</div>
+					</div>
+				</div>
+			))}
 
-      {isDialogOpen && selectedDialogMovie && isInfoButtonClicked && (
-        <MovieDetailsDialog
-          onClose={handleCloseDialog}
-          movie={selectedDialogMovie}
-          ref={dialogRef}
-        />
-      )}
-    </div>
-  );
+			{isDialogOpen && selectedDialogMovie && isInfoButtonClicked && (
+				<MovieDetailsDialog
+					onClose={handleCloseDialog}
+					movie={selectedDialogMovie}
+					ref={dialogRef}
+				/>
+			)}
+		</div>
+	);
 };
