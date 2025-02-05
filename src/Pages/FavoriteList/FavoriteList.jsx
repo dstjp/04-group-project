@@ -45,11 +45,6 @@ export default function FavoriteList() {
 
 	const handleRatingSubmit = (movieId, rating) => {
 		updateRating(movieId, rating);
-
-		const updatedFavorites = favorites.map((movie) =>
-			movie.id === movieId ? { ...movie, userRating: rating } : movie
-		);
-		handleClosePopUp();
 	};
 
 	const handleClosePopUp = () => {

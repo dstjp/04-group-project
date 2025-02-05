@@ -6,7 +6,6 @@ import favoriteIcon from "../assets//MovieCardIcons/movieCardStar.svg";
 import filledFavoriteIcon from "../assets//FavoriteListIcon/filledStar.svg";
 import filledEyeIcon from "../../src/assets/MovieCardIcons/movieCardEyeFilled.png";
 import eyeIcon from "../assets/MovieCardIcons/movieCardEye.png";
-import noPoster from "../assets/MovieCardIcons/noPoster.png";
 import noPosterFound from "../assets/MovieCardIcons/noPosterFound.png";
 import { Icon } from "./Icon/Icon.jsx";
 import { MovieDetailsDialog } from "../Pages/MovieDetailsDialog/MovieDetailsDialog.jsx";
