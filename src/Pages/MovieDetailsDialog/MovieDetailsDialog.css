@@ -11,6 +11,7 @@ dialog {
   justify-content: center;
   max-height: 80vh;
   height: fit-content;
+  -webkit-overflow-scrolling: touch;
 }
 
 h2,
