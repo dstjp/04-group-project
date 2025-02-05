@@ -27,13 +27,13 @@ export const DialogProvider = ({ children }) => {
   };
 
   // Open and close dialog
-  useEffect(() => {
-    if (isDialogOpen && dialogRef.current) {
-      dialogRef.current.showModal();
-    } else if (!isDialogOpen && dialogRef.current) {
-      dialogRef.current.close();
-    }
-  }, [isDialogOpen, dialogRef]);
+  // useEffect(() => {
+  //   if (isDialogOpen && dialogRef.current) {
+  //     dialogRef.current.showModal();
+  //   } else if (!isDialogOpen && dialogRef.current) {
+  //     dialogRef.current.close();
+  //   }
+  // }, [isDialogOpen, dialogRef]);
 
   return (
     <DialogContext.Provider

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useMovie } from "../../context/MovieContext.jsx";
 import { useDialog } from "../../context/DialogContext.jsx";
 import { Icon } from "../../Components/Icon/Icon.jsx";
@@ -23,8 +23,19 @@ export default function FavoriteList() {
 		ratings,
 		updateRating,
 		filledEye,
+	
 	} = useMovie();
 
+
+	const {
+		isDialogOpen,
+		selectedDialogMovie,
+		dialogRef,
+		handleOpenDialog,
+		handleCloseDialog,
+		isInfoButtonClicked,
+	} = useDialog();
+	
 	const [selectedMovie, setSelectedMovie] = useState(null);
 
 	const handleRatingClick = (movie) => {
@@ -33,6 +44,14 @@ export default function FavoriteList() {
 			userRating: ratings[movie.id] !== undefined ? ratings[movie.id] : 0,
 		});
 	};
+
+	useEffect(() => {
+			if (isDialogOpen && dialogRef.current) {
+				dialogRef.current.showModal();
+			} else if (!isDialogOpen && dialogRef.current) {
+				dialogRef.current.close();
+			}
+		}, [isDialogOpen, dialogRef]);
 
 	const handleRatingSubmit = (movieId, rating) => {
 		updateRating(movieId, rating);
@@ -47,14 +66,7 @@ export default function FavoriteList() {
 		setSelectedMovie(null);
 	};
 
-	const {
-		isDialogOpen,
-		selectedDialogMovie,
-		dialogRef,
-		handleOpenDialog,
-		handleCloseDialog,
-		isInfoButtonClicked,
-	} = useDialog();
+	
 
 	return (
 		<div className="favlist-page">
