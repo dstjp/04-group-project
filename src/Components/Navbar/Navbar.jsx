@@ -15,7 +15,7 @@ function Nav() {
 	);
 
 	const handleShowSearchbar = () => {
-		setShowSearchbar((prev) => !prev);
+		setShowSearchbar((search) => !search);
 	};
 
 	useEffect(() => {
