@@ -1,5 +1,5 @@
 .watchlist-page {
-	margin-top: 3vw;
+	margin-top: 6vw;
 	margin-bottom: 3vw;
 }
 
@@ -156,6 +156,10 @@
 }
 
 @media only screen and (max-width: 767px) {
+	.watchlist-page {
+		margin-top: 10vw;
+
+	}
 	.watchlist-container {
 		grid-template-columns: repeat(1, 1fr);
 	}
@@ -171,6 +175,10 @@
 }
 
 @media only screen and (max-width: 440px) {
+	.watchlist-page {
+		margin-top: 14vw;
+
+	}
 	.watchlist-movie-title {
 		font-size: 1.25rem;
 	}

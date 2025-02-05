@@ -1,19 +1,19 @@
 .logo {
-	height: 5rem;
-	width: 5rem;
-	float: right;
+  height: 5rem;
+  width: 5rem;
+  float: right;
 }
 .logo-yellow {
-	position: fixed;
-	right: 0;
+  position: fixed;
+  right: 0;
 }
 
 .logo-black {
-	display: none;
+  display: none;
 }
 
 @media all and (max-width: 1024px) {
-	.logo-yellow {
-		display: none;
-	}
+  .logo-yellow {
+    display: none;
+  }
 }
