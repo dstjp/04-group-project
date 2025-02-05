@@ -4,6 +4,7 @@ import { MoviesList } from "./Pages/MoviesList/MoviesList";
 import { Routes, Route } from "react-router";
 import { MovieProvider } from "./context/MovieContext";
 import { DialogProvider } from "./context/DialogContext";
+import { NotFound } from "./Pages/NotFound/NotFound";
 import Navbar from "./Components/Navbar/Navbar";
 import Logo from "./Components/Logo/Logo";
 import WatchList from "./Pages/WatchList/WatchList";
@@ -24,6 +25,7 @@ export const App = () => {
 								<Route index element={<MoviesList />} />
 								<Route path="/favorites" element={<FavoriteList />} />
 								<Route path="/watchlist" element={<WatchList />} />
+								<Route path="/*" element={<NotFound />} />
 							</Routes>
 						</DialogProvider>
 					</div>

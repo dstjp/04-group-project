@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router";
 import "./Navbar.css";
-import FAVORITE_ICON from "../../assets//NavbarIcons/navbarStar.png";
-import HOME_ICON from "../../assets//NavbarIcons/navbarHome.png";
-import WATCH_ICON from "../../assets//NavbarIcons/navbarEye.png";
-import SEARCH_ICON from "../../assets/NavbarIcons/navbarSearch.svg";
-import BlackLogo from "../../assets/LogoIcons/logoBlack.svg";
+import favoriteIcon from "../../assets//NavbarIcons/navbarStar.png";
+import homeIcon from "../../assets//NavbarIcons/navbarHome.png";
+import watchIcon from "../../assets//NavbarIcons/navbarEye.png";
+import searchIcon from "../../assets/NavbarIcons/navbarSearch.svg";
+import BlackLogoIcon from "../../assets/LogoIcons/logoBlack.svg";
 import { SearchBar } from "../SearchBar/SearchBar";
 
 function Nav() {
@@ -32,14 +32,14 @@ function Nav() {
 					<ul className="nav-list">
 						<li className="nav-link">
 							<NavLink to="/">
-								<img className="nav-icon home-icon" srcSet={HOME_ICON} alt="" />
+								<img className="nav-icon home-icon" srcSet={homeIcon} alt="" />
 							</NavLink>
 						</li>
 						<li className="nav-link">
 							<NavLink to="/watchlist">
 								<img
 									className="nav-icon watch-icon"
-									srcSet={WATCH_ICON}
+									srcSet={watchIcon}
 									alt=""
 								/>
 							</NavLink>
@@ -48,7 +48,7 @@ function Nav() {
 							<NavLink to="/favorites">
 								<img
 									className="nav-icon favorite-icon"
-									srcSet={FAVORITE_ICON}
+									srcSet={favoriteIcon}
 									alt=""
 								/>
 							</NavLink>
@@ -57,13 +57,13 @@ function Nav() {
 							<button onClick={handleShowSearchbar}>
 								<img
 									className="nav-icon search-icon"
-									srcSet={SEARCH_ICON}
+									srcSet={searchIcon}
 									alt=""
 								/>
 							</button>
 						</li>
 					</ul>
-					<img className="navbar-logo" src={BlackLogo} />
+					<img className="navbar-logo" src={BlackLogoIcon} alt="logo" />
 				</nav>
 				{mobileSearchbar && <SearchBar showSearchbar={showSearchbar} />}
 			</div>

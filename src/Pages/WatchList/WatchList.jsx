@@ -3,12 +3,12 @@ import { useMovie } from "../../context/MovieContext";
 import { useDialog } from "../../context/DialogContext";
 import { Icon } from "../../Components/Icon/Icon";
 import ratingIcon from "../../assets/MovieCardIcons/movieCardRatingStar.svg";
-import collect from "../../assets/watchlistIcons/collect.svg";
-import trash from "../../assets/watchlistIcons/trash.svg";
-import Info from "../../assets/watchlistIcons/Info.svg";
-import filledFavorite from "../../assets/FavoriteListIcon/filledStar.svg";
+import collectIcon from "../../assets/watchlistIcons/collect.svg";
+import trashIcon from "../../assets/watchlistIcons/trash.svg";
+import InfoIcon from "../../assets/watchlistIcons/Info.svg";
+import filledFavoriteIcon from "../../assets/FavoriteListIcon/filledStar.svg";
 import favoriteIcon from "../../assets/MovieCardIcons/movieCardStar.svg";
-import rectangle from "../../assets/watchlistIcons/rectangle.svg";
+import rectangleIcon from "../../assets/watchlistIcons/rectangle.svg";
 import noPosterFound2 from "../../assets/MovieCardIcons/noPosterFound2.png";
 import { MovieDetailsDialog } from "../MovieDetailsDialog/MovieDetailsDialog";
 
@@ -32,16 +32,17 @@ function WatchList() {
 		isInfoButtonClicked,
 	} = useDialog();
 
+			
 	return (
 		<div className="watchlist-page">
 			<div className="watchlist-header">
-				<Icon url={rectangle} alt="rectangle" className="watchlist-rectangle" />
+				<Icon url={rectangleIcon} alt="rectangle" className="watchlist-rectangle" />
 				<h1 className="watchlist-title">WatchList</h1>
 			</div>
 			<div className="watchlist-container">
 				{watchList.length === 0 ? (
 					<div className="watchlist-empty">
-						<img src={collect} alt="collect" />
+						<img src={collectIcon} alt="collect" />
 						<p className="watchlist-empty-text">
 							Save shows and movies to keep track of what you want to watch.
 						</p>
@@ -56,7 +57,7 @@ function WatchList() {
 											e.preventDefault();
 											removeFromWatchList(movie.id);
 										}}
-										url={trash}
+										url={trashIcon}
 										type="button"
 										alt="remove"
 										className="watchlist-remove-icon"
@@ -88,12 +89,12 @@ function WatchList() {
 										onClick={() => addToFavorites(movie)}
 										onMouseEnter={() => setFilledStar(true)}
 										type="button"
-										url={filledStar[movie.id] ? filledFavorite : favoriteIcon}
+										url={filledStar[movie.id] ? filledFavoriteIcon : favoriteIcon}
 										alt="star icon"
 										className="watchlist-add-to-favlist-button"
 									/>
 									<Icon
-										url={Info}
+										url={InfoIcon}
 										alt="info"
 										onClick={() => handleOpenDialog(movie)}
 										className="watchlist-info-button"
