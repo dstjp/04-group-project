@@ -1,102 +1,103 @@
 .movie-card-container {
-	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(176px, 1fr));
-	gap: 1rem;
-	padding: 2rem;
-	justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
+  row-gap: 1rem;
+  padding: 2rem;
+  justify-content: center;
+  justify-items: center;
 }
 
 .header-wrapper {
-	display: flex;
-	justify-content: flex-start;
-	margin-left: 3rem;
-	gap: 10px;
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 3rem;
+  gap: 10px;
 }
 
 .movie-card {
-	height: 100%;
-	width: 11.55rem;
-	background: var(--darkgray);
-	border-radius: 12px;
-	overflow: hidden;
-	transition: transform 0.3s ease-in-out;
-	cursor: pointer;
+  height: 100%;
+  width: 11.55rem;
+  background: var(--darkgray);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
 }
 
 .movie-card:hover {
-	transform: scale(1.01);
+  transform: scale(1.01);
 }
 
 .movie-image-wrapper {
-	position: relative;
-	overflow: hidden;
+  position: relative;
+  overflow: hidden;
 }
 
 .movie-image {
-	width: 100%;
-	height: 17rem;
-	object-fit: cover;
+  width: 100%;
+  height: 17rem;
+  object-fit: cover;
 }
 
 .movie-info-wrapper {
-	padding: 0.75rem;
+  padding: 0.75rem;
 }
 
 .title-wrapper {
-	display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .title-wrapper p {
-	font-size: 1rem;
-	font-weight: bold;
-	margin: 0.5rem 0;
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 0.5rem 0;
 }
 
 .rating-wrapper {
-	display: flex;
-	gap: 5px;
-	font-size: 0.9rem;
+  display: flex;
+  gap: 5px;
+  font-size: 0.9rem;
 }
 
 .rating-wrapper img {
-	margin-top: -0.2rem;
+  margin-top: -0.2rem;
 }
 
 .title-images {
-	display: flex;
-	gap: 0.5rem;
+  display: flex;
+  gap: 0.5rem;
 }
 .watchlist-button img {
-	height: 1.65rem;
+  height: 1.65rem;
 }
 
 .favorite-button img {
-	margin-top: -0.15rem;
-	height: 1.4rem;
+  margin-top: -0.15rem;
+  height: 1.4rem;
 }
 
 .watchlist-button,
 .favorite-button {
-	background: none;
-	border: none;
-	cursor: pointer;
-	transition: transform 0.2s ease-in-out;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
 }
 
 .watchlist-button:hover,
 .favorite-button:hover {
-	transform: scale(1.2);
+  transform: scale(1.2);
 }
 
-@media (max-width: 768px) {
-	.movie-card-container {
-		grid-template-columns: repeat(auto-fill, minmax(165px, 1fr));
-	}
+@media only screen and (min-device-width: 984px) and (max-device-width: 1024px) {
+  .movie-card-container {
+    grid-template-columns: repeat(4, minmax(185px, 1fr));
+  }
 }
 
-@media screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: potrait) {
-	.movie-card-container {
-		grid-template-columns: repeat(3, minmax(185px, 1fr));
-	}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+  .movie-card-container {
+    grid-template-columns: repeat(3, minmax(185px, 1fr));
+  }
 }
