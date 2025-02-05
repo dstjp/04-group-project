@@ -1,3 +1,7 @@
+.movie-list-container {
+	margin-top: 15vw;
+}
+
 .movie-card-container {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
@@ -5,7 +9,6 @@
 	padding: 2rem;
 	justify-content: center;
 	justify-items: center;
-  -webkit-overflow-scrolling: touch;
 }
 
 .header-wrapper {
@@ -116,7 +119,16 @@
 }
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1023px) and (orientation: portrait) {
+	.movie-list-container {
+		margin-top: 5vw;
+	}
 	.movie-card-container {
 		grid-template-columns: repeat(3, minmax(185px, 1fr));
+	}
+}
+
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1600px) {
+	.movie-list-container {
+		margin-top: 5vw;
 	}
 }

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useMovie } from "../context/MovieContext.jsx";
 import { useDialog } from "../context/DialogContext.jsx";
 import ratingIcon from "../assets//MovieCardIcons/movieCardRatingStar.svg";
