@@ -14,7 +14,7 @@ export const MoviesList = () => {
 
 			{!searchQuery && (
 				<div className="header-wrapper">
-					<img className="icon-header" src={rectangleIcon} alt="" />
+					<img className="icon-header" src={rectangleIcon} alt="header icon" />
 					<h3 className="movie-list-header">Top 20</h3>
 				</div>
 			)}

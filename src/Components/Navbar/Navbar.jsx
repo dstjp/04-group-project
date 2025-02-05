@@ -32,7 +32,11 @@ function Nav() {
 					<ul className="nav-list">
 						<li className="nav-link">
 							<NavLink to="/">
-								<img className="nav-icon home-icon" srcSet={homeIcon} alt="" />
+								<img
+									className="nav-icon home-icon"
+									srcSet={homeIcon}
+									alt="home icon"
+								/>
 							</NavLink>
 						</li>
 						<li className="nav-link">
@@ -40,7 +44,7 @@ function Nav() {
 								<img
 									className="nav-icon watch-icon"
 									srcSet={watchIcon}
-									alt=""
+									alt="watchlist icon"
 								/>
 							</NavLink>
 						</li>
@@ -49,7 +53,7 @@ function Nav() {
 								<img
 									className="nav-icon favorite-icon"
 									srcSet={favoriteIcon}
-									alt=""
+									alt="favorite icon"
 								/>
 							</NavLink>
 						</li>
@@ -58,12 +62,12 @@ function Nav() {
 								<img
 									className="nav-icon search-icon"
 									srcSet={searchIcon}
-									alt=""
+									alt="search icon"
 								/>
 							</button>
 						</li>
 					</ul>
-					<img className="navbar-logo" src={BlackLogoIcon} alt="logo" />
+					<img className="navbar-logo" src={BlackLogoIcon} alt="mdbLogo" />
 				</nav>
 				{mobileSearchbar && <SearchBar showSearchbar={showSearchbar} />}
 			</div>

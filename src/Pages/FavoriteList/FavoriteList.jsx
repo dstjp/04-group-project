@@ -23,7 +23,6 @@ export default function FavoriteList() {
 		ratings,
 		updateRating,
 		filledEye,
-	
 	} = useMovie();
 
 	const {
@@ -34,7 +33,7 @@ export default function FavoriteList() {
 		handleCloseDialog,
 		isInfoButtonClicked,
 	} = useDialog();
-	
+
 	const [selectedMovie, setSelectedMovie] = useState(null);
 
 	const handleRatingClick = (movie) => {
@@ -43,7 +42,6 @@ export default function FavoriteList() {
 			userRating: ratings[movie.id] !== undefined ? ratings[movie.id] : 0,
 		});
 	};
-
 
 	const handleRatingSubmit = (movieId, rating) => {
 		updateRating(movieId, rating);
@@ -61,7 +59,11 @@ export default function FavoriteList() {
 	return (
 		<div className="favlist-page">
 			<div className="favlist-header">
-				<Icon url={rectangleIcon} alt="rectangle" className="favlist-rectangle" />
+				<Icon
+					url={rectangleIcon}
+					alt="header icon"
+					className="favlist-rectangle"
+				/>
 				<h1 className="favlist-title">Favorite List</h1>
 			</div>
 			<div className="favlist-container">
@@ -82,7 +84,7 @@ export default function FavoriteList() {
 										}}
 										url={trashIcon}
 										type="button"
-										alt="remove"
+										alt="remove movie button"
 										className="favlist-remove-icon"
 									/>
 								</div>
@@ -99,7 +101,7 @@ export default function FavoriteList() {
 							<div className="favlist-movie-info-wrapper">
 								<div className="favlist-movie-info watchlist-extra">
 									<div className="favlist-rating-wrapper">
-										<img src={ratingIcon} alt="star icon" />
+										<img src={ratingIcon} alt="rating icon" />
 										<span
 											className="favlist-rate-button"
 											onClick={() => handleRatingClick(movie)}

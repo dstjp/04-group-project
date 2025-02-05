@@ -32,11 +32,14 @@ function WatchList() {
 		isInfoButtonClicked,
 	} = useDialog();
 
-			
 	return (
 		<div className="watchlist-page">
 			<div className="watchlist-header">
-				<Icon url={rectangleIcon} alt="rectangle" className="watchlist-rectangle" />
+				<Icon
+					url={rectangleIcon}
+					alt="header icon"
+					className="watchlist-rectangle"
+				/>
 				<h1 className="watchlist-title">WatchList</h1>
 			</div>
 			<div className="watchlist-container">
@@ -76,7 +79,7 @@ function WatchList() {
 								<div className="watchlist-movie-info watchlist-extra">
 									<div className="watchlist-rating-wrapper">
 										<div className="watchlist-general-rating watchlist-extra">
-											<img src={ratingIcon} alt="star icon" />
+											<img src={ratingIcon} alt="rating icon" />
 											<span>{formatRating(movie.vote_average)}</span>
 										</div>
 									</div>
@@ -89,13 +92,15 @@ function WatchList() {
 										onClick={() => addToFavorites(movie)}
 										onMouseEnter={() => setFilledStar(true)}
 										type="button"
-										url={filledStar[movie.id] ? filledFavoriteIcon : favoriteIcon}
-										alt="star icon"
+										url={
+											filledStar[movie.id] ? filledFavoriteIcon : favoriteIcon
+										}
+										alt="rating icon"
 										className="watchlist-add-to-favlist-button"
 									/>
 									<Icon
 										url={InfoIcon}
-										alt="info"
+										alt="info icon"
 										onClick={() => handleOpenDialog(movie)}
 										className="watchlist-info-button"
 									/>
