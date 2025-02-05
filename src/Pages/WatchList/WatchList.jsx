@@ -9,6 +9,7 @@ import Info from "../../assets/watchlistIcons/Info.svg";
 import filledFavorite from "../../assets/FavoriteListIcon/filledStar.svg";
 import favoriteIcon from "../../assets/MovieCardIcons/movieCardStar.svg";
 import rectangle from "../../assets/watchlistIcons/rectangle.svg";
+import noPosterFound2 from "../../assets/MovieCardIcons/noPosterFound2.png";
 import { MovieDetailsDialog } from "../MovieDetailsDialog/MovieDetailsDialog";
 
 function WatchList() {
@@ -62,7 +63,11 @@ function WatchList() {
 									/>
 								</div>
 								<img
-									src={`https://image.tmdb.org/t/p/w1280${movie.backdrop_path}`}
+									src={
+										movie.backdrop_path
+											? `https://image.tmdb.org/t/p/w1280${movie.backdrop_path}`
+											: noPosterFound2
+									}
 									alt={`${movie.title} poster`}
 								/>
 							</div>

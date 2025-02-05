@@ -9,7 +9,7 @@
 	grid-template-columns: repeat(2, 1fr);
 	gap: 2vw;
 }
-/* No movie page */
+
 .favlist-empty-text {
 	margin-top: 1rem;
 }
@@ -22,7 +22,7 @@
 	justify-content: center;
 	align-items: center;
 }
-/* Page Header */
+
 .favlist-header {
 	display: flex;
 	margin-left: 10vw;
@@ -37,10 +37,8 @@
 	height: fit-content;
 }
 
-/* Movie card */
-
 .favlist-movie-card {
-	background: #2c2c2c;
+	background: var(--gray);
 	width: 100%;
 	border-radius: 1.5rem;
 	transition: transform 0.3s ease-in-out;
@@ -83,8 +81,6 @@
 	opacity: 1;
 }
 
-/* Movie info */
-
 .favlist-movie-info-wrapper {
 	margin: 0.5rem;
 	display: flex;
@@ -106,8 +102,6 @@
 	margin-bottom: 0.15rem;
 }
 
-/* Icons */
-
 .favlist-icons-wrapper {
 	display: flex;
 	margin-left: 0.15rem;
@@ -128,9 +122,6 @@
 	cursor: pointer;
 	transform: scale(1.1);
 	filter: drop-shadow(1px 2px 5px rgba(174, 62, 62, 0.7));
-}
-
-.favlist-movie-info .watchlist-extra {
 }
 
 .favlist-info-button:hover {
