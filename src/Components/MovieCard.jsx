@@ -6,6 +6,8 @@ import favoriteIcon from "../assets//MovieCardIcons/movieCardStar.svg";
 import filledFavorite from "../assets//FavoriteListIcon/filledStar.svg";
 import filledEyeIcon from "../../src/assets/MovieCardIcons/movieCardEyeFilled.png";
 import eyeIcon from "../assets/MovieCardIcons/movieCardEye.png";
+import noPoster from "../assets/MovieCardIcons/noPoster.png";
+import noPosterFound from "../assets/MovieCardIcons/noPosterFound.png";
 import { Icon } from "./Icon/Icon.jsx";
 import { MovieDetailsDialog } from "../Pages/MovieDetailsDialog/MovieDetailsDialog.jsx";
 
@@ -37,7 +39,11 @@ export const MovieCard = () => {
 				<div className="movie-card" key={movie.id}>
 					<div className="movie-image-wrapper">
 						<img
-							src={`https://image.tmdb.org/t/p/w185${movie.poster_path}`}
+							src={
+								movie.poster_path
+									? `https://image.tmdb.org/t/p/w185${movie.poster_path}`
+									: noPosterFound
+							}
 							alt={`${movie.title} poster`}
 							className="movie-image"
 							onClick={() => handleOpenDialog(movie)}
