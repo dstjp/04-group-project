@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { useMovie } from "../../context/MovieContext";
 import { useDialog } from "../../context/DialogContext";
 import { Icon } from "../../Components/Icon/Icon";
@@ -32,6 +32,14 @@ function WatchList() {
 		isInfoButtonClicked,
 	} = useDialog();
 
+	useEffect(() => {
+				if (isDialogOpen && dialogRef.current) {
+					dialogRef.current.showModal();
+				} else if (!isDialogOpen && dialogRef.current) {
+					dialogRef.current.close();
+				}
+			}, [isDialogOpen, dialogRef]);
+			
 	return (
 		<div className="watchlist-page">
 			<div className="watchlist-header">
