@@ -100,10 +100,7 @@
 
 @media (max-width: 1024px) {
 	.movie-card-container {
-		padding-top: 4rem;
-	}
-	.header-wrapper {
-		font-size: 1rem;
+		margin-top: 2rem;
 	}
 }
 
@@ -117,8 +114,8 @@
 	}
 }
 
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1023px) and (orientation: portrait) {
 	.movie-card-container {
-		grid-template-columns: repeat(4, minmax(185px, 1fr));
+		grid-template-columns: repeat(3, minmax(185px, 1fr));
 	}
 }
