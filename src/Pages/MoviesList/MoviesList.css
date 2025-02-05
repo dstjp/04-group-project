@@ -5,6 +5,7 @@
 	padding: 2rem;
 	justify-content: center;
 	justify-items: center;
+  -webkit-overflow-scrolling: touch;
 }
 
 .header-wrapper {
