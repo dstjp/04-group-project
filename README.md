@@ -35,7 +35,7 @@ Ji
 - Fetch movies API and genre API
 - Not Found page
 - Loading animation
-[GitHub](https://github.com/jyy009)
+- [GitHub](https://github.com/jyy009)
 
 Dylan
 - Navbar
@@ -43,18 +43,18 @@ Dylan
 - Filled in icons for adding movie functionality
 - Website logo
 - Search bar
-[GitHub](https://github.com/dstjp)
+- [GitHub](https://github.com/dstjp)
 
 Asher
 - Watchlist page
 - Remove/add movie functionality
 - Edit rating functionality
 - Website design
-[GitHub](https://github.com/Asher-zx)
+- [GitHub](https://github.com/Asher-zx)
 
 Yu
 - Search bar
-[GitHub](https://github.com/yusun-lab)
+- [GitHub](https://github.com/yusun-lab)
 
 ## View it Live
 https://jaudmdb.netlify.app/
