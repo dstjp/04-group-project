@@ -1,11 +1,13 @@
 .movie-card-container {
-	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
-	row-gap: 1rem;
-	padding: 2rem;
+	display: flex;
+	flex-wrap: wrap;
 	justify-content: center;
-	justify-items: center;
-  -webkit-overflow-scrolling: touch;
+	align-items: center;
+	-webkit-overflow-scrolling: touch;
+	gap: 1.5rem;
+	padding: 2rem;
+	max-width: 75vw;
+	margin: 0 auto;
 }
 
 .header-wrapper {
