@@ -14,12 +14,15 @@ export const MovieCard = () => {
     movies,
     formatRating,
     formatMovieTitle,
-    addToWatchList,
+    // addToWatchList,
     addToFavorites,
     filledStar,
     setFilledStar,
     filledEye,
     setFilledEye,
+    // toggleFromWatchList,
+    // iconClicked,
+    setIconClicked,
   } = useMovie();
 
   const {
@@ -54,7 +57,8 @@ export const MovieCard = () => {
               <p>{formatMovieTitle(movie.title, 14)}</p>
               <div className="title-images">
                 <Icon
-                  onClick={() => addToWatchList(movie)}
+                  // onClick={() => addToWatchList(movie)}
+                  onClick={ () => setIconClicked(prevState =>!prevState)}
                   onMouseEnter={() => setFilledEye(true)}
                   url={filledEye[movie.id] ? filledEyeIcon : eyeIcon}
                   type="button"
