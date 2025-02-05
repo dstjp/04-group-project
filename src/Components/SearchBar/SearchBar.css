@@ -17,6 +17,7 @@
 }
 
 .search-input::placeholder {
+	font-size: 1rem;
 	color: rgba(255, 255, 255, 0.401);
 }
 
@@ -44,6 +45,6 @@
 
 @media (max-width: 440px) {
 	.searchbar-container {
-		margin-left: 5.25rem;
+		margin-left: 3.5rem;
 	}
 }
