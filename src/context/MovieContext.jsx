@@ -11,7 +11,6 @@ export const MovieProvider = ({ children }) => {
 	const [ratings, setRatings] = useState({});
 	const [filledStar, setFilledStar] = useState({});
 	const [filledEye, setFilledEye] = useState({});
-
 	const [searchQuery, setSearchQuery] = useState("");
 
 	const apiKey = "272e0a4f8aed64cdcbc79856c6259d84";
@@ -29,7 +28,7 @@ export const MovieProvider = ({ children }) => {
 			const data = await response.json();
 			if (response.ok) {
 				setMovies(data.results);
-				console.log(data.results)
+				console.log(data.results);
 			} else {
 				throw new Error("Failed to fetch data");
 			}
@@ -57,7 +56,7 @@ export const MovieProvider = ({ children }) => {
 				...fill,
 				[movie.id]: true,
 			};
-		})
+		});
 	};
 
 	const removeFromWatchList = (id) => {

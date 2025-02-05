@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { useMovie } from "../../context/MovieContext";
 import "./SearchBar.css";
 
-export const SearchBar = () => {
+export const SearchBar = ({ showSearchbar }) => {
 	const { searchQuery, setSearchQuery, fetchMovies } = useMovie();
 	const previousQuery = useRef(searchQuery);
 
@@ -20,14 +20,16 @@ export const SearchBar = () => {
 	}, [searchQuery, fetchMovies]);
 
 	return (
-		<form className="searchbar" onSubmit={(e) => e.preventDefault()}>
-			<input
-				type="text"
-				placeholder="Search for a movie"
-				value={searchQuery}
-				onChange={(e) => setSearchQuery(e.target.value)}
-				className="search-input"
-			/>
-		</form>
+		<div className={`searchbar-container ${showSearchbar ? "active" : ""}`}>
+			<form className="searchbar" onSubmit={(e) => e.preventDefault()}>
+				<input
+					type="text"
+					placeholder="Search for a movie..."
+					value={searchQuery}
+					onChange={(e) => setSearchQuery(e.target.value)}
+					className="search-input"
+				/>
+			</form>
+		</div>
 	);
 };

@@ -4,12 +4,16 @@ import LogoImageBlackIcon from "../../assets/LogoIcons/logoBlack.svg";
 import "./Logo.css";
 
 function LogoImageFunction() {
-  return (
-    <>
-      <img src={LogoImageYellowIcon} className="logo logo-yellow" alt="" />
-      <img src={LogoImageBlackIcon} className="logo logo-black" alt="" />
-    </>
-  );
+	return (
+		<>
+			<img
+				src={LogoImageYellowIcon}
+				className="logo logo-yellow"
+				alt="mdbLogo"
+			/>
+			<img src={LogoImageBlackIcon} className="logo logo-black" alt="mdbLogo" />
+		</>
+	);
 }
 
 export default LogoImageFunction;
