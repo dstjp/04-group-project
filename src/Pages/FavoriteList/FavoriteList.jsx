@@ -6,7 +6,7 @@ import RatingPopUp from "../FavoriteList/Ratingscore/RatingPopUp";
 import ratingIcon from "../../assets/MovieCardIcons/movieCardRatingStar.svg";
 import filledEyeIcon from "../../assets/MovieCardIcons/movieCardEyeFilled.png";
 import eyeIcon from "../../assets/MovieCardIcons/movieCardEye.png";
-import rectangleIcon from "../../assets/watchlistIcons/rectangle.svg";
+import headerTitleIcon from "../../assets/watchlistIcons/rectangle.svg";
 import trashIcon from "../../assets/watchlistIcons/trash.svg";
 import collectIcon from "../../assets/watchlistIcons/collect.svg";
 import noPosterFound2 from "../../assets/MovieCardIcons/noPosterFound2.png";
@@ -55,7 +55,7 @@ export default function FavoriteList() {
     <div className="favlist-page">
       <div className="favlist-header">
         <Icon
-          url={rectangleIcon}
+          url={headerTitleIcon}
           alt="header icon"
           className="favlist-rectangle"
         />
