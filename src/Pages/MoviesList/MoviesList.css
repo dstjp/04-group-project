@@ -16,7 +16,7 @@
 .movie-card {
 	height: 100%;
 	width: 11.55rem;
-	background: #1e1e1e;
+	background: var(--darkgray);
 	border-radius: 12px;
 	overflow: hidden;
 	transition: transform 0.3s ease-in-out;
