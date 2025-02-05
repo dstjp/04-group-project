@@ -155,7 +155,7 @@
 	}
 }
 
-@media only screen and (max-width: 768px) and (orientation: portrait) {
+@media only screen and (max-width: 767px) {
 	.watchlist-container {
 		grid-template-columns: repeat(1, 1fr);
 	}
@@ -163,6 +163,7 @@
 	.watchlist-movie-title {
 		font-size: 1.25rem;
 	}
+	
 	.watchlist-add-to-favlist-button img,
 	.watchlist-info-button img {
 		height: 1.5rem;
