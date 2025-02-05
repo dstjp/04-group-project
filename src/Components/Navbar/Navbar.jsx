@@ -36,7 +36,7 @@ function Nav() {
 							</NavLink>
 						</li>
 					</ul>
-					<img className="navbar-logo" src={BlackLogoIcon} />
+					<img className="navbar-logo" src={BlackLogoIcon} alt="logo"/>
 				</nav>
 			</div>
 		</>

@@ -1,0 +1,26 @@
+.not-found-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40%;
+  font-size: 1.7rem;
+}
+
+.not-found-header {
+  color: var(--white);
+}
+
+.not-found-to-home {
+  color: var(--black);
+  padding: 10px 15px 10px 15px;
+  border-radius: 15px;
+  background-color: var(--yellow);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.not-found-to-home:hover {
+  transform: scale(1.1);
+  transition: transform 0.2s ease-in;
+}

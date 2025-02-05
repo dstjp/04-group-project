@@ -33,14 +33,6 @@ export const MovieCard = () => {
     isInfoButtonClicked,
   } = useDialog();
 
-  useEffect(() => {
-    if (isDialogOpen && dialogRef.current) {
-      dialogRef.current.showModal();
-    } else if (!isDialogOpen && dialogRef.current) {
-      dialogRef.current.close();
-    }
-  }, [isDialogOpen, dialogRef]);
-
   return (
     <div className="movie-card-container">
       {movies.map((movie) => (
