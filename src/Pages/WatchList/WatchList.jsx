@@ -8,7 +8,7 @@ import trashIcon from "../../assets/watchlistIcons/trash.svg";
 import InfoIcon from "../../assets/watchlistIcons/Info.svg";
 import filledFavoriteIcon from "../../assets/FavoriteListIcon/filledStar.svg";
 import favoriteIcon from "../../assets/MovieCardIcons/movieCardStar.svg";
-import rectangleIcon from "../../assets/watchlistIcons/rectangle.svg";
+import headerTitleIcon from "../../assets/watchlistIcons/rectangle.svg";
 import noPosterFound2 from "../../assets/MovieCardIcons/noPosterFound2.png";
 import { MovieDetailsDialog } from "../MovieDetailsDialog/MovieDetailsDialog";
 
@@ -36,7 +36,7 @@ function WatchList() {
 		<div className="watchlist-page">
 			<div className="watchlist-header">
 				<Icon
-					url={rectangleIcon}
+					url={headerTitleIcon}
 					alt="header icon"
 					className="watchlist-rectangle"
 				/>
