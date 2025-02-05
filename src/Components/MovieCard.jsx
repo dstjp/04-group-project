@@ -3,7 +3,7 @@ import { useMovie } from "../context/MovieContext.jsx";
 import { useDialog } from "../context/DialogContext.jsx";
 import ratingIcon from "../assets//MovieCardIcons/movieCardRatingStar.svg";
 import favoriteIcon from "../assets//MovieCardIcons/movieCardStar.svg";
-import filledFavorite from "../assets//FavoriteListIcon/filledStar.svg";
+import filledFavoriteIcon from "../assets//FavoriteListIcon/filledStar.svg";
 import filledEyeIcon from "../../src/assets/MovieCardIcons/movieCardEyeFilled.png";
 import eyeIcon from "../assets/MovieCardIcons/movieCardEye.png";
 import noPoster from "../assets/MovieCardIcons/noPoster.png";
@@ -71,7 +71,7 @@ export const MovieCard = () => {
 									onClick={() => addToFavorites(movie)}
 									onMouseEnter={() => setFilledStar(true)}
 									type="button"
-									url={filledStar[movie.id] ? filledFavorite : favoriteIcon}
+									url={filledStar[movie.id] ? filledFavoriteIcon : favoriteIcon}
 									alt="star icon"
 									className="favorite-button"
 								/>
