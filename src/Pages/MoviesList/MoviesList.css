@@ -12,7 +12,7 @@
 	margin-left: 10vw;
 	margin-top: 2rem;
 	gap: 1vw;
-	font-size: 1.5vw;
+	font-size: 1.5rem;
 	align-items: center;
 }
 
@@ -103,7 +103,7 @@
 		padding-top: 4rem;
 	}
 	.header-wrapper {
-		font-size: 0.8rem;
+		font-size: 1rem;
 	}
 }
 
