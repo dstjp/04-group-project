@@ -6,8 +6,8 @@ import RatingPopUp from "../FavoriteList/Ratingscore/RatingPopUp";
 import ratingIcon from "../../assets/MovieCardIcons/movieCardRatingStar.svg";
 import filledEyeIcon from "../../assets/MovieCardIcons/movieCardEyeFilled.png";
 import eyeIcon from "../../assets/MovieCardIcons/movieCardEye.png";
-import rectangle from "../../assets/watchlistIcons/rectangle.svg";
-import trash from "../../assets/watchlistIcons/trash.svg";
+import rectangleIcon from "../../assets/watchlistIcons/rectangle.svg";
+import trashIcon from "../../assets/watchlistIcons/trash.svg";
 import collectIcon from "../../assets/watchlistIcons/collect.svg";
 import noPosterFound2 from "../../assets/MovieCardIcons/noPosterFound2.png";
 import "./FavoriteList.css";
@@ -59,7 +59,7 @@ export default function FavoriteList() {
 	return (
 		<div className="favlist-page">
 			<div className="favlist-header">
-				<Icon url={rectangle} alt="rectangle" className="favlist-rectangle" />
+				<Icon url={rectangleIcon} alt="rectangle" className="favlist-rectangle" />
 				<h1 className="favlist-title">Favorite List</h1>
 			</div>
 			<div className="favlist-container">
@@ -78,7 +78,7 @@ export default function FavoriteList() {
 											e.preventDefault();
 											removeFromFavorites(movie.id);
 										}}
-										url={trash}
+										url={trashIcon}
 										type="button"
 										alt="remove"
 										className="favlist-remove-icon"
