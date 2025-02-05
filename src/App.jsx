@@ -13,24 +13,24 @@ import "./Pages/WatchList/WatchList.css";
 import "./Pages/FavoriteList/Ratingscore/RatingPopUp.css";
 
 export const App = () => {
-	return (
-		<>
-			<div className="app-container">
-				<MovieProvider>
-					<Navbar />
-					<Logo />
-					<div className="main-content">
-						<DialogProvider>
-							<Routes>
-								<Route index element={<MoviesList />} />
-								<Route path="/favorites" element={<FavoriteList />} />
-								<Route path="/watchlist" element={<WatchList />} />
-								<Route path="/*" element={<NotFound />} />
-							</Routes>
-						</DialogProvider>
-					</div>
-				</MovieProvider>
-			</div>
-		</>
-	);
+  return (
+    <>
+      <div className="app-container">
+        <MovieProvider>
+          <Navbar />
+          <Logo />
+          <div className="main-content">
+            <DialogProvider>
+              <Routes>
+                <Route index element={<MoviesList />} />
+                <Route path="/favorites" element={<FavoriteList />} />
+                <Route path="/watchlist" element={<WatchList />} />
+                <Route path="/*" element={<NotFound />} />
+              </Routes>
+            </DialogProvider>
+          </div>
+        </MovieProvider>
+      </div>
+    </>
+  );
 };

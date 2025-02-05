@@ -156,6 +156,10 @@
 }
 
 @media only screen and (max-width: 767px) {
+  .favlist-page {
+    margin-top: 10vw;
+  }
+
   .favlist-container {
     grid-template-columns: repeat(1, 1fr);
   }
@@ -171,8 +175,7 @@
 
 @media only screen and (max-width: 440px) {
   .favlist-page {
-    margin-top: 13vw;
-
+    margin-top: 15vw;
   }
 
   .favlist-movie-title {
