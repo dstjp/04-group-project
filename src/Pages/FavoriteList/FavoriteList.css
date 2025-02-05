@@ -169,6 +169,8 @@
 @media only screen and (max-width: 768px) and (orientation: portrait) {
 	.favlist-container {
 		grid-template-columns: repeat(1, 1fr);
+		gap: 3vw;
+
 	}
 
 	.favlist-movie-title {

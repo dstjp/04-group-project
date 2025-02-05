@@ -16,7 +16,6 @@ export const MovieDetailsDialog = ({ movie, onClose, ref }) => {
       .then((res) => res.json())
       .then((data) => {
         setGenres(data.genres);
-        console.log(data.genres);
       })
       .catch((error) => console.error("Error fetching genres:", error));
   }, [movie.id]);
