@@ -28,10 +28,9 @@ export const DialogProvider = ({ children }) => {
 
   // Open and close dialog
   useEffect(() => {
-    if (isDialogOpen && dialogRef.current) {
-      dialogRef.current.showModal();
-    } else if (!isDialogOpen && dialogRef.current) {
-      dialogRef.current.close();
+    // can be simplified for readability
+    if (dialogRef.current) {
+      isDialogOpen ? dialogRef.current.showModal() : dialogRef.current.close();
     }
   }, [isDialogOpen, dialogRef]);
 

@@ -10,6 +10,94 @@ import noPosterFound from "../assets/MovieCardIcons/noPosterFound.png";
 import { Icon } from "./Icon/Icon.jsx";
 import { MovieDetailsDialog } from "../Pages/MovieDetailsDialog/MovieDetailsDialog.jsx";
 
+// breaking down the MovieCard component into smaller components this way makes it easier to read and maintain
+
+// component for the movie image
+const MovieImage = ({ movie, handleOpenDialog }) => (
+  <div className="movie-image-wrapper">
+    <img
+      src={
+        movie.poster_path
+          ? `https://image.tmdb.org/t/p/w185${movie.poster_path}`
+          : noPosterFound
+      }
+      alt={`${movie.title} poster`}
+      className="movie-image"
+      onClick={() => handleOpenDialog(movie)}
+    />
+  </div>
+);
+
+// component for the movie info
+const MovieInfo = ({
+  movie,
+  formatRating,
+  formatMovieTitle,
+  addToWatchList,
+  addToFavorites,
+  filledStar,
+  setFilledStar,
+  filledEye,
+  setFilledEye,
+}) => (
+  <div className="movie-info-wrapper">
+    <div className="rating-wrapper">
+      <img src={ratingIcon} alt="star icon" />
+      <span>{formatRating(movie.vote_average)}</span>
+    </div>
+    <div className="title-wrapper">
+      <p>{formatMovieTitle(movie.title, 14)}</p>
+      <div className="title-images">
+        <Icon
+          onClick={() => addToWatchList(movie)}
+          onMouseEnter={() => setFilledEye(true)}
+          url={filledEye[movie.id] ? filledEyeIcon : eyeIcon}
+          type="button"
+          alt="watchlist icon"
+          className="watchlist-button"
+        />
+        <Icon
+          onClick={() => addToFavorites(movie)}
+          onMouseEnter={() => setFilledStar(true)}
+          type="button"
+          url={filledStar[movie.id] ? filledFavoriteIcon : favoriteIcon}
+          alt="favorite icon"
+          className="favorite-button"
+        />
+      </div>
+    </div>
+  </div>
+);
+
+// component for the movie card item
+const MovieCardItem = ({
+  movie,
+  formatRating,
+  formatMovieTitle,
+  addToWatchList,
+  addToFavorites,
+  filledStar,
+  setFilledStar,
+  filledEye,
+  setFilledEye,
+  handleOpenDialog,
+}) => (
+  <div className="movie-card" key={movie.id}>
+    <MovieImage movie={movie} handleOpenDialog={handleOpenDialog} />
+    <MovieInfo
+      movie={movie}
+      formatRating={formatRating}
+      formatMovieTitle={formatMovieTitle}
+      addToWatchList={addToWatchList}
+      addToFavorites={addToFavorites}
+      filledStar={filledStar}
+      setFilledStar={setFilledStar}
+      filledEye={filledEye}
+      setFilledEye={setFilledEye}
+    />
+  </div>
+);
+
 export const MovieCard = () => {
   const {
     movies,
@@ -35,49 +123,19 @@ export const MovieCard = () => {
   return (
     <div className="movie-card-container">
       {movies.map((movie) => (
-        <div className="movie-card" key={movie.id}>
-          <div className="movie-image-wrapper">
-            <img
-              src={
-                movie.poster_path
-                  ? `https://image.tmdb.org/t/p/w185${movie.poster_path}`
-                  : noPosterFound
-              }
-              alt={`${movie.title} poster`}
-              className="movie-image"
-              onClick={() => handleOpenDialog(movie)}
-            />
-          </div>
-
-          <div className="movie-info-wrapper">
-            <div className="rating-wrapper">
-              <img src={ratingIcon} alt="star icon" />
-              <span>{formatRating(movie.vote_average)}</span>
-            </div>
-
-            <div className="title-wrapper">
-              <p>{formatMovieTitle(movie.title, 14)}</p>
-              <div className="title-images">
-                <Icon
-                  onClick={() => addToWatchList(movie)}
-                  onMouseEnter={() => setFilledEye(true)}
-                  url={filledEye[movie.id] ? filledEyeIcon : eyeIcon}
-                  type="button"
-                  alt="watchlist icon"
-                  className="watchlist-button"
-                />
-                <Icon
-                  onClick={() => addToFavorites(movie)}
-                  onMouseEnter={() => setFilledStar(true)}
-                  type="button"
-                  url={filledStar[movie.id] ? filledFavoriteIcon : favoriteIcon}
-                  alt="favorite icon"
-                  className="favorite-button"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
+        <MovieCardItem
+          key={movie.id}
+          movie={movie}
+          formatRating={formatRating}
+          formatMovieTitle={formatMovieTitle}
+          addToWatchList={addToWatchList}
+          addToFavorites={addToFavorites}
+          filledStar={filledStar}
+          setFilledStar={setFilledStar}
+          filledEye={filledEye}
+          setFilledEye={setFilledEye}
+          handleOpenDialog={handleOpenDialog}
+        />
       ))}
 
       {isDialogOpen && selectedDialogMovie && isInfoButtonClicked && (

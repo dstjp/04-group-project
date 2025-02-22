@@ -5,10 +5,12 @@ import ratingIcon from "../../assets/MovieCardIcons/movieCardRatingStar.svg";
 
 export const MovieDetailsDialog = ({ movie, onClose, ref }) => {
   const { formatRating } = useMovie();
-  const [genres, setGenres] = useState();
+  // prevent genres from being undefined
+  const [genres, setGenres] = useState([]);
 
   // Fetch the genres
   useEffect(() => {
+    // should handle the api key in a better way, maybe in a .env file or via Netlify or Vercel environment variables
     const apiKey = "272e0a4f8aed64cdcbc79856c6259d84";
     const genreUrl = `https://api.themoviedb.org/3/movie/${movie.id}?api_key=${apiKey}`;
 
@@ -16,6 +18,7 @@ export const MovieDetailsDialog = ({ movie, onClose, ref }) => {
       .then((res) => res.json())
       .then((data) => {
         setGenres(data.genres);
+        // remove the console.log from production code
         console.log(data.genres);
       })
       .catch((error) => console.error("Error fetching genres:", error));
@@ -53,9 +56,17 @@ export const MovieDetailsDialog = ({ movie, onClose, ref }) => {
             </div>
             <div className="list-wrapper">
               <ul>
-                {genres && (
+                {/* {genres && (
+                  // this generates all the genres in one li element, if you want them to be separated you can use the map function to generate a li element for each genre
                   <li>{genres.map((genre) => genre.name).join(", ")}</li>
-                )}
+                )} */}
+                {/* setting initial state as emptu array and the check if genres exist can be skipped, this way each genre is a li */}
+                {genres.map((genre, index) => (
+                  <li key={genre.id}>
+                    {genre.name}
+                    {index !== genres.length - 1 && `, `}
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
