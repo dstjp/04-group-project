@@ -92,6 +92,8 @@ dialog::backdrop {
   list-style: none;
   display: flex;
   padding: 0;
+  /* for the alternative genres solution */
+  white-space: pre;
 }
 
 @media (min-width: 768px) {

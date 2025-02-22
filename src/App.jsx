@@ -14,6 +14,8 @@ import "./Pages/FavoriteList/Ratingscore/RatingPopUp.css";
 
 export const App = () => {
   return (
+    // can remove the fragment and wrap the components in the MovieProvider and also the div
+    // NOTE! the styling needs to be adjusted slightly with this approach
     <>
       <div className="app-container">
         <MovieProvider>

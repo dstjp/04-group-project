@@ -13,6 +13,7 @@ export const MovieProvider = ({ children }) => {
   const [filledEye, setFilledEye] = useState({});
   const [searchQuery, setSearchQuery] = useState("");
 
+  // handle api key in a better way, maybe in a .env file or via Netlify or Vercel environment variables
   const apiKey = "272e0a4f8aed64cdcbc79856c6259d84";
   const baseUrl = "https://api.themoviedb.org/3";
 
@@ -28,7 +29,7 @@ export const MovieProvider = ({ children }) => {
       const data = await response.json();
       if (response.ok) {
         setMovies(data.results);
-        console.log(data.results);
+        // remove the console.log from production code
       } else {
         throw new Error("Failed to fetch data");
       }
@@ -43,54 +44,48 @@ export const MovieProvider = ({ children }) => {
     fetchMovies();
   }, []);
 
+  // create new function to update the list for reusability
+  const updateList = (setList, movie, isAdd) => {
+    setList((prev) => {
+      const exists = prev.find((m) => m.id === movie.id);
+      if (isAdd) {
+        return exists ? prev : [...prev, movie];
+      } else {
+        return prev.filter((m) => m.id !== movie.id);
+      }
+    });
+  };
+
+  // create new function to update the filled state for reusability
+  const updateFilled = (setFilled, id, value) => {
+    setFilled((prev) => ({
+      ...prev,
+      [id]: value,
+    }));
+  };
+
+  // update to use the new function for readability
   const addToWatchList = (movie) => {
-    setwatchList((prev) => {
-      if (prev.find((m) => m.id === movie.id)) {
-        return prev;
-      }
-      return [...prev, movie];
-    });
-
-    setFilledEye((fill) => {
-      return {
-        ...fill,
-        [movie.id]: true,
-      };
-    });
+    updateList(setwatchList, movie, true);
+    updateFilled(setFilledEye, movie.id, true);
   };
 
+  // update to use the new function for readability
   const removeFromWatchList = (id) => {
-    setwatchList((prev) => prev.filter((m) => m.id !== id));
-
-    setFilledEye((fill) => ({
-      ...fill,
-      [id]: false,
-    }));
+    updateList(setwatchList, { id }, false);
+    updateFilled(setFilledEye, id, false);
   };
 
+  // update to use the new function for readability
   const addToFavorites = (movie) => {
-    setFavorites((favorites) => {
-      if (favorites.find((fav) => fav.id === movie.id)) {
-        return favorites;
-      }
-      return [...favorites, movie];
-    });
-
-    setFilledStar((fill) => {
-      return {
-        ...fill,
-        [movie.id]: true,
-      };
-    });
+    updateList(setFavorites, movie, true);
+    updateFilled(setFilledStar, movie.id, true);
   };
 
+  // update to use the new function for readability
   const removeFromFavorites = (id) => {
-    setFavorites((favorites) => favorites.filter((movie) => movie.id !== id));
-
-    setFilledStar((fill) => ({
-      ...fill,
-      [id]: false,
-    }));
+    updateList(setFavorites, { id }, false);
+    updateFilled(setFilledStar, id, false);
   };
 
   const formatRating = (num) => {
@@ -98,17 +93,15 @@ export const MovieProvider = ({ children }) => {
   };
 
   const formatMovieTitle = (str, maxLength) => {
-    if (str.length > maxLength) {
-      return str.slice(0, maxLength) + "...";
-    }
-
-    return str;
+    // update to use ternary for readability
+    return str.length > maxLength ? `${str.slice(0, maxLength)}...` : str;
   };
 
   const updateRating = (movieId, rating) => {
     setRatings((preRatings) => ({
       ...preRatings,
-      [movieId]: rating !== 0 ? rating : null,
+      // can be simplified to, if rating is null it will return null
+      [movieId]: rating || null,
     }));
   };
 

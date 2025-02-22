@@ -39,7 +39,8 @@ export default function FavoriteList() {
   const handleRatingClick = (movie) => {
     setSelectedMovie({
       ...movie,
-      userRating: ratings[movie.id] !== undefined ? ratings[movie.id] : 0,
+      // can be simplified to, if ratings[movie.id] is undefined it will return 0
+      userRating: ratings[movie.id] || 0,
     });
   };
 
@@ -73,8 +74,8 @@ export default function FavoriteList() {
               <div className="favlist-movie-image">
                 <div className="favlist-movie-remove-btn">
                   <Icon
-                    onClick={(e) => {
-                      e.preventDefault();
+                    onClick={() => {
+                      // remove the e.preventDefault() is not needed
                       removeFromFavorites(movie.id);
                     }}
                     url={trashIcon}
@@ -101,8 +102,8 @@ export default function FavoriteList() {
                       className="favlist-rate-button"
                       onClick={() => handleRatingClick(movie)}
                     >
-                      {ratings[movie.id] !== undefined &&
-                      ratings[movie.id] !== null
+                      {/* can be simplified to just check if ratings[movie.id] exists or not */}
+                      {ratings[movie.id]
                         ? `${ratings[movie.id]}.0`
                         : "Rate me!"}
                     </span>
